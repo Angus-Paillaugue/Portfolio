@@ -9,7 +9,7 @@
 //     ssl: true,
 // });
 
-// export async function sendEmail({ subject, text, attachment }) {
+export async function sendEmail({ subject, text, attachment }) {
 //     const msg = new Message({
 //         text,
 //         from: 'angus.paillaugue40@gmail.com',
@@ -24,5 +24,5 @@
 //         console.log(error)
 //     }
 
-//     return;
-// }
+    return;
+}
