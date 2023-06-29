@@ -1,14 +1,20 @@
-import adapter from '@sveltejs/adapter-netlify';
-import { vitePreprocess } from '@sveltejs/kit/vite';
+import preprocess from 'svelte-preprocess';
+import { mdsvex } from 'mdsvex';
+import mdsvexConfig from './mdsvex.config.js'; 
+import adapter from '@sveltejs/adapter-auto';
+
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  kit: {
-    adapter: adapter({
-    })
-  },
-  preprocess: vitePreprocess(),
-  vitePlugin: {
+	extensions: ['.svelte', ...mdsvexConfig.extensions],
+    preprocess: [
+        preprocess({ postcss: true }),
+		mdsvex(mdsvexConfig),
+    ],
+	kit: {
+		adapter: adapter()
+	},
+	vitePlugin: {
 		inspector: true,
 	},	
 };

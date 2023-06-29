@@ -3,6 +3,7 @@
     import projects from "$lib/projects"
     import { Link, Button } from "$lib/components"
     import { Tooltip, Input, Label, Textarea } from 'flowbite-svelte'
+    import { reveal } from 'svelte-reveal';
 
     // let phrase = "Full stack web dev";
 	// let typedChar = "";
@@ -56,7 +57,7 @@
         <div class="flex flex-col-reverse mx-auto md:gap-20 gap-5 md:flex-row justify-center items-start md:w-full max-w-sm md:max-w-none">
             <div class="block md:w-3/5 w-full text-start h-full">
                 <h1 class="font-bold text-7xl text-center md:text-start">Full stack web dev</h1>
-                <p class="mt-4 font-normal text-lg text-center md:text-start">Hi👋, I'm Angus. A passionate full-stack web developer based in Toulouse, France</p>
+                <p class="mt-4 font-normal text-lg text-center md:text-start">Hi 👋, I'm Angus. A passionate full-stack web developer based in Toulouse, France</p>
             </div>
     
             <div class="block md:w-2/5 w-full max-w-xs mx-auto">
@@ -98,7 +99,12 @@
 
 <div class="relative">
 
-    <div class="absolute top-0 left-0 w-full h-full bg-top" style="z-index: -20;background-size: 20px 20px; background-image: linear-gradient(to right, rgb(209, 213, 219, .4) 1px, transparent 1px), linear-gradient(rgba(209, 213, 219, .4) 1px, transparent 1px);image-rendering: pixelated;"></div>
+    <!-- Squares bg -->
+    <!-- <div class="absolute top-0 left-0 w-full h-full bg-top" style="z-index: -20;background-size: 20px 20px; background-image: linear-gradient(to right, rgb(209, 213, 219, .4) 1px, transparent 1px), linear-gradient(rgba(209, 213, 219, .4) 1px, transparent 1px);image-rendering: pixelated;"></div> -->
+
+    <!-- Topography bg -->
+    <div class="absolute top-0 left-0 w-full h-full bg-top" style="z-index: -20;background-image: url(/bg.svg);image-rendering: pixelated;"></div>
+
 
     <div class="absolute top-0 left-0 w-full h-64" style="z-index: -19;background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);"></div>
 
@@ -109,8 +115,8 @@
 
         <div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10">
             
-            <div class="grid lg:grid-cols-2 grid-cols-1 items-center md:gap-10 gap-0 w-full max-w-5xl mx-auto rounded-lg lg:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300">
-                <div class="h-full relative lg:-mt-0 -mt-9 lg:-ml-20 -ml-9 lg:-mr-0 -mr-9">
+            <div class="grid lg:grid-cols-2 grid-cols-1 items-center md:gap-10 gap-0 w-full max-w-5xl mx-auto rounded-lg lg:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300" use:reveal={{ transition: "fly", duration:200, y:60 }}>
+                <div class="h-full relative lg:-mt-0 -mt-20 lg:-ml-20 -ml-9 lg:-mr-0 -mr-9">
                     <div class="absolute top-0 left-0 h-full w-full z-10 opacity-70 rounded-2xl" style="background: url(https://astro.build/assets/noise.webp) repeat;background-blend-mode: overlay;"></div>
                     <img src="https://stefantopalovicdev.vercel.app/static/media/about-img.62b47e7f183d4b4e9feb.webp" alt="Web developer" class="rounded-2xl w-full h-full">
                 </div>
@@ -137,14 +143,14 @@
             <h4 class="text-primary-600 font-extrabold">MY PROJECTS</h4>
     
             {#each projects as project, index}
-                <a href="/project/{project.title}" class="flex md:flex-{index % 2 == 0 ? "row" : "row-reverse"} flex-col md:gap-20 gap-5 rounded-2xl md:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300">
+                <div class="flex md:flex-{index % 2 == 0 ? "row" : "row-reverse"} flex-col md:gap-20 gap-5 rounded-2xl md:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 project" use:reveal={{ transition: "slide", duration:200, x:index % 2 == 0 ? -40 : 40, reset:true }}>
                     <div class="rounded-2xl border border-gray-300 {index % 2 == 0 ? "lg:-mt-0 -mt-9 lg:-ml-20 -ml-9 lg:-mr-0 -mr-9" : "lg:-mt-0 -mt-9 lg:-ml-0 -ml-9 lg:-mr-20 -mr-9"}">
                         <img src="/{project.imgSrc}" alt="{project.title} img" class="rounded-2xl w-full h-full">
                     </div>
                     <div class="flex flex-col w-full gap-4">
-                        <h4 class="font-bold">{project.title}</h4>
-                        <Link href="{project.link}" target="_blank">{project.link}<i class='bi bi-box-arrow-up-right ml-2'></i></Link>
-                        <p>{@html project.description}</p>
+                        <Link href="/project/{project.title}" class="w-fit"><h4 class="font-bold">{project.title}</h4></Link>
+                        <Link href="{project.link}" target="_blank" class="w-fit">{project.link}<i class='bi bi-box-arrow-up-right ml-2'></i></Link>
+                        <p class="text-ellipsis line-clamp-4">{@html project.description} <Link href="/project/{project.title}">More info</Link></p>
                         <div class="flex flex-row gap-2 flex-wrap">
                             {#each project.languages as language}
                                 <img src="/icons/{languages.filter(lang => lang.name == language)[0].icons[theme]}" class="md:h-14 h-10 cursor-pointer drop-shadow-md" alt="{language}">
@@ -152,7 +158,7 @@
                             {/each}
                         </div>
                     </div>
-                </a>
+                </div>
             {/each}
         </div>
     </section>
@@ -161,7 +167,7 @@
     
         <div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10">
             <h4 class="text-primary-600 font-extrabold">MY EXPERIENCES</h4>
-            <div class="rounded-lg md:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300">
+            <div class="rounded-lg md:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300" use:reveal={{ transition: "fly", y:60, duration:300 }}>
                 <ol class="relative border-l border-gray-300 dark:border-gray-700 ">
                     <li class="ml-4">
                         <div class="absolute w-3 h-3 bg-gray-300 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
@@ -189,7 +195,7 @@
     <section id="contact" class="p-4 lg:p-10 sm:p-6">
     
         <div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10">
-            <form on:submit|preventDefault={contact} class="rounded-lg md:p-10 p-6 items-start bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 flex flex-col gap-5 w-full">
+            <form on:submit|preventDefault={contact} class="rounded-lg md:p-10 p-6 items-start bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 flex flex-col gap-5 w-full" use:reveal={{ transition: "fly", duration:200, y:60 }}>
                 <h4 class="text-primary-600 font-extrabold">CONTACT ME</h4>
                 <div class="w-full">
                     <Label for="email" class="mb-2">E-mail</Label>

@@ -1,28 +1,28 @@
-// import { Message, SMTPClient, } from 'emailjs';
-// import { EMAIL_APP_PASSWORD } from "$env/static/private"
+import nodemailer from "nodemailer"
+import { EMAIL_APP_PASSWORD } from "$env/static/private"
 
-// Use the emailjs library to set up an SMTP client using your credentials
-// const client = new SMTPClient({
-//     user: "angus.paillaugue40@gmail.com",
-//     password: EMAIL_APP_PASSWORD,
-//     host: `smtp.gmail.com`,
-//     ssl: true,
-// });
+const transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
+    auth: {
+      user: 'angus.paillaugue40@gmail.com',
+      pass: EMAIL_APP_PASSWORD
+    }
+});
 
 export async function sendEmail({ subject, text, attachment }) {
-//     const msg = new Message({
-//         text,
-//         from: 'angus.paillaugue40@gmail.com',
-//         to: "angus.paillaugue40@gmail.com",
-//         subject,
-//         attachment: attachment ?? [],
-//     });
-
-//     try {
-//         await client.sendAsync(msg);
-//     } catch (error) {
-//         console.log(error)
-//     }
+    
+    try {
+        await transporter.sendMail({
+            from: 'angus.paillaugue40@gmail.com',
+            to: "angus.paillaugue40@gmail.com",
+            subject: subject,
+            text: text,
+        });
+    } catch (error) {
+        console.log(error)
+    }
 
     return;
 }
