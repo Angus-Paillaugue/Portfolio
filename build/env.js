@@ -1,4 +1,4 @@
-/* global "" */
+/* global "BUILD_" */
 
 const expected = new Set([
 	'SOCKET_PATH',
@@ -12,13 +12,13 @@ const expected = new Set([
 	'BODY_SIZE_LIMIT'
 ]);
 
-if ("") {
+if ("BUILD_") {
 	for (const name in process.env) {
-		if (name.startsWith("")) {
-			const unprefixed = name.slice("".length);
+		if (name.startsWith("BUILD_")) {
+			const unprefixed = name.slice("BUILD_".length);
 			if (!expected.has(unprefixed)) {
 				throw new Error(
-					`You should change envPrefix (${""}) to avoid conflicts with existing environment variables — unexpectedly saw ${name}`
+					`You should change envPrefix (${"BUILD_"}) to avoid conflicts with existing environment variables — unexpectedly saw ${name}`
 				);
 			}
 		}
@@ -30,7 +30,7 @@ if ("") {
  * @param {any} fallback
  */
 function env(name, fallback) {
-	const prefixed = "" + name;
+	const prefixed = "BUILD_" + name;
 	return prefixed in process.env ? process.env[prefixed] : fallback;
 }
 

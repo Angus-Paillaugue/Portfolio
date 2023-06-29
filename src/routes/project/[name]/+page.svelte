@@ -3,11 +3,10 @@
     import { Link, Button } from "$lib/components"
     import { Tooltip } from 'flowbite-svelte'
 
-
+    
     export let data;
-
+    
     const theme = "light";
-
     const project = data.project;
 </script>
 

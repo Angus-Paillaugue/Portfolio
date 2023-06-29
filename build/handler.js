@@ -1112,7 +1112,7 @@ async function setResponse(res, response) {
 	}
 }
 
-/* global "" */
+/* global "BUILD_" */
 
 const server = new Server(manifest);
 await server.init({ env: process.env });
@@ -1197,7 +1197,7 @@ const ssr = async (req, res) => {
 	if (address_header && !(address_header in req.headers)) {
 		throw new Error(
 			`Address header was specified with ${
-				"" + 'ADDRESS_HEADER'
+				"BUILD_" + 'ADDRESS_HEADER'
 			}=${address_header} but is absent from request`
 		);
 	}
@@ -1214,12 +1214,12 @@ const ssr = async (req, res) => {
 						const addresses = value.split(',');
 
 						if (xff_depth < 1) {
-							throw new Error(`${"" + 'XFF_DEPTH'} must be a positive integer`);
+							throw new Error(`${"BUILD_" + 'XFF_DEPTH'} must be a positive integer`);
 						}
 
 						if (xff_depth > addresses.length) {
 							throw new Error(
-								`${"" + 'XFF_DEPTH'} is ${xff_depth}, but only found ${
+								`${"BUILD_" + 'XFF_DEPTH'} is ${xff_depth}, but only found ${
 									addresses.length
 								} addresses`
 							);

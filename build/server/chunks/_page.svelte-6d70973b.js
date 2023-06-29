@@ -990,11 +990,11 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       }
     })} <div class="flex flex-row flex-wrap gap-5">${each(socials, (social) => {
       return `<a${add_attribute("href", social.link, 0)} target="_blank"><img src="${"/icons/" + escape(languages.filter((lang) => lang.name == social.name)[0].icons[theme], true)}" class="md:h-14 h-10 cursor-pointer drop-shadow-md"${add_attribute("alt", social.name, 0)}> </a>`;
-    })}</div></div></div></div></section> <section id="work" class="p-4 lg:p-10 sm:p-6"><div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10"><h4 class="text-primary-600 font-extrabold" data-svelte-h="svelte-1z1ozd">MY PROJECTS</h4> ${each(projects, (project, index) => {
-      return `<div class="${"flex md:flex-" + escape(index % 2 == 0 ? "row" : "row-reverse", true) + " flex-col md:gap-20 gap-5 rounded-2xl md:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 project"}"><div class="${"rounded-2xl border border-gray-300 " + escape(
-        index % 2 == 0 ? "lg:-mt-0 -mt-9 lg:-ml-20 -ml-9 lg:-mr-0 -mr-9" : "lg:-mt-0 -mt-9 lg:-ml-0 -ml-9 lg:-mr-20 -mr-9",
+    })}</div></div></div></div></section> <section id="work" class="p-4 lg:p-10 sm:p-6 sm:pl-12"><div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10"><h4 class="text-primary-600 font-extrabold" data-svelte-h="svelte-1z1ozd">MY PROJECTS</h4> ${each(projects, (project, index) => {
+      return `<div class="${"flex md:flex-" + escape(index % 2 == 0 ? "row" : "row-reverse", true) + " flex-col md:gap-10 gap-5 rounded-2xl md:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 project"}"><div class="${"rounded-2xl border border-gray-300 " + escape(
+        index % 2 == 0 ? "md:-mt-0 -mt-9 md:-ml-20 -ml-9 md:-mr-0 -mr-9" : "md:-mt-0 -mt-9 md:-ml-0 -ml-9 md:-mr-20 -mr-9",
         true
-      )}"><img src="${"/" + escape(project.imgSrc, true)}" alt="${escape(project.title, true) + " img"}" class="rounded-2xl w-full h-full"></div> <div class="flex flex-col w-full gap-4">${validate_component(Link, "Link").$$render(
+      )}"><img src="${"/" + escape(project.imgSrc, true)}" alt="${escape(project.title, true) + " img"}" class="rounded-2xl w-full h-full"></div> <div class="flex flex-col w-full gap-4 justify-between"><div class="flex flex-col w-full gap-4">${validate_component(Link, "Link").$$render(
         $$result,
         {
           href: "/project/" + project.title,
@@ -1023,8 +1023,8 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
         default: () => {
           return `More info`;
         }
-      })}</p> <div class="flex flex-row gap-2 flex-wrap">${each(project.languages, (language) => {
-        return `<img src="${"/icons/" + escape(languages.filter((lang) => lang.name == language)[0].icons[theme], true)}" class="md:h-14 h-10 cursor-pointer drop-shadow-md"${add_attribute("alt", language, 0)}> ${validate_component(Tooltip, "Tooltip").$$render($$result, {}, {}, {
+      })}</p></div> <div class="grid gap-2 md:grid-cols-5 grid-cols-8" style="grid-template-rows: min-content;">${each(project.languages, (language) => {
+        return `<img src="${"/icons/" + escape(languages.filter((lang) => lang.name == language)[0].icons[theme], true)}" class="w-full cursor-pointer drop-shadow-md"${add_attribute("alt", language, 0)}> ${validate_component(Tooltip, "Tooltip").$$render($$result, {}, {}, {
           default: () => {
             return `${escape(language)}`;
           }
@@ -1080,4 +1080,4 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 });
 
 export { Page as default };
-//# sourceMappingURL=_page.svelte-62b0942b.js.map
+//# sourceMappingURL=_page.svelte-6d70973b.js.map

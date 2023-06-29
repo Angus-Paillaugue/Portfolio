@@ -18,6 +18,9 @@ export default {
       },
       borderRadius: {
         lg:"0.75rem"
+      },
+      gridTemplateColumns:{
+        icons:"repeat(auto-fill, minmax(3.5rem, 1fr)"
       }
     },
   },
