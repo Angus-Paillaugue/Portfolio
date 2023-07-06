@@ -1,6 +1,6 @@
 <script>
     import languages from "$lib/languages"
-    import { Link, Button } from "$lib/components"
+    import { Link } from "$lib/components"
     import { Tooltip } from 'flowbite-svelte'
 
     
@@ -9,6 +9,10 @@
     const theme = "light";
     const project = data.project;
 </script>
+
+<svelte:head>
+    <title>{project.title} - Angus's portfolio</title>
+</svelte:head>
 
 <button onclick="history.back()" class="fixed top-6 left-6 flex flex-col justify-center items-center bg-gray-200 rounded-full w-10 h-10 hover:scale-110 transition-all">
     <i class="bi bi-arrow-left-short text-4xl"></i>

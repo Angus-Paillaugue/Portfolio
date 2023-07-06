@@ -32,6 +32,10 @@
     // TODO : Round codeWars svg logo
 </script>
 
+<svelte:head>
+    <title>Angus's portfolio</title>
+</svelte:head>
+
 <section class="p-4 lg:p-10 sm:p-6 min-h-screen flex flex-col md:justify-center items-center relative">
 
     <div class="absolute top-0 left-0 w-full h-full duration-[10s]" style="z-index: -20; background: url(https://astro.build/assets/noise.webp) repeat,linear-gradient(0deg,#FFBCAD 0%,#EF562F 100%); background-blend-mode: overlay;-webkit-mask-image: radial-gradient(rgba(0,0,0,.5),transparent 70%);"></div>
