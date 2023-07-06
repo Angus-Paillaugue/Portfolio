@@ -1,17 +1,17 @@
 [
     {
-        "title":"Kagépa app",
-        "link":"https://projet-72h.hellkeeper.fr",
-        "imgSrc":"Kagepa.png",
-        "description":"This app is a school project. The goal that was given is to build a booking system for military robots. On this website, military personnel can log and book three different robots.",
-        "languages":[ "HTML", "TailwindCSS", "JQuery", "NodeJS", "ExpressJS", "MongoDB" ]
+        "title":"Blog",
+        "link":"https://blog.hellkeeper.fr",
+        "imgSrc":"blog.png",
+        "description":"This app was my first contact with Sveltekit. It allowed me to learn the fundamentals principles of Sveltekit.",
+        "languages":[ "Svelte", "TailwindCSS", "MongoDB" ]
     },
     {
-        "title":"Tools",
-        "link":"https://projet-72h.hellkeeper.fr",
-        "imgSrc":"Kagepa.png",
-        "description":"This website is a collection of useful tools like text formatter, HTML encoder.",
-        "languages":[ "Pug", "TailwindCSS", "Javascript", "NodeJS", "ExpressJS" ]
+        "title":"Portfolio",
+        "link":"https://portfolio.hellkeeper.fr",
+        "imgSrc":"portfolio.png",
+        "description":"This project is simply the one you are looking at right now!",
+        "languages":[ "Svelte", "TailwindCSS" ]
     },
     {
         "title":"Bionic reading",
@@ -19,5 +19,12 @@
         "imgSrc":"bionicReading.png",
         "description":"This chrome extension is based on <Link href='https://bionic-reading.com/' target='_blank'>bionic reading</Link> (a method that helps reading faster). Downloading this extension will, on all webpages, highlight letters on the bionic reading principle.",
         "languages":[ "JQuery" ]
+    },
+    {
+        "title":"Tools",
+        "link":"https://projet-72h.hellkeeper.fr",
+        "imgSrc":"Kagepa.png",
+        "description":"This website is a collection of useful tools like text formatter, HTML encoder.",
+        "languages":[ "Pug", "TailwindCSS", "Javascript", "NodeJS", "ExpressJS" ]
     }
 ]

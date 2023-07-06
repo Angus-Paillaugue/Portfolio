@@ -1,1 +1,0 @@
-This app is a school project. The goal that was given is to build a booking system for military robots. On this website, military personnel can log and book three different robots.

@@ -1,0 +1,1 @@
+This app was my first contact with Sveltekit. It allowed me to learn the fundamentals principles of Sveltekit.
