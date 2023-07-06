@@ -12,11 +12,7 @@ const config = {
 		mdsvex(mdsvexConfig),
     ],
 	kit: {
-		adapter: adapter({
-			out: 'build',
-            envPrefix: 'BUILD_',
-            polyfill: true
-		})
+		adapter: adapter({})
 	},
 	vitePlugin: {
 		inspector: true,
