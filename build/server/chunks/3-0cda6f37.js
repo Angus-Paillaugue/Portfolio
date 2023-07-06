@@ -1,5 +1,5 @@
 import { p as projects } from './index2-f0bc490d.js';
-import { e as error } from './index-78bfc04e.js';
+import { e as error } from './index-2b68e648.js';
 
 const __variableDynamicImportRuntimeHelper = (glob, path) => {
   const v = glob[path];
@@ -35,12 +35,13 @@ var _page_server = /*#__PURE__*/Object.freeze({
 });
 
 const index = 3;
-const component = async () => (await import('./_page.svelte-6334d406.js')).default;
+let component_cache;
+const component = async () => component_cache ??= (await import('./_page.svelte-6334d406.js')).default;
 const universal_id = "src/routes/project/[name]/+page.js";
 const server_id = "src/routes/project/[name]/+page.server.js";
-const imports = ["_app/immutable/nodes/3.9f5beeea.js","_app/immutable/chunks/preload-helper.41c905a7.js","_app/immutable/chunks/scheduler.f7b53a95.js","_app/immutable/chunks/index.67511c5b.js","_app/immutable/chunks/Tooltip.106ca08c.js"];
+const imports = ["_app/immutable/nodes/3.b9bb70a3.js","_app/immutable/chunks/preload-helper.a4192956.js","_app/immutable/chunks/scheduler.0b304ea0.js","_app/immutable/chunks/index.c9e9b062.js","_app/immutable/chunks/Tooltip.868c04aa.js"];
 const stylesheets = ["_app/immutable/assets/Tooltip.1d121e74.css"];
 const fonts = [];
 
 export { component, fonts, imports, index, _page_server as server, server_id, stylesheets, _page as universal, universal_id };
-//# sourceMappingURL=3-c293b825.js.map
+//# sourceMappingURL=3-0cda6f37.js.map

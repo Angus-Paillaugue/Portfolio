@@ -61,7 +61,12 @@ const encoder = new TextEncoder();
 function text(body, init) {
   const headers = new Headers(init?.headers);
   if (!headers.has("content-length")) {
-    headers.set("content-length", encoder.encode(body).byteLength.toString());
+    const encoded = encoder.encode(body);
+    headers.set("content-length", encoded.byteLength.toString());
+    return new Response(encoded, {
+      ...init,
+      headers
+    });
   }
   return new Response(body, {
     ...init,
@@ -70,4 +75,4 @@ function text(body, init) {
 }
 
 export { ActionFailure as A, HttpError as H, Redirect as R, error as e, json as j, text as t };
-//# sourceMappingURL=index-78bfc04e.js.map
+//# sourceMappingURL=index-2b68e648.js.map
