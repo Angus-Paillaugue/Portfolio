@@ -105,9 +105,8 @@
         <div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10">
             
             <div class="grid lg:grid-cols-2 grid-cols-1 items-center md:gap-10 gap-0 w-full max-w-5xl mx-auto rounded-lg lg:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300" use:reveal={{ transition: "fly", duration:200, y:60 }}>
-                <div class="h-full relative lg:-mt-0 -mt-20 lg:-ml-20 -ml-9 lg:-mr-0 -mr-9">
-                    <div class="absolute top-0 left-0 h-full w-full z-10 opacity-70 rounded-2xl" style="background: url(https://astro.build/assets/noise.webp) repeat;background-blend-mode: overlay;"></div>
-                    <img src="https://stefantopalovicdev.vercel.app/static/media/about-img.62b47e7f183d4b4e9feb.webp" alt="Web developer" class="rounded-2xl w-full h-full">
+                <div class="w-full lg:w-auto h-full lg:aspect-auto aspect-square relative lg:-mt-0 -mt-20 lg:-ml-20 -ml-0 rounded-lg bg-cover bg-no-repeat bg-center" style="background-image: url(aboutImg.jpg);">
+                    <div class="absolute top-0 left-0 h-full w-full z-10 opacity-70 rounded-2xl" style="background: url(noise.png) repeat;background-blend-mode: overlay;"></div>
                 </div>
                 <div class="w-full flex flex-col gap-3">
                     <h4 class="text-primary-600 font-bold">ABOUT ME</h4>
