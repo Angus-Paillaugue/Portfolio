@@ -1,9 +1,13 @@
 <script>
     import "../app.css";
     import { fly } from 'svelte/transition'
+    import { Analytics } from '$lib/components'
+
 
     export let data;
 </script>
+
+<Analytics />
   
 {#key data.url}
     <div in:fly={{ x: -200, duration: 300, delay: 300 }} out:fly={{ x: 200, duration: 300 }}>
