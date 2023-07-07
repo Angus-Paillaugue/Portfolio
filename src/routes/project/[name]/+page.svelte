@@ -12,6 +12,7 @@
 
 <svelte:head>
     <title>{project.title} - Angus's portfolio</title>
+    <meta name="description" content="{project.title}">
 </svelte:head>
 
 <button onclick="history.back()" class="fixed top-6 left-6 flex flex-col justify-center items-center bg-gray-200 rounded-full w-10 h-10 hover:scale-110 transition-all">

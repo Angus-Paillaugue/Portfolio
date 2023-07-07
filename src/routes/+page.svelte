@@ -35,6 +35,7 @@
 
 <svelte:head>
     <title>Angus's portfolio</title>
+    <meta name="description" content="This is the portfolio of me (Angus)">
 </svelte:head>
 
 <section class="p-4 lg:p-10 sm:p-6 min-h-screen flex flex-col md:justify-center items-center relative" id="Home">

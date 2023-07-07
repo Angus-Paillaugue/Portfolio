@@ -30,6 +30,11 @@
     })
 </script>
 
+<svelte:head>
+    <meta name="keywords" content="Portfolio">
+    <meta name="author" content="Angus Paillaugue">
+</svelte:head>
+
 <Analytics />
 
 <nav class="bg-white fixed w-full z-50 top-0 left-0 border-b border-gray-200">
