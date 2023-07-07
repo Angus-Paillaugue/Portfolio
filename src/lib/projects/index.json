@@ -7,6 +7,13 @@
         "languages":[ "Svelte", "TailwindCSS", "MongoDB" ]
     },
     {
+        "title":"LinkTrim",
+        "link":"https://linktrim.hellkeeper.fr",
+        "imgSrc":"LinkTrim.png",
+        "description":"This website built with Sveltekit is used to shorten url's like bit.ly.",
+        "languages":[ "Svelte", "TailwindCSS", "MongoDB" ]
+    },
+    {
         "title":"Portfolio",
         "link":"https://portfolio.hellkeeper.fr",
         "imgSrc":"portfolio.png",
