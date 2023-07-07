@@ -18,6 +18,10 @@
   @apply bg-neutral-500
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply bg-white dark:bg-neutral-800 overflow-x-hidden text-text-main
 }
