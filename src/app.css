@@ -59,7 +59,7 @@ h6 {
   @apply text-lg font-sans font-semibold text-text-main
 }
 p {
-  @apply block text-base leading-8 font-medium dark:text-gray-300 text-gray-500 font-['Mulish']
+  @apply block text-base leading-8 font-light dark:text-gray-300 text-gray-500 font-['Mulish']
 }
 
 .card {

@@ -1,1 +1,0 @@
-This website is a collection of useful tools like text formatter, HTML encoder.

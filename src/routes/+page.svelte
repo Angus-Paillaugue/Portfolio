@@ -126,7 +126,7 @@
         
     </section>
 
-    <section id="work" class="p-4 lg:p-10 sm:p-6 sm:pl-12">
+    <section id="work" class="p-4 lg:p-20 sm:p-6">
         <div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10">
             <h4 class="text-primary-600 font-extrabold">MY PROJECTS</h4>
     
@@ -141,9 +141,9 @@
                             <Link href="{project.link}" target="_blank" class="w-fit">{project.link}<i class='bi bi-box-arrow-up-right ml-2'></i></Link>
                             <p class="text-ellipsis line-clamp-4">{@html project.description} <Link href="/project/{project.title}">More info</Link></p>
                         </div>
-                        <div class="grid gap-2 md:grid-cols-5 grid-cols-8" style="grid-template-rows: min-content;">
+                        <div class="grid gap-2" style="grid-template-rows: min-content; grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));">
                             {#each project.languages as language}
-                                <img src="/icons/{languages.filter(lang => lang.name == language)[0].icons[theme]}" class="w-full cursor-pointer drop-shadow-md" alt="{language}">
+                                <img src="/icons/{languages.filter(lang => lang.name == language)[0].icons[theme]}" class="cursor-pointer drop-shadow-md" alt="{language}">
                                 <Tooltip>{language}</Tooltip>
                             {/each}
                         </div>
@@ -163,19 +163,7 @@
                         <div class="absolute w-3 h-3 bg-gray-300 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                         <time class="mb-1 text-sm font-normal leading-none text-text-main dark:text-gray-500">Novembre 2021 - Aujourd'hui</time>
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Équipier McDonald's</h3>
-                        <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Description</p>
-                    </li>
-                    <li class="ml-4">
-                        <div class="absolute w-3 h-3 bg-gray-300 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-                        <time class="mb-1 text-sm font-normal leading-none text-text-main dark:text-gray-500">Novembre 2021 - Aujourd'hui</time>
-                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Équipier McDonald's</h3>
-                        <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">Description</p>
-                    </li>
-                    <li class="ml-4">
-                        <div class="absolute w-3 h-3 bg-gray-300 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-                        <time class="mb-1 text-sm font-normal leading-none text-text-main dark:text-gray-500">Novembre 2021 - Aujourd'hui</time>
-                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Équipier McDonald's</h3>
-                        <p class="text-base font-normal text-gray-500 dark:text-gray-400">Description</p>
+                        <!-- <p class="text-base font-normal text-gray-500 dark:text-gray-400">Description</p> -->
                     </li>
                 </ol>
             </div>

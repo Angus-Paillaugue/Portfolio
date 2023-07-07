@@ -26,12 +26,5 @@
         "imgSrc":"bionicReading.png",
         "description":"This chrome extension is based on <Link href='https://bionic-reading.com/' target='_blank'>bionic reading</Link> (a method that helps reading faster). Downloading this extension will, on all webpages, highlight letters on the bionic reading principle.",
         "languages":[ "JQuery" ]
-    },
-    {
-        "title":"Tools",
-        "link":"https://projet-72h.hellkeeper.fr",
-        "imgSrc":"Kagepa.png",
-        "description":"This website is a collection of useful tools like text formatter, HTML encoder.",
-        "languages":[ "Pug", "TailwindCSS", "Javascript", "NodeJS", "ExpressJS" ]
     }
 ]
