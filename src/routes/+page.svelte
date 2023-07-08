@@ -112,7 +112,7 @@
                 <div class="w-full flex flex-col gap-3">
                     <h4 class="text-primary-600 font-bold">ABOUT ME</h4>
                     <h4 class="font-bold">A dedicated Full-stack Developer based in Toulouse, France 📍</h4>
-                    <p class="leading-6">As a Junior Front-End Developer, I possess an impressive arsenal of skills in HTML, CSS, JavaScript, React, Tailwind, and SCSS. I excel in designing and maintaining responsive websites that offer a smooth user experience. My expertise lies in crafting dynamic, engaging interfaces through writing clean and optimized code and utilizing cutting-edge development tools and techniques. I am also a team player who thrives in collaborating with cross-functional teams to produce outstanding web applications.</p>
+                    <p class="leading-6">As a Junior Full-Stack Developer, I possess an impressive arsenal of skills in HTML, CSS, JavaScript, Tailwind, SvelteKit and MongoDB. I excel in designing and maintaining responsive websites that offer a smooth user experience. My expertise lies in crafting dynamic, engaging interfaces through writing clean and optimized code and utilizing cutting-edge development tools and techniques. I am also a team player who thrives in collaborating with cross-functional teams to produce outstanding web applications.</p>
                     <Button href="myCv.pdf" target="_blank">My CV</Button>
                     <div class="flex flex-row flex-wrap gap-5">
                         {#each socials as social}
