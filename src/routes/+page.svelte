@@ -28,7 +28,7 @@
 
     const theme = "light";
     const techStack = ["HTML", "Javascript", "TailwindCSS", "Svelte", "MongoDB"];
-    const socials = [{ name:"LinkedIn", link:"https://www.linkedin.com/in/angus-paillaugue-573aa91a5/" }, { name:"Github", link:"https://github.com/mere-patrie" }, { name:"CodeWars", link:"https://www.codewars.com/users/mere-patrie" }];
+    const socials = [{ name:"LinkedIn", link:"https://www.linkedin.com/in/angus-paillaugue/" }, { name:"Github", link:"https://github.com/Angus-Paillaugue" }, { name:"CodeWars", link:"https://www.codewars.com/users/mere-patrie" }];
     // TODO : Round codeWars svg logo
 </script>
 

@@ -22,7 +22,7 @@
     },
     {
         "title":"Bionic reading",
-        "link":"https://github.com/mere-patrie/bionicReading",
+        "link":"https://github.com/Angus-Paillaugue/bionicReading",
         "imgSrc":"bionicReading.png",
         "description":"This chrome extension is based on <Link href='https://bionic-reading.com/' target='_blank'>bionic reading</Link> (a method that helps reading faster). Downloading this extension will, on all webpages, highlight letters on the bionic reading principle.",
         "languages":[ "JQuery" ]
