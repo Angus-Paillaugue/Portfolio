@@ -620,6 +620,10 @@
     "icons": { "light": "Svelte.svg", "dark": "Svelte.svg" }
   },
   {
+    "name": "SvelteKit",
+    "icons": { "light": "SvelteKit.svg", "dark": "SvelteKit.svg" }
+  },
+  {
     "name": "SVG",
     "icons": { "light": "SVG-Light.svg", "dark": "SVG-Dark.svg" }
   },
