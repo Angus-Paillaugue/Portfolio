@@ -4,28 +4,28 @@
         "link":"https://blog.hellkeeper.fr",
         "imgSrc":"blog.png",
         "description":"This app was my first contact with Sveltekit. It allowed me to learn the fundamentals principles of Sveltekit.",
-        "languages":[ "Svelte", "TailwindCSS", "MongoDB" ]
+        "languages":[ "SvelteKit", "TailwindCSS", "MongoDB" ]
     },
     {
         "title":"LinkTrim",
         "link":"https://linktrim.hellkeeper.fr",
         "imgSrc":"LinkTrim.png",
         "description":"This website built with Sveltekit is used to shorten url's like bit.ly.",
-        "languages":[ "Svelte", "TailwindCSS", "MongoDB" ]
+        "languages":[ "SvelteKit", "TailwindCSS", "MongoDB" ]
     },
     {
         "title":"SignItNow",
         "link":"https://signitnow.hellkeeper.fr",
         "imgSrc":"SignItNow.png",
         "description":"SignItNow is a website where you can create and sign petitions.",
-        "languages":[ "Svelte", "Javascript", "TailwindCSS", "MongoDB" ]
+        "languages":[ "SvelteKit", "Javascript", "TailwindCSS", "MongoDB" ]
     },
     {
         "title":"Portfolio",
         "link":"https://portfolio.hellkeeper.fr",
         "imgSrc":"portfolio.png",
         "description":"This project is simply the one you are looking at right now!",
-        "languages":[ "Svelte", "TailwindCSS" ]
+        "languages":[ "SvelteKit", "TailwindCSS" ]
     },
     {
         "title":"Bionic reading",
