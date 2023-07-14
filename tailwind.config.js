@@ -10,7 +10,7 @@ export default {
         sans:["Poppins"]
       },
       colors: {
-        primary: { 50: '#FFF5F2', 100: '#FFF1EE', 200: '#FFE4DE', 300: '#FFD5CC', 400: '#FFBCAD', 500: '#FE795D', 600: '#EF562F', 700: '#EB4F27', 800: '#CC4522', 900: '#A5371B'},
+        primary: { 50: '#f5faf8', 100: '#e9f5ef', 200: '#cce8da', 300: '#b2dbc4', 400: '#7ebf92', 500: '#54a262', 600: '#469453', 700: '#307a3c', 800: '#1e6128', 900: '#114a19'},
         "text-main":"#2D2E32"
       },
       boxShadow: {

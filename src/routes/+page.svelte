@@ -39,7 +39,7 @@
 
 <section class="p-4 lg:p-10 sm:p-6 min-h-screen flex flex-col md:justify-center items-center relative" id="Home">
 
-    <div class="absolute top-0 left-0 w-full h-full duration-[10s]" style="z-index: -20; background: url(/noise.png) repeat,linear-gradient(0deg,#FFBCAD 0%,#EF562F 100%); background-blend-mode: overlay;-webkit-mask-image: radial-gradient(rgba(0,0,0,.5),transparent 70%);"></div>
+    <div class="absolute top-0 left-0 w-full h-full duration-[10s]" style="z-index: -20; background: url(/noise.png) repeat,linear-gradient(0deg,#7ebf92 0%,#469453 100%); background-blend-mode: overlay;-webkit-mask-image: radial-gradient(rgba(0,0,0,.5),transparent 70%);"></div>
 
     <div class="flex flex-col w-full max-w-4xl mx-auto md:gap-20 gap-5 max-h-full md:max-h-3/4">
 
