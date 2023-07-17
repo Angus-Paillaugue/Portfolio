@@ -132,7 +132,7 @@
             <h4 class="text-primary-600 font-extrabold">MY PROJECTS</h4>
     
             {#each projects as project, index}
-                <div class="flex md:flex-{index % 2 == 0 ? "row" : "row-reverse"} flex-col md:gap-10 gap-5 rounded-2xl md:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 project" use:reveal={{ transition: "slide", duration:200, x:index % 2 == 0 ? -40 : 40 }}>
+                <div class="flex md:flex-{index % 2 == 0 ? "row" : "row-reverse"} flex-col md:gap-10 gap-5 rounded-2xl md:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 project" use:reveal={{ transition: "fly", duration:200, y:60 }}>
                     <div class="rounded-2xl border border-gray-300 {index % 2 == 0 ? "md:-mt-0 -mt-9 md:-ml-20 -ml-9 md:-mr-0 -mr-9" : "md:-mt-0 -mt-9 md:-ml-0 -ml-9 md:-mr-20 -mr-9"}">
                         <img src="/{project.imgSrc}" alt="{project.title} img" class="rounded-2xl w-full h-full">
                     </div>
