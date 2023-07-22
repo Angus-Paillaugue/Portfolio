@@ -18,6 +18,10 @@
   @apply bg-neutral-500
 }
 
+::selection {
+  @apply text-neutral-100 bg-primary-600
+}
+
 * {
   scroll-behavior: smooth;
 }

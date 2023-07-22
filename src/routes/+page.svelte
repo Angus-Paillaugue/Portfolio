@@ -74,7 +74,7 @@
 
 <nav class="bg-white fixed w-full z-50 top-0 left-0 border-b border-gray-200 bg-opacity-50 backdrop-blur-md h-16 transition-all">
     <div class="flex flex-row justify-center md:justify-between mx-auto max-w-4xl items-center h-full ">
-        <h3 class="max-md:text-xl max-sm:hidden">Angus</h3>
+        <h3 class="max-md:text-xl max-sm:hidden select-none">Angus</h3>
         <div class="flex justify-center md:justify-between flex-row md:gap-8 gap-4 font-medium rounded-lg md:text-base relative h-fit">
             <a href="#Home" data-section="Home">Home</a>
             <a href="#About" data-section="About">About</a>
