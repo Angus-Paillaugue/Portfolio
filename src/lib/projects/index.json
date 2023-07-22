@@ -1,8 +1,8 @@
 [
     {
-        "title":"Blog",
+        "title":"Code Chronicles",
         "link":"https://blog.hellkeeper.fr",
-        "imgSrc":"blog.png",
+        "imgSrc":"Code Chronicles.png",
         "description":"This app was my first contact with Sveltekit. It allowed me to learn the fundamentals principles of Sveltekit.",
         "languages":[ "SvelteKit", "TailwindCSS", "MongoDB" ]
     },

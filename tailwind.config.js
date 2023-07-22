@@ -24,11 +24,11 @@ export default {
       },
       gridTemplateColumns:{
         icons:"repeat(auto-fill, minmax(3.5rem, 1fr)"
-      }
+      },
     },
   },
   plugins: [
-    require('flowbite/plugin')
+    require('flowbite/plugin'),
   ],
-  darkMode: 'class'
+  darkMode: 'class',
 }

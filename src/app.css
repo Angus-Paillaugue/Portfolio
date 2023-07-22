@@ -43,7 +43,6 @@ body {
 .link {
   @apply font-medium text-primary-600 dark:text-primary-700 hover:underline cursor-pointer
 }
-
 hr {
   @apply my-4 border-gray-300 dark:border-gray-700 w-full
 }
