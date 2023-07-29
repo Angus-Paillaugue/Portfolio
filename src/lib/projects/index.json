@@ -22,7 +22,7 @@
     },
     {
         "title":"Portfolio",
-        "link":"https://portfolio.hellkeeper.fr",
+        "link":"https://hellkeeper.fr",
         "imgSrc":"portfolio.png",
         "description":"This project is simply the one you are looking at right now!",
         "languages":[ "SvelteKit", "TailwindCSS" ]
