@@ -1,5 +1,12 @@
 [
     {
+        "title":"Shop",
+        "link":"https://shop.hellkeeper.fr",
+        "imgSrc":"Shop.png",
+        "description":"This website is a replica of Nude Project (clothing brand) made with SvelteKit.",
+        "languages":[ "SvelteKit", "TailwindCSS", "MongoDB" ]
+    },
+    {
         "title":"Code Chronicles",
         "link":"https://blog.hellkeeper.fr",
         "imgSrc":"Code Chronicles.png",
