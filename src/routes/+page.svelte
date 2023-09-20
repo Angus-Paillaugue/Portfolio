@@ -1,8 +1,8 @@
 <script>
-    import languages from "$lib/languages"
-    import projects from "$lib/projects"
-    import { Link, Button } from "$lib/components"
-    import { Tooltip, Input, Label, Textarea } from 'flowbite-svelte'
+    import languages from "$lib/languages";
+    import projects from "$lib/projects";
+    import { Link, Button } from "$lib/components";
+    import { Tooltip, Input, Label, Textarea } from 'flowbite-svelte';
     import { reveal } from 'svelte-reveal';
     import { onMount } from "svelte";
 
@@ -30,7 +30,7 @@
     }
 
     const theme = "light";
-    const techStack = ["HTML", "Javascript", "TailwindCSS", "SvelteKit", "MongoDB"];
+    const techStack = [["HTML","TailwindCSS"], ["Javascript", "SvelteKit"], ["MongoDB", "MySQL"]];
     const socials = [{ name:"LinkedIn", link:"https://www.linkedin.com/in/angus-paillaugue/" }, { name:"Github", link:"https://github.com/Angus-Paillaugue" }, { name:"CodeWars", link:"https://www.codewars.com/users/Angus%20Paillaugue" }];
     // TODO : Round codeWars svg logo
 
@@ -96,6 +96,14 @@
             <div class="block md:w-3/5 w-full text-start h-full">
                 <h1 class="font-bold text-7xl text-center md:text-start">Full stack web dev</h1>
                 <p class="mt-4 font-normal text-lg text-center md:text-start">Hi 👋, I'm Angus. A passionate full-stack web developer based in Toulouse, France</p>
+                <div class="flex flex-row gap-6 mt-10">
+                    <a href="{socials.filter(el => el.name === "Github")[0].link}" target="_blank" class="group">
+                        <svg xmlns="http://www.w3.org/2000/svg" target="_blank" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 group-hover:text-primary-600 transition-all duration-200"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg>
+                    </a>
+                    <a href="{socials.filter(el => el.name === "LinkedIn")[0].link}" class="group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 group-hover:text-primary-600 transition-all duration-200"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path><path d="M8 11l0 5"></path><path d="M8 8l0 .01"></path><path d="M12 16l0 -5"></path><path d="M16 16v-3a2 2 0 0 0 -4 0"></path></svg>
+                    </a>
+                </div>
             </div>
     
             <div class="block md:w-2/5 w-full max-w-xs mx-auto">
@@ -121,11 +129,12 @@
         <!-- Tech stack -->
         <div class="flex md:flex-row flex-col mx-auto gap-5 md:justify-start justify-center items-center md:w-full max-w-sm md:max-w-none flex-wrap">
             <p class="text-lg font-bold md:pr-5 md:border-r-2 md:border-b-0 border-b-2 border-text-main md:mr-4">Tech Stack</p>
-            <div class="flex flex-row gap-5 flex-wrap md:justify-start justify-center">
-                {#each techStack as language}
-                    <div>
-                        <img src="/icons/{languages.filter(lang => lang.name == language)[0].icons[theme]}" class="md:h-20 h-14 cursor-pointer drop-shadow-xl" alt="{language}">
-                        <Tooltip>{language}</Tooltip>
+            <div class="flex flex-row gap-10 flex-wrap md:justify-start justify-center">
+                {#each techStack as array}
+                    <div class="flex flex-row gap-4 transition-all duration-500 ease-in-out hover:-translate-y-3 cursor-pointer">
+                        {#each array as language} 
+                            <img src="/icons/{languages.filter(lang => lang.name == language)[0].icons[theme]}" class="md:h-14 h-10 drop-shadow-xl" alt="{language}">
+                        {/each}
                     </div>
                 {/each}
             </div>
