@@ -1,8 +1,7 @@
 <script>
     import languages from "$lib/languages";
     import projects from "$lib/projects";
-    import { Link, Button } from "$lib/components";
-    import { Tooltip, Input, Label, Textarea } from 'flowbite-svelte';
+    import { Input, Label, Textarea } from 'flowbite-svelte';
     import { reveal } from 'svelte-reveal';
     import { onMount } from "svelte";
 
@@ -24,7 +23,7 @@
         });
         
         await response.json();
-        sendEmailButtonContent = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 inline-block h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>`;
+        sendEmailButtonContent = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline-block"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>`;
         setTimeout(() => {
             sendEmailButtonContent = "Submit";
         }, 2000);
@@ -71,7 +70,7 @@
     <meta name="description" content="This is the portfolio of Angus Paillaugue">
 </svelte:head>
 
-<nav class="bg-white fixed w-full z-50 top-0 left-0 border-b border-gray-200 bg-opacity-50 backdrop-blur-md h-16 transition-all">
+<nav class="{navBarToggle ? "bg-white" : "bg-white/50"} duration-500 fixed w-full z-50 top-0 left-0 border-b border-gray-200 backdrop-blur-md h-16 transition-all">
     <div class="flex flex-row justify-between mx-auto max-w-4xl items-center h-full px-2 gap-2">
         <h3 class="max-md:text-xl select-none">Angus</h3>
         <div class="flex justify-center md:justify-between flex-row md:gap-8 gap-4 font-medium rounded-lg md:text-base relative h-fit max-lg:hidden">
@@ -82,26 +81,24 @@
             <a href="#Contact" data-section="Contact">Contact</a>
             <span bind:this={navLinkUnderline} class="h-1 transition-all top-full bg-primary-600 rounded-full absolute"></span>
         </div>
-        <button class="lg:hidden mr-4" on:click={() => {navBarToggle = !navBarToggle}}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
+        <button class="lg:hidden mr-4 text-gray-500 w-10 h-10 relative focus:outline-none {navBarToggle && "z-50"}" on:click={() => {navBarToggle = !navBarToggle}}>
+            <span class="sr-only">Open main menu</span>
+            <div class="block w-5 absolute left-1/2 top-1/2   transform  -translate-x-1/2 -translate-y-1/2">
+                <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out {navBarToggle ? "rotate-45" : "-translate-y-1.5"}"></span>
+                <span aria-hidden="true" class="block absolute  h-0.5 w-5 bg-current transform transition duration-500 ease-in-out {navBarToggle ? "opacity-0" : "opacity-100"}"></span>
+                <span aria-hidden="true" class="block absolute  h-0.5 w-5 bg-current transform  transition duration-500 ease-in-out {navBarToggle ? "-rotate-45" : "translate-y-1.5"}"></span>
+            </div>
         </button>
     </div>
 </nav>
 
-<div class="fixed top-0 left-0 bg-white/80 backdrop-blur-lg w-full h-full z-50 transition-all ease-in-out duration-300 p-2 text-xl font-semibold {!navBarToggle && "-translate-x-full"}">
+<div class="fixed top-16 left-0 bg-white/50 backdrop-blur-lg w-full h-full z-40 transition-all ease-in-out duration-500 p-2 text-xl font-semibold {!navBarToggle && "-translate-x-full"}">
     <div class="h-full w-full relative flex flex-col items-center justify-center gap-8">
         <a href="#Home" on:click={() => {navBarToggle = false;}}>Home</a>
         <a href="#About" on:click={() => {navBarToggle = false;}}>About</a>
         <a href="#Work" on:click={() => {navBarToggle = false;}}>Work</a>
         <a href="#Experience" on:click={() => {navBarToggle = false;}}>Experience</a>
         <a href="#Contact" on:click={() => {navBarToggle = false;}}>Contact</a>
-        <button class="absolute top-4 right-4" on:click={() => {navBarToggle = false;}}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>              
-        </button>
     </div>
 </div>
   
@@ -152,9 +149,9 @@
             <p class="text-lg font-bold md:pr-5 md:border-r-2 md:border-b-0 border-b-2 border-text-main md:mr-4">Tech Stack</p>
             <div class="flex flex-row gap-10 flex-wrap md:justify-start justify-center">
                 {#each techStack as array}
-                    <div class="flex flex-row gap-4 transition-all duration-500 ease-in-out hover:-translate-y-3 cursor-pointer">
+                    <div class="flex flex-row gap-4 languageIcon">
                         {#each array as language} 
-                            <img src="/icons/{languages.filter(lang => lang.name == language)[0].icons[theme]}" class="md:h-14 h-10 drop-shadow-xl" alt="{language}">
+                            <img src="/icons/{languages.filter(lang => lang.name == language)[0].icons[theme]}" class="md:h-14 h-10 drop-shadow-md" alt="{language}">
                         {/each}
                     </div>
                 {/each}
@@ -187,15 +184,18 @@
                 <div class="w-full lg:w-auto h-full lg:aspect-auto aspect-square relative lg:-mt-0 -mt-20 lg:-ml-20 -ml-0 rounded-lg bg-cover bg-no-repeat bg-center" style="background-image: url(aboutImg.jpg);">
                     <div class="absolute top-0 left-0 h-full w-full z-10 opacity-70 rounded-2xl" style="background: url(noise.png) repeat;background-blend-mode: overlay;"></div>
                 </div>
-                <div class="w-full flex flex-col gap-3">
+                <div class="w-full flex flex-col gap-4">
                     <h4 class="text-primary-600 font-bold">ABOUT ME</h4>
                     <h4 class="font-bold">A dedicated Full-stack Developer based in Toulouse, France 📍</h4>
                     <p class="leading-6">As a Junior Full-Stack Developer, I possess an impressive arsenal of skills in HTML, CSS, JavaScript, Tailwind, SvelteKit and MongoDB. I excel in designing and maintaining responsive websites that offer a smooth user experience. My expertise lies in crafting dynamic, engaging interfaces through writing clean and optimized code and utilizing cutting-edge development tools and techniques. I am also a team player who thrives in collaborating with cross-functional teams to produce outstanding web applications.</p>
-                    <Button href="myCv.pdf" target="_blank">My CV</Button>
+                    <a href="myCv.pdf" target="_blank" class="button-primary-animation w-fit group">
+                        My CV
+                        <svg class="w-5 h-5 absolute right-0 flex items-center justify-start duration-300 transform translate-x-full group-hover:-translate-x-full ease" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
                     <div class="flex flex-row flex-wrap gap-5">
                         {#each socials as social}
-                            <a href="{social.link}" target="_blank">
-                                <img src="/icons/{languages.filter(lang => lang.name == social.name)[0].icons[theme]}" class="md:h-14 h-10 cursor-pointer drop-shadow-md" alt="{social.name}">
+                            <a href="{social.link}" target="_blank" class="languageIcon duration-200">
+                                <img src="/icons/{languages.filter(lang => lang.name == social.name)[0].icons[theme]}" class="md:h-14 h-10" alt="{social.name}">
                             </a>
                         {/each}
                     </div>
@@ -210,26 +210,32 @@
             <h4 class="text-primary-600 font-extrabold">MY PROJECTS</h4>
     
             {#each projects as project, index}
-                <div class="flex md:flex-{index % 2 == 0 ? "row" : "row-reverse"} flex-col md:gap-10 gap-5 rounded-2xl md:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 project" use:reveal={{ transition: "fly", duration:200, y:60 }}>
-                    <div class="rounded-2xl border border-gray-300 {index % 2 == 0 ? "md:-mt-0 -mt-9 md:-ml-20 -ml-9 md:-mr-0 -mr-9" : "md:-mt-0 -mt-9 md:-ml-0 -ml-9 md:-mr-20 -mr-9"}">
+                <div class="{index % 2 == 0 ? "row" : "row-reverse"} grid lg:grid-cols-5 grid-cols-1 lg:grid-flow-col rounded-2xl lg:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 project" use:reveal={{ transition: "fly", duration:200, y:60 }}>
+                    <div class="rounded-2xl border border-gray-300 lg:col-span-3 {index % 2 == 0 ? "lg:-mt-0 -mt-9 lg:-ml-20 -ml-9 lg:-mr-0 -mr-9 lg:col-start-1" : "lg:-mt-0 -mt-9 lg:-ml-0 -ml-9 lg:-mr-20 -mr-9 lg:col-start-3"}">
                         <img src="/{project.imgSrc}" alt="{project.title} img" class="rounded-2xl w-full h-full">
                     </div>
-                    <div class="flex flex-col w-full gap-4 justify-between">
+                    
+                    <div class="flex flex-col w-full gap-4 justify-between lg:col-span-2 {index % 2 == 0 ? "lg:pl-4 lg:col-start-4" :"lg:pr-4 lg:col-start-1"}">
                         <div class="flex flex-col w-full gap-4">
-                            <Link href="/project/{project.title}" class="w-fit"><h4 class="font-bold">{project.title}</h4></Link>
-                            <Link href="{project.link}" target="_blank" class="w-fit">
+                            <a href="/project/{project.title}" class="w-fit link">
+                                <h4 class="font-bold">{project.title}</h4>
+                            </a>
+
+                            <a href="{project.link}" target="_blank" class="w-fit link">
                                 {project.link}
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 inline-block ml-2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-                            </Link>
-                            <p class="text-ellipsis line-clamp-4">{@html project.description} </p>
-                            <Link href="/project/{project.title}">More info</Link>
+                            </a>
+
+                            <p class="text-ellipsis line-clamp-4">{@html project.description}</p>
+
+                            <a href="/project/{project.title}" class="button-primary-animation small group w-fit">
+                                More info
+                                <svg class="w-5 h-5 absolute right-0 flex items-center justify-start duration-300 transform translate-x-full group-hover:-translate-x-2 ease" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </a>
                         </div>
                         <div class="grid gap-2" style="grid-template-rows: min-content; grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));">
                             {#each project.languages as language}
-                                <div>
-                                    <img src="/icons/{languages.filter(lang => lang.name == language)[0].icons[theme]}" class="cursor-pointer drop-shadow-md" alt="{language}">
-                                    <Tooltip>{language}</Tooltip>
-                                </div>
+                                <img src="/icons/{languages.filter(lang => lang.name == language)[0].icons[theme]}" class="languageIcon" alt="{language}">
                             {/each}
                         </div>
                     </div>
@@ -261,18 +267,27 @@
             <form on:submit|preventDefault={contact} class="rounded-lg md:p-10 p-6 items-start bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 flex flex-col gap-5 w-full" use:reveal={{ transition: "fly", duration:200, y:60 }}>
                 <h4 class="text-primary-600 font-extrabold">CONTACT ME</h4>
                 <div class="w-full">
-                    <Label for="email" class="mb-2">E-mail</Label>
-                    <Input type="email" id="email" name="email" placeholder="Your e-mail" bind:value={email}/>
+                    <label for="email" class="mb-2">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Your e-mail" class="border text-sm rounded-lg block w-full p-2.5 bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 placeholder-neutral-400 dark:text-white focus:ring-primary-500 focus:border-primary-500 focus:outline-none outline-none transition-all caret-primary-600" bind:value={email}/>
                 </div>
                 <div class="w-full">
-                    <Label for="message" class="mb-2">Message</Label>
-                    <Textarea id="message" placeholder="Your message" rows="8" name="message" bind:value={message}/>
+                    <label for="message" class="mb-2">Message</label>
+                    <textarea id="message" placeholder="Your message" rows="8" name="message" class="border text-sm rounded-lg block w-full p-2.5 bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 placeholder-neutral-400 dark:text-white focus:ring-primary-500 focus:border-primary-500 focus:outline-none outline-none transition-colors caret-primary-600" bind:value={message}/>
                 </div>
-                <Button type="submit" class="w-full">
+                <button type="submit" class="button-primary w-full">
                     {@html sendEmailButtonContent}
-                </Button>
+                </button>
             </form>
         </div>
     
     </section>
 </div>
+
+{#if navBarToggle}
+    <style>
+        body {
+            height: 100dvh;
+            overflow-y: hidden;
+        }
+    </style>
+{/if}

@@ -1,8 +1,5 @@
 <script>
-    import languages from "$lib/languages"
-    import { Link } from "$lib/components"
-    import { Tooltip } from 'flowbite-svelte'
-
+    import languages from "$lib/languages";
     
     export let data;
     
@@ -28,14 +25,13 @@
                 </div>
                 <div class="flex flex-col w-full gap-4 col-span-1 lg:col-span-3">
                     <h4 class="font-bold">{project.title}</h4>
-                    <Link href="{project.link}" target="_blank">
+                    <a href="{project.link}" target="_blank" class="link">
                         {project.link}
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-4 inline-block ml-2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
-                    </Link>
-                    <div class="flex flex-row gap-2 flex-wrap">
+                    </a>
+                    <div class="grid gap-2" style="grid-template-rows: min-content; grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));">
                         {#each project.languages as language}
-                            <img src="/icons/{languages.filter(lang => lang.name == language)[0].icons[theme]}" class="lg:h-14 h-10 cursor-pointer drop-shadow-md" alt="{language}">
-                            <Tooltip>{language}</Tooltip>
+                            <img src="/icons/{languages.filter(lang => lang.name == language)[0].icons[theme]}" class="languageIcon" alt="{language}">
                         {/each}
                     </div>
                 </div>
