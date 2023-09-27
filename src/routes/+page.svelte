@@ -1,7 +1,6 @@
 <script>
     import languages from "$lib/languages";
     import projects from "$lib/projects";
-    import { Input, Label, Textarea } from 'flowbite-svelte';
     import { reveal } from 'svelte-reveal';
     import { onMount } from "svelte";
 
@@ -262,7 +261,7 @@
     </section>
 
     <section id="Contact" class="p-4 lg:p-10 sm:p-6">
-    
+        
         <div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10">
             <form on:submit|preventDefault={contact} class="rounded-lg md:p-10 p-6 items-start bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 flex flex-col gap-5 w-full" use:reveal={{ transition: "fly", duration:200, y:60 }}>
                 <h4 class="text-primary-600 font-extrabold">CONTACT ME</h4>
