@@ -10,7 +10,6 @@
     let navLinkUnderline;
     let sectionsList = [];
     let sections = {};
-    let scrollTop = 0;
     let navBarToggle = false;
 
     async function contact(){
@@ -47,8 +46,7 @@
     });
 
     function setActiveTab() {
-        scrollTop = (document.documentElement.scrollTop || document.body.scrollTop)
-        let scrollPosition = scrollTop + window.innerHeight / 2;
+        let scrollPosition = (document.documentElement.scrollTop || document.body.scrollTop) + window.innerHeight / 2;
             
         for (let i in sections) {
             if (sections[i] <= scrollPosition) {
@@ -82,7 +80,7 @@
         </div>
         <button class="lg:hidden mr-4 text-gray-500 w-10 h-10 relative focus:outline-none {navBarToggle && "z-50"}" on:click={() => {navBarToggle = !navBarToggle}}>
             <span class="sr-only">Open main menu</span>
-            <div class="block w-5 absolute left-1/2 top-1/2   transform  -translate-x-1/2 -translate-y-1/2">
+            <div class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <span aria-hidden="true" class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out {navBarToggle ? "rotate-45" : "-translate-y-1.5"}"></span>
                 <span aria-hidden="true" class="block absolute  h-0.5 w-5 bg-current transform transition duration-500 ease-in-out {navBarToggle ? "opacity-0" : "opacity-100"}"></span>
                 <span aria-hidden="true" class="block absolute  h-0.5 w-5 bg-current transform  transition duration-500 ease-in-out {navBarToggle ? "-rotate-45" : "translate-y-1.5"}"></span>
@@ -227,9 +225,17 @@
 
                             <p class="text-ellipsis line-clamp-4">{@html project.description}</p>
 
-                            <a href="/project/{project.title}" class="button-primary-animation small group w-fit">
+                            <!-- <a href="/project/{project.title}" class="button-primary-animation small group w-fit">
                                 More info
                                 <svg class="w-5 h-5 absolute right-0 flex items-center justify-start duration-300 transform translate-x-full group-hover:-translate-x-2 ease" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </a> -->
+                            <a href="/project/{project.title}" class="button-primary button-sm small group w-fit">
+                                <span class="transition-all duration-200 group-hover:-translate-y-[110%]">
+                                    More info
+                                </span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 transition-all duration-200 group-hover:top-1/2 group-hover:-translate-y-1/2 absolute top-full left-1/2 -translate-x-1/2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l7.5-7.5 7.5 7.5m-15 6l7.5-7.5 7.5 7.5" />
+                                </svg>
                             </a>
                         </div>
                         <div class="grid gap-2" style="grid-template-rows: min-content; grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));">
