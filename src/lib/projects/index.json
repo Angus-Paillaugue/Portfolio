@@ -1,35 +1,35 @@
 [
     {
         "title":"Shop",
-        "link":"https://shop.hellkeeper.fr",
+        "link":"https://shop.paillaugue.fr",
         "imgSrc":"Shop.png",
         "description":"This website is a replica of Nude Project (clothing brand) made with SvelteKit.",
         "languages":[ "SvelteKit", "TailwindCSS", "MongoDB" ]
     },
     {
         "title":"Code Chronicles",
-        "link":"https://blog.hellkeeper.fr",
+        "link":"https://blog.paillaugue.fr",
         "imgSrc":"Code Chronicles.png",
         "description":"This app was my first contact with Sveltekit. It allowed me to learn the fundamentals principles of Sveltekit.",
         "languages":[ "SvelteKit", "TailwindCSS", "MongoDB" ]
     },
     {
         "title":"LinkTrim",
-        "link":"https://linktrim.hellkeeper.fr",
+        "link":"https://linktrim.paillaugue.fr",
         "imgSrc":"LinkTrim.png",
         "description":"This website built with Sveltekit is used to shorten url's like bit.ly.",
         "languages":[ "SvelteKit", "TailwindCSS", "MongoDB" ]
     },
     {
         "title":"SignItNow",
-        "link":"https://signitnow.hellkeeper.fr",
+        "link":"https://signitnow.paillaugue.fr",
         "imgSrc":"SignItNow.png",
         "description":"SignItNow is a website where you can create and sign petitions.",
         "languages":[ "SvelteKit", "Javascript", "TailwindCSS", "MongoDB" ]
     },
     {
         "title":"Portfolio",
-        "link":"https://hellkeeper.fr",
+        "link":"https://angus.paillaugue.fr",
         "imgSrc":"portfolio.png",
         "description":"This project is simply the one you are looking at right now!",
         "languages":[ "SvelteKit", "TailwindCSS" ]
