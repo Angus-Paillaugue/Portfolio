@@ -1,28 +1,28 @@
 [
     {
         "title":"Shop",
-        "link":"https://shop.paillaugue.fr",
+        "link":"https://shop.angus.paillaugue.fr",
         "imgSrc":"Shop.png",
         "description":"This website is a replica of Nude Project (clothing brand) made with SvelteKit.",
         "languages":[ "SvelteKit", "TailwindCSS", "MongoDB" ]
     },
     {
         "title":"Code Chronicles",
-        "link":"https://blog.paillaugue.fr",
+        "link":"https://blog.angus.paillaugue.fr",
         "imgSrc":"Code Chronicles.png",
         "description":"This app was my first contact with Sveltekit. It allowed me to learn the fundamentals principles of Sveltekit.",
         "languages":[ "SvelteKit", "TailwindCSS", "MongoDB" ]
     },
     {
         "title":"LinkTrim",
-        "link":"https://linktrim.paillaugue.fr",
+        "link":"https://linktrim.angus.paillaugue.fr",
         "imgSrc":"LinkTrim.png",
         "description":"This website built with Sveltekit is used to shorten url's like bit.ly.",
         "languages":[ "SvelteKit", "TailwindCSS", "MongoDB" ]
     },
     {
         "title":"SignItNow",
-        "link":"https://signitnow.paillaugue.fr",
+        "link":"https://signitnow.angus.paillaugue.fr",
         "imgSrc":"SignItNow.png",
         "description":"SignItNow is a website where you can create and sign petitions.",
         "languages":[ "SvelteKit", "Javascript", "TailwindCSS", "MongoDB" ]
