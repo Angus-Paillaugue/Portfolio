@@ -56,7 +56,7 @@
                 let activeSection =  document.querySelector('[data-section*=' + i + ']')
                 navLinkUnderline.style.left = activeSection.offsetLeft+"px";
                 navLinkUnderline.style.width = activeSection.clientWidth+"px";
-                activeSection.classList.add("text-primary-600")
+                activeSection.classList.add("text-primary-600");
             }
         }
     }
@@ -100,6 +100,7 @@
 </div>
   
 
+<!-- Home section -->
 <section class="p-4 lg:p-10 sm:p-6 min-h-screen flex flex-col md:justify-center items-center relative max-md:pt-16" id="Home">
 
     <div class="absolute top-0 left-0 w-full h-full duration-[10s]" style="z-index: -20; background: url(/noise.png) repeat,linear-gradient(0deg,#7ebf92 0%,#469453 100%); background-blend-mode: overlay;-webkit-mask-image: radial-gradient(rgba(0,0,0,.5),transparent 70%);"></div>
@@ -165,7 +166,7 @@
     <!-- <div class="absolute top-0 left-0 w-full h-full bg-top" style="z-index: -20;background-size: 20px 20px; background-image: linear-gradient(to right, rgb(209, 213, 219, .4) 1px, transparent 1px), linear-gradient(rgba(209, 213, 219, .4) 1px, transparent 1px);image-rendering: pixelated;"></div> -->
 
     <!-- Topography bg -->
-    <div class="absolute top-0 left-0 w-full h-full bg-top" style="z-index: -20;background-image: url(/bg.svg);image-rendering: pixelated;"></div>
+    <div class="absolute top-0 left-0 w-full h-full bg-top" style="z-index: -20;background-image: url(/bg.svg);"></div>
 
 
     <div class="absolute top-0 left-0 w-full h-64" style="z-index: -19;background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);"></div>
@@ -209,7 +210,7 @@
             {#each projects as project, index}
                 <div class="{index % 2 == 0 ? "row" : "row-reverse"} grid lg:grid-cols-5 grid-cols-1 lg:grid-flow-col rounded-2xl lg:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 project" use:reveal={{ transition: "fly", duration:200, y:60 }}>
                     <div class="rounded-2xl border border-gray-300 lg:col-span-3 {index % 2 == 0 ? "lg:-mt-0 -mt-9 lg:-ml-20 -ml-9 lg:-mr-0 -mr-9 lg:col-start-1" : "lg:-mt-0 -mt-9 lg:-ml-0 -ml-9 lg:-mr-20 -mr-9 lg:col-start-3"}">
-                        <img src="/{project.imgSrc}" alt="{project.title} img" class="rounded-2xl w-full h-full">
+                        <img src="/{project.imgSrc}" alt="{project.title}" class="rounded-2xl w-full h-full">
                     </div>
                     
                     <div class="flex flex-col w-full gap-4 justify-between lg:col-span-2 {index % 2 == 0 ? "lg:pl-4 lg:col-start-4" :"lg:pr-4 lg:col-start-1"}">
@@ -267,7 +268,7 @@
     </section>
 
     <section id="Contact" class="p-4 lg:p-10 sm:p-6">
-        
+    
         <div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10">
             <form on:submit|preventDefault={contact} class="rounded-lg md:p-10 p-6 items-start bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 flex flex-col gap-5 w-full" use:reveal={{ transition: "fly", duration:200, y:60 }}>
                 <h4 class="text-primary-600 font-extrabold">CONTACT ME</h4>
