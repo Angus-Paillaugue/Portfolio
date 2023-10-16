@@ -1,5 +1,12 @@
 [
     {
+        "title":"Pandabuy Currency Converter",
+        "link":"https://linktrim.angus.paillaugue.fr/xAHBYDf",
+        "imgSrc":"Shop.png",
+        "description":"This chrome extension is used to convert currencies on a webpage.",
+        "languages":[ "Javascript", "CSS" ]
+    },
+    {
         "title":"Shop",
         "link":"https://shop.angus.paillaugue.fr",
         "imgSrc":"Shop.png",
