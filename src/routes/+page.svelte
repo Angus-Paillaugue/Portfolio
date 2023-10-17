@@ -224,7 +224,7 @@
                         
                         <div class="flex flex-col w-full gap-4 justify-between lg:col-span-2 {index % 2 == 0 ? "lg:pl-4 lg:col-start-4" :"lg:pr-4 lg:col-start-1"}">
                             <div class="flex flex-col w-full gap-4">
-                                <a href="/project/{project.title}" class="w-fit link">
+                                <a href="/project/{project.title}" class="w-fit link break-all">
                                     <h4 class="font-bold">{project.title}</h4>
                                 </a>
 
