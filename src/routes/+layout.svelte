@@ -9,10 +9,12 @@
 
     setInterval(() => {
         dots = dots.length <= 3 ? dots + "." : ".";
-    }, 200)
+    }, 200);
 
     onMount(() => {
-        isLoaded = true;
+        setTimeout(() => {
+            isLoaded = true;
+        }, 400)
     });
 </script>
 
