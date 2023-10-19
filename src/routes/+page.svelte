@@ -13,7 +13,6 @@
     let sections = {};
     let navBarToggle = false;
     let isSendingForm = false;
-    $: console.log(isSendingForm)
 
     async function contact(){
         if(isSendingForm) return;
@@ -246,7 +245,7 @@
                                 More info
                                 <svg class="w-5 h-5 absolute right-0 flex items-center justify-start duration-300 transform translate-x-full group-hover:-translate-x-2 ease" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </a> -->
-                            <a href="/project/{project.title}" class="button-primary button-sm small group w-fit">
+                            <a href="/project/{project.title}" class="button-primary small group w-fit">
                                 <span class="transition-all duration-200 group-hover:-translate-y-[110%]">
                                     More info
                                 </span>
