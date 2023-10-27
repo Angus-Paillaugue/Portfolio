@@ -1,2 +1,2 @@
 # TODO :
- - [ ] - Fix black outline on input fields
+ - [x] - Fix black outline on input fields
