@@ -18,8 +18,8 @@
 
 <section id="work" class="p-4 lg:p-10 sm:p-6">
     <div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10">
-        <div class="flex flex-col rounded-2xl lg:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 gap-6">
-            <div class="grid grid-cols-1 lg:grid-cols-7 lg:gap-20 gap-5">
+        <div class="flex flex-col rounded-2xl lg:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300">
+            <div class="grid grid-cols-1 lg:grid-cols-7 lg:gap-20 gap-5 mb-6">
                 <div class="rounded-2xl border border-gray-300 lg:-mt-0 -mt-9 lg:-ml-20 -ml-9 lg:-mr-0 -mr-9 col-span-1 lg:col-span-4">
                     <img src="/{project.imgSrc}" alt="{project.title} img" class="rounded-2xl w-full h-full">
                 </div>

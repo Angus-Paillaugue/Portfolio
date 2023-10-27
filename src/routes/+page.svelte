@@ -289,11 +289,11 @@
                 <h4 class="text-primary-600 font-extrabold">CONTACT ME</h4>
                 <div class="w-full">
                     <label for="email" class="mb-2">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="Your e-mail" class="border text-sm rounded-lg block w-full p-2.5 bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 placeholder-neutral-400 dark:text-white focus:ring-primary-500 focus:border-primary-500 focus:outline-none outline-none transition-all caret-primary-600" bind:value={email}/>
+                    <input type="email" id="email" name="email" placeholder="Your e-mail" class="border text-sm rounded-lg block w-full p-2.5 bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 placeholder-neutral-400 dark:text-white focus:ring-primary-500 focus:border-primary-500 focus:outline-none outline-none transition-all caret-primary-600 focus:ring-offset-white focus:ring-offset-2 focus:ring-2" bind:value={email}/>
                 </div>
                 <div class="w-full">
                     <label for="message" class="mb-2">Message</label>
-                    <textarea id="message" placeholder="Your message" rows="8" name="message" class="border text-sm rounded-lg block w-full p-2.5 bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 placeholder-neutral-400 dark:text-white focus:ring-primary-500 focus:border-primary-500 focus:outline-none outline-none transition-colors caret-primary-600" bind:value={message}/>
+                    <textarea id="message" placeholder="Your message" rows="8" name="message" class="border text-sm rounded-lg block w-full p-2.5 bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 placeholder-neutral-400 dark:text-white focus:ring-primary-500 focus:border-primary-500 focus:outline-none outline-none transition-all caret-primary-600 focus:ring-offset-white focus:ring-offset-2 focus:ring-2" bind:value={message}/>
                 </div>
                 <button type="submit" class="button-primary w-full" disabled="{isSendingForm}" bind:this={contactButton}>
                     Submit
