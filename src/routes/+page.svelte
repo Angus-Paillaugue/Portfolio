@@ -53,7 +53,9 @@
             // Scroll to section if in URL
             if(location.href.split("#").length > 0){
                 let section = location.href.split("#").at(-1);
-                document.getElementById(section).scrollIntoView({ behavior: "smooth" });
+                try{
+                    document.getElementById(section).scrollIntoView({ behavior: "smooth" });
+                }catch(_){}
             }
         }, 0);
     });
@@ -118,7 +120,7 @@
 <!-- Home section -->
 <section class="p-4 lg:p-10 sm:p-6 min-h-screen flex flex-col md:justify-center items-center relative max-md:pt-16" id="Home">
 
-    <div class="absolute top-0 left-0 w-full h-full duration-[10s]" style="z-index: -20; background: url(/noise.png) repeat,linear-gradient(0deg,#7ebf92 0%,#469453 100%); background-blend-mode: overlay;-webkit-mask-image: radial-gradient(rgba(0,0,0,.5),transparent 70%);"></div>
+    <div class="absolute top-0 left-0 w-full h-full duration-[10s]" style="z-index: -20; background: url(/noise.webp) repeat,linear-gradient(0deg,#7ebf92 0%,#469453 100%); background-blend-mode: overlay;-webkit-mask-image: radial-gradient(rgba(0,0,0,.5),transparent 70%);"></div>
 
     <div class="flex flex-col w-full max-w-4xl mx-auto md:gap-20 gap-5 max-h-full md:max-h-3/4">
 
@@ -128,17 +130,17 @@
                 <h1 class="font-bold text-7xl text-center md:text-start" in:fly={{y: 100, delay:50}}>Full stack web dev</h1>
                 <p class="mt-4 font-normal text-lg text-center md:text-start" in:fly={{y: 100, delay:100}}>Hi 👋, I'm Angus. A passionate full-stack web developer based in Toulouse, France</p>
                 <div class="flex flex-row gap-6 mt-10 max-md:justify-center items-center w-full">
-                    <a href="{socials.filter(el => el.name === "Github")[0].link}" target="_blank" class="group" in:fly={{y: 100, delay:120}}>
+                    <a href="{socials.filter(el => el.name === "Github")[0].link}" target="_blank" class="group" name="GithubProfile" in:fly={{y: 100, delay:120}}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 group-hover:text-primary-600 transition-all duration-200 group-hover:scale-105"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg>
                     </a>
-                    <a href="{socials.filter(el => el.name === "LinkedIn")[0].link}" target="_blank" class="group" in:fly={{y: 100, delay:170}}>
+                    <a href="{socials.filter(el => el.name === "LinkedIn")[0].link}" target="_blank" class="group" name="LinkedInProfile" in:fly={{y: 100, delay:170}}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 group-hover:text-primary-600 transition-all duration-200 group-hover:scale-105"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path><path d="M8 11l0 5"></path><path d="M8 8l0 .01"></path><path d="M12 16l0 -5"></path><path d="M16 16v-3a2 2 0 0 0 -4 0"></path></svg>
                     </a>
                 </div>
             </div>
     
             <div class="block md:w-2/5 w-full max-w-xs mx-auto" in:fly={{y: 100, delay:250}}>
-                <div class="w-full aspect-square bg-no-repeat bg-cover bg-center border-2 border-primary-600 transition-all duration-1000 ease-in-out shadow-2xl" style="border-radius: 28% 72% 22% 78% / 39% 23% 77% 61%; transform: rotate(0deg); animation: morph 8s ease-in-out infinite; background-image: url('angus.jpg');"></div>
+                <div class="w-full aspect-square bg-no-repeat bg-cover bg-center border-2 border-primary-600 transition-all duration-1000 ease-in-out shadow-2xl" style="border-radius: 28% 72% 22% 78% / 39% 23% 77% 61%; transform: rotate(0deg); animation: morph 8s ease-in-out infinite; background-image: url('angus.webp');"></div>
             </div>
     
             <!-- Blob animation -->
@@ -194,8 +196,8 @@
         <div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10">
             
             <div class="grid lg:grid-cols-2 grid-cols-1 items-center md:gap-10 gap-0 w-full mx-auto rounded-lg lg:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300" use:reveal={{ transition: "fly", duration:200, y:60 }}>
-                <div class="w-full lg:w-auto h-full lg:aspect-auto aspect-square relative lg:-mt-0 -mt-20 lg:-ml-20 -ml-0 rounded-lg bg-cover bg-no-repeat bg-center" style="background-image: url(aboutImg.jpg);">
-                    <div class="absolute top-0 left-0 h-full w-full z-10 opacity-70 rounded-2xl" style="background: url(noise.png) repeat;background-blend-mode: overlay;"></div>
+                <div class="w-full lg:w-auto h-full lg:aspect-auto aspect-square relative lg:-mt-0 -mt-20 lg:-ml-20 -ml-0 rounded-lg bg-cover bg-no-repeat bg-center" style="background-image: url(aboutImg.webp);">
+                    <div class="absolute top-0 left-0 h-full w-full z-10 opacity-70 rounded-2xl" style="background: url(noise.webp) repeat;background-blend-mode: overlay;"></div>
                 </div>
                 <div class="w-full flex flex-col gap-4">
                     <h4 class="text-primary-600 font-bold">ABOUT ME</h4>

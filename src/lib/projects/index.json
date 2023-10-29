@@ -2,49 +2,49 @@
     {
         "title":"Pandabuy Currency Converter",
         "link":"https://pcc.paillaugue.fr/",
-        "imgSrc":"PCC.jpg",
+        "imgSrc":"PCC.webp",
         "description":"This chrome extension is used to convert currencies on a webpage.",
         "languages":[ "Javascript", "CSS" ]
     },
     {
         "title":"Shop",
         "link":"https://shop.angus.paillaugue.fr",
-        "imgSrc":"Shop.png",
+        "imgSrc":"Shop.webp",
         "description":"This website is a replica of Nude Project (clothing brand) made with SvelteKit.",
         "languages":[ "SvelteKit", "TailwindCSS", "MongoDB" ]
     },
     {
         "title":"Code Chronicles",
         "link":"https://blog.angus.paillaugue.fr",
-        "imgSrc":"Code Chronicles.png",
+        "imgSrc":"Code-Chronicles.webp",
         "description":"This app was my first contact with Sveltekit. It allowed me to learn the fundamentals principles of Sveltekit.",
         "languages":[ "SvelteKit", "TailwindCSS", "MongoDB" ]
     },
     {
         "title":"LinkTrim",
         "link":"https://linktrim.angus.paillaugue.fr",
-        "imgSrc":"LinkTrim.png",
+        "imgSrc":"LinkTrim.webp",
         "description":"This website built with Sveltekit is used to shorten url's like bit.ly.",
         "languages":[ "SvelteKit", "TailwindCSS", "MongoDB" ]
     },
     {
         "title":"SignItNow",
         "link":"https://signitnow.angus.paillaugue.fr",
-        "imgSrc":"SignItNow.png",
+        "imgSrc":"SignItNow.webp",
         "description":"SignItNow is a website where you can create and sign petitions.",
         "languages":[ "SvelteKit", "Javascript", "TailwindCSS", "MongoDB" ]
     },
     {
         "title":"Portfolio",
         "link":"https://angus.paillaugue.fr",
-        "imgSrc":"portfolio.png",
+        "imgSrc":"portfolio.webp",
         "description":"This project is simply the one you are looking at right now!",
         "languages":[ "SvelteKit", "TailwindCSS" ]
     },
     {
         "title":"Bionic reading",
         "link":"https://github.com/Angus-Paillaugue/bionicReading",
-        "imgSrc":"bionicReading.png",
+        "imgSrc":"bionicReading.webp",
         "description":"This chrome extension is based on <Link href='https://bionic-reading.com/' target='_blank'>bionic reading</Link> (a method that helps reading faster). Downloading this extension will, on all webpages, highlight letters on the bionic reading principle.",
         "languages":[ "JQuery" ]
     }
