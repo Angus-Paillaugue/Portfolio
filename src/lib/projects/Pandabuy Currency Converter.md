@@ -2,8 +2,4 @@
     import { Link } from "$lib/components"
 </script>
 
-This chrome extension is used to convert currencies on a webpage.
-
-If you want to test it, download it <Link href='https://chrome.google.com/webstore/detail/pandabuy-currency-convert/bmefkfichlgfpmgdpkgkkebpdkfhbmnm' target='_blank'>here</Link>. Then, open the extension modal : <img src="/PCCPopup.webp" class="inline rounded" style="height: 100px;"> and activate it by switching the toggle switch. Then you can select the currency you want to convert to (ex : Euro, US Dollar, ...).
-
-You can now navigate to any Pandabuy related e-commerce website (ex : pandabuy.com, taobao.com, ...). If you just want to to try, here is a random link : <Link href='https://www.pandabuy.com/product?url=https%3A%2F%2Fweidian.com%2Fitem.html%3FitemID%3D4886458512' target='_blank'>Link</Link>.
+Enhance your Pandabuy shopping experience with PCC! This versatile Chrome extension automates currency conversion, customizes <Link href='https://bionic-reading.com/' target='_blank'>yupoo.com</Link>, and seamlessly connects you to Pandabuy. Say goodbye to manual conversions, enjoy clutter-free <Link href='https://bionic-reading.com/' target='_blank'>yupoo.com</Link>, and effortlessly browse Chinese marketplaces. Shop smarter with PCC today!
