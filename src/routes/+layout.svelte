@@ -14,7 +14,7 @@
     onMount(() => {
         setTimeout(() => {
             isLoaded = true;
-        }, 400)
+        }, 400);
     });
 </script>
 
