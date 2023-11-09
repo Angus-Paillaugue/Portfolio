@@ -203,9 +203,13 @@
                     <h4 class="text-primary-600 font-bold">ABOUT ME</h4>
                     <h4 class="font-bold">A dedicated Full-stack Developer based in Toulouse, France 📍</h4>
                     <p class="leading-6">As a Junior Full-Stack Developer, I possess an impressive arsenal of skills in HTML, CSS, JavaScript, Tailwind, SvelteKit and MongoDB. I excel in designing and maintaining responsive websites that offer a smooth user experience. My expertise lies in crafting dynamic, engaging interfaces through writing clean and optimized code and utilizing cutting-edge development tools and techniques. I am also a team player who thrives in collaborating with cross-functional teams to produce outstanding web applications.</p>
-                    <a href="myCv.pdf" target="_blank" class="button-primary-animation w-fit group">
+                    <a href="myCv.pdf" target="_blank" class="button-primary w-fit group">
                         My CV
-                        <svg class="w-5 h-5 absolute right-0 flex items-center justify-start duration-300 transform translate-x-full group-hover:-translate-x-full ease" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+
+                        <svg class="relative w-6 h-6 transition-all -mr-2 group-hover:translate-x-1.5 duration-300" viewBox="0 0 16 16" fill="none">
+                            <path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"></path>
+                            <path class="transition-all group-hover:[stroke-dashoffset:20] [stroke-dasharray:10] [stroke-dashoffset:10] duration-300" stroke="currentColor" d="M1.75 8H11" stroke-width="1.5" stroke-linecap="round"></path>
+                        </svg>
                     </a>
                     <div class="flex flex-row flex-wrap gap-5">
                         {#each socials as social}
