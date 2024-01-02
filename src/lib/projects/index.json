@@ -18,7 +18,7 @@
         "link":"https://blog.paillaugue.fr",
         "imgSrc":"Code-Chronicles.webp",
         "description":"This app was my first contact with Sveltekit. It allowed me to learn the fundamentals principles of Sveltekit.",
-        "languages":[ "SvelteKit", "TailwindCSS", "MongoDB" ]
+        "languages":[ "SvelteKit", "TailwindCSS", "Markdown" ]
     },
     {
         "title":"LinkTrim",
