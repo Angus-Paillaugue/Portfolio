@@ -7,6 +7,13 @@
         "languages":[ "Javascript", "CSS" ]
     },
     {
+        "title":"Code Chronicles",
+        "link":"https://blog.paillaugue.fr",
+        "imgSrc":"Code-Chronicles.webp",
+        "description":"This app was my first contact with Sveltekit. It allowed me to learn the fundamentals principles of Sveltekit.",
+        "languages":[ "SvelteKit", "TailwindCSS", "Markdown" ]
+    },
+    {
         "title":"Shop",
         "link":"https://shop.paillaugue.fr",
         "imgSrc":"Shop.webp",
@@ -14,11 +21,11 @@
         "languages":[ "SvelteKit", "TailwindCSS", "MongoDB" ]
     },
     {
-        "title":"Code Chronicles",
-        "link":"https://blog.paillaugue.fr",
-        "imgSrc":"Code-Chronicles.webp",
-        "description":"This app was my first contact with Sveltekit. It allowed me to learn the fundamentals principles of Sveltekit.",
-        "languages":[ "SvelteKit", "TailwindCSS", "Markdown" ]
+        "title":"Portfolio",
+        "link":"https://angus.paillaugue.fr",
+        "imgSrc":"portfolio.webp",
+        "description":"This project is simply the one you are looking at right now!",
+        "languages":[ "SvelteKit", "TailwindCSS" ]
     },
     {
         "title":"LinkTrim",
@@ -33,13 +40,6 @@
         "imgSrc":"SignItNow.webp",
         "description":"SignItNow is a website where you can create and sign petitions.",
         "languages":[ "SvelteKit", "Javascript", "TailwindCSS", "MongoDB" ]
-    },
-    {
-        "title":"Portfolio",
-        "link":"https://angus.paillaugue.fr",
-        "imgSrc":"portfolio.webp",
-        "description":"This project is simply the one you are looking at right now!",
-        "languages":[ "SvelteKit", "TailwindCSS" ]
     },
     {
         "title":"Bionic reading",

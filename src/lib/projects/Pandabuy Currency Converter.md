@@ -1,5 +1,7 @@
 <script>
-    import { Link } from "$lib/components"
+    import { Link } from "$lib/components";
 </script>
 
-Enhance your Pandabuy shopping experience with PCC! This versatile Chrome extension automates currency conversion, customizes <Link href='https://bionic-reading.com/' target='_blank'>yupoo.com</Link>, and seamlessly connects you to Pandabuy. Say goodbye to manual conversions, enjoy clutter-free <Link href='https://bionic-reading.com/' target='_blank'>yupoo.com</Link>, and effortlessly browse Chinese marketplaces. Shop smarter with PCC today!
+This project is a bit different from the others because it is not primarily a website but a chrome extension accompanied by a small website.
+
+This chrome extension is destined to peoples who uses <Link href='https://www.pandabuy.com/' target='_blank'>Pandabuy</Link>. The extension has many features like Currency conversion (converts currencies on the Pandabuy website to your chosen one)

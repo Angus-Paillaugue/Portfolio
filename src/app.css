@@ -33,7 +33,7 @@ body {
 }
 
 .button-primary-animation {
-  @apply text-white overflow-hidden bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 shadow-primary-700 dark:shadow-primary-500 hover:shadow-lg hover:dark:shadow-sm inline-flex flex-row items-center justify-center gap-2 px-5 py-2 sm:py-3 sm:px-8 text-sm sm:text-base font-semibold transition-all duration-200 border border-white hover:rounded-lg rounded-3xl focus:outline-none disabled:cursor-not-allowed sm:hover:pr-14 relative overflow-hidden;
+  @apply text-white bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 shadow-primary-700 dark:shadow-primary-500 hover:shadow-lg hover:dark:shadow-sm inline-flex flex-row items-center justify-center gap-2 px-5 py-2 sm:py-3 sm:px-8 text-sm sm:text-base font-semibold transition-all duration-200 border border-white hover:rounded-lg rounded-3xl focus:outline-none disabled:cursor-not-allowed sm:hover:pr-14 relative overflow-hidden;
 }
 .button-primary.small {
   @apply px-3 py-1 sm:py-2 sm:px-5 hover:rounded-md;
@@ -81,22 +81,4 @@ h6 {
 }
 p {
   @apply block text-base leading-8 font-light dark:text-gray-300 text-text-main font-['Mulish'];
-}
-
-.card {
-  @apply rounded-lg md:p-10 p-6 w-full flex flex-col items-start gap-4 bg-transparent dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-200;
-}
-
-main {
-  @apply sm:ml-16 lg:ml-40 mb-16 sm:mb-0;
-}
-
-.card-button {
-  @apply rounded-lg md:p-10 p-6 w-full flex flex-col justify-start items-start gap-6 bg-transparent dark:bg-gray-700 cursor-pointer disabled:cursor-not-allowed text-xl text-start hover:shadow-lg hover:-translate-y-1 transition-all dark:shadow-gray-700 border dark:border-gray-600 border-gray-200;
-}
-.card-button p {
-  @apply leading-5 mt-2;
-}
-.card-button i {
-  @apply text-2xl;
 }
