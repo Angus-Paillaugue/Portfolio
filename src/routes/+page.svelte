@@ -4,33 +4,23 @@
     import { reveal } from 'svelte-reveal';
     import { onMount } from "svelte";
     import { fly } from "svelte/transition";
+    import { enhance } from '$app/forms';
 
-    let email;
-    let message;
-    let contactButton;
+    export let form;
+
     let navLinkUnderline;
     let sectionsList = [];
     let sections = {};
-    let navBarToggle = false;
-    let isSendingForm = false;
+    let navBarToggle = false
+    let isSendingContactForm = false;
 
-    async function contact(){
-        if(isSendingForm) return;
-        if(!email || !message) return;
-        if(email?.length === 0 || message?.length === 0) return;
-        isSendingForm = true;
-        contactButton.innerHTML = "<div role='status'><svg aria-hidden='true' class='inline w-4 h-4 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-primary-600' viewBox='0 0 100 101' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z' fill='currentColor'/><path d='M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z' fill='currentFill'/></svg><span class='sr-only'>Loading...</span></div>";
-        await fetch('/contact', {
-            method: 'POST',
-            body: JSON.stringify({ email, message }),
-            headers: {'content-type': 'application/json'}
-        });
-        
-        contactButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 inline-block"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>`;
-        isSendingForm = false;
-        setTimeout(() => {
-            contactButton.innerHTML = "Submit";
-        }, 2000);
+    $: {
+        if(form) {
+            if(form?.success)
+                setTimeout(() => (form = null), 2000);
+            else
+                setTimeout(() => (form = null), 5000);
+        }
     }
 
     const theme = "light";
@@ -291,18 +281,42 @@
     <section id="Contact" class="p-4 lg:p-10 sm:p-6">
     
         <div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10">
-            <form on:submit|preventDefault={contact} class="rounded-lg md:p-10 p-6 items-start bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 flex flex-col gap-5 w-full" use:reveal={{ transition: "fly", duration:200, y:60 }}>
+            <form method="POST" action="?/contact" class="rounded-lg md:p-10 p-6 items-start bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 flex flex-col gap-5 w-full" use:reveal={{ transition: "fly", duration:200, y:60 }} use:enhance={() => {
+				isSendingContactForm = true;
+                return ({ update }) => {
+                    isSendingContactForm = false;
+                    update({ reset: false });
+                }
+			}}>
                 <h4 class="text-primary-600 font-extrabold">CONTACT ME</h4>
                 <div class="w-full">
                     <label for="email" class="mb-2">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="Your e-mail" class="border text-sm rounded-lg block w-full p-2.5 bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 placeholder-neutral-400 dark:text-white focus:ring-primary-500 focus:border-primary-500 focus:outline-none outline-none transition-all caret-primary-600 focus:ring-offset-white focus:ring-offset-2 focus:ring-2" bind:value={email}/>
+                    <input type="email" id="email" name="email" placeholder="Your e-mail" class="border text-sm rounded-lg block w-full p-2.5 bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 placeholder-neutral-400 dark:text-white focus:ring-primary-500 focus:border-primary-500 focus:outline-none outline-none transition-all caret-primary-600 focus:ring-offset-white focus:ring-offset-2 focus:ring-2"/>
                 </div>
                 <div class="w-full">
                     <label for="message" class="mb-2">Message</label>
-                    <textarea id="message" placeholder="Your message" rows="8" name="message" class="border text-sm rounded-lg block w-full p-2.5 bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 placeholder-neutral-400 dark:text-white focus:ring-primary-500 focus:border-primary-500 focus:outline-none outline-none transition-all caret-primary-600 focus:ring-offset-white focus:ring-offset-2 focus:ring-2" bind:value={message}/>
+                    <textarea id="message" placeholder="Your message" rows="8" name="message" class="border text-sm rounded-lg block w-full p-2.5 bg-neutral-100 dark:bg-neutral-800 border-neutral-300 dark:border-neutral-700 placeholder-neutral-400 dark:text-white focus:ring-primary-500 focus:border-primary-500 focus:outline-none outline-none transition-all caret-primary-600 focus:ring-offset-white focus:ring-offset-2 focus:ring-2"/>
                 </div>
-                <button type="submit" class="button-primary w-full" disabled="{isSendingForm}" bind:this={contactButton}>
-                    Submit
+
+                {#if form}
+                    <div class="flex flex-row p-4 rounded-lg items-center w-full {form.success ? "bg-primary-600" : "bg-red-600"} gap-2">
+                        {#if form.success}
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-white"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <p class="text-white">Your message has been sent successfully</p>
+                        {:else}
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-white"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                            <p class="text-white
+                            ">An error occurred, please try again later</p>
+                        {/if}
+                    </div>
+                {/if}
+
+                <button type="submit" class="button-primary w-full" disabled={isSendingContactForm}>
+                    {#if isSendingContactForm}
+                        <div role='status'><svg aria-hidden='true' class='inline w-4 h-4 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-primary-600' viewBox='0 0 100 101' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z' fill='currentColor'/><path d='M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z' fill='currentFill'/></svg><span class='sr-only'>Loading...</span></div>
+                    {:else}
+                        Submit
+                    {/if}
                 </button>
             </form>
         </div>
