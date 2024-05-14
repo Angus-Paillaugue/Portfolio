@@ -1,10 +1,25 @@
 <script>
     import languages from "$lib/languages";
-    
+    import { onMount } from "svelte";
+
     export let data;
-    
+
     const theme = "light";
     const project = data.project;
+    let article;
+
+    onMount(() => {
+        // Add classes to the heading elements
+        const headings = article.querySelectorAll('h1,h2,h3,h4,h5,h6');
+        headings.forEach((heading) => {
+        heading.classList.add('article-heading');
+        });
+        // Add classes to the paragraph elements
+        const paragraphs = article.querySelectorAll('p');
+        paragraphs.forEach((paragraph) => {
+        paragraph.classList.add('article-text');
+        });
+    });
 </script>
 
 <svelte:head>
@@ -13,7 +28,7 @@
 </svelte:head>
 
 <button onclick="history.back()" class="fixed top-6 left-6 flex flex-col justify-center items-center bg-gray-100 rounded-full w-10 h-10 hover:scale-110 transition-all">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg>      
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" /></svg>
 </button>
 
 <section id="work" class="p-4 lg:p-10 sm:p-6">
@@ -36,7 +51,9 @@
                     </div>
                 </div>
             </div>
-            <svelte:component this={data.component} />
+            <article bind:this={article}>
+                <svelte:component this={data.component} />
+            </article>
         </div>
     </div>
 </section>

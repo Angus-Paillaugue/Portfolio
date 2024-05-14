@@ -82,3 +82,84 @@ h6 {
 p {
   @apply block text-base leading-8 font-light dark:text-gray-300 text-text-main font-['Mulish'];
 }
+
+
+/* Posts CSS */
+
+h1.article-heading {
+  @apply text-4xl font-bold mb-4;
+}
+
+h2.article-heading {
+  @apply text-3xl font-bold mb-4;
+}
+
+h3.article-heading {
+  @apply text-2xl font-bold mb-4;
+}
+
+h4.article-heading {
+  @apply text-xl font-bold mb-4;
+}
+
+h5.article-heading {
+  @apply text-lg font-bold mb-4;
+}
+
+h6.article-heading {
+  @apply text-base font-bold mb-4;
+}
+
+p.article-text {
+  text-wrap: none;
+  @apply mb-4 font-normal text-lg leading-8;
+}
+
+p.article-text:last-child {
+  @apply mb-0;
+}
+
+p.article-text+.article-heading {
+  @apply mt-10;
+}
+
+p.article-text:last-child {
+  @apply mb-0;
+}
+
+
+/* Code */
+
+code {
+  counter-reset: step;
+  counter-increment: step 0;
+  direction: ltr;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  font-variant-ligatures: normal;
+  @apply hyphens-none;
+}
+
+.shiki {
+  @apply rounded-md relative mb-4 py-2 pr-14;
+}
+
+code .line::before {
+  content: counter(step);
+  counter-increment: step;
+  font-variant-numeric: tabular-nums;
+  @apply inline-block text-right mr-2 text-neutral-500 dark:text-neutral-400 w-6
+}
+
+/* ! Same bg color as the code blocks (set by the theme in `mdsvex.config.js`) */
+code:not(pre code) {
+  @apply rounded-md bg-[#282c34] text-gray-300 px-1 py-0.5 text-base;
+}
+
+
+/* Others */
+
+kbd {
+  @apply font-mono text-sm bg-neutral-300 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-200 rounded-md px-2 py-1;
+}

@@ -1,7 +1,5 @@
-export async function load({ params, data }) {
-    const { name } = params;
-    
-    const component = await import(`../../../lib/projects/${name}.md`);
-    
+export async function load({ data }) {
+    const component = await import(`../../../lib/projects/${data.project.slug}.md`);
+
     return { component: component.default, ...data }
 };

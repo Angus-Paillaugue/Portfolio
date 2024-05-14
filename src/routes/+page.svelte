@@ -34,9 +34,9 @@
             sectionsList.forEach(function(e) {
                 sections[e.id] = e.getBoundingClientRect().top + window.scrollY;
             });
-    
+
             setActiveTab();
-            
+
             window.onscroll = setActiveTab;
             window.onresize = setActiveTab;
 
@@ -52,7 +52,7 @@
 
     function setActiveTab() {
         let scrollPosition = (document.documentElement.scrollTop || document.body.scrollTop) + window.innerHeight / 4;
-            
+
         for (let i in sections) {
             if (sections[i] <= scrollPosition) {
                 document.querySelectorAll('[data-section]').forEach(el => {
@@ -128,11 +128,11 @@
                     </a>
                 </div>
             </div>
-    
+
             <div class="block md:w-2/5 w-full max-w-xs mx-auto" in:fly={{y: 100, delay:250}}>
                 <div class="w-full aspect-square bg-no-repeat bg-cover bg-center border-2 border-primary-600 transition-all duration-1000 ease-in-out shadow-2xl" style="border-radius: 28% 72% 22% 78% / 39% 23% 77% 61%; transform: rotate(0deg); animation: morph 8s ease-in-out infinite; background-image: url('angus.webp');"></div>
             </div>
-    
+
             <!-- Blob animation -->
             <style>
                 @keyframes morph {
@@ -180,11 +180,11 @@
 
     <div class="absolute bottom-0 left-0 w-full h-64" style="z-index: -19;background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);"></div>
 
-    
+
     <section id="About" class="p-4 lg:p-10 sm:p-6 flex flex-col lg:justify-center items-center">
 
         <div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10">
-            
+
             <div class="grid lg:grid-cols-2 grid-cols-1 items-center md:gap-10 gap-0 w-full mx-auto rounded-lg lg:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300" use:reveal={{ transition: "fly", duration:200, y:60 }}>
                 <div class="w-full lg:w-auto h-full lg:aspect-auto aspect-square relative lg:-mt-0 -mt-20 lg:-ml-20 -ml-0 rounded-lg bg-cover bg-no-repeat bg-center" style="background-image: url(aboutImg.webp);">
                     <div class="absolute top-0 left-0 h-full w-full z-10 opacity-70 rounded-2xl" style="background: url(noise.webp) repeat;background-blend-mode: overlay;"></div>
@@ -211,22 +211,22 @@
                 </div>
             </div>
         </div>
-        
+
     </section>
 
     <section id="Work" class="p-4 lg:p-20 sm:p-6">
         <div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10">
             <h4 class="text-primary-600 font-extrabold">MY PROJECTS</h4>
-    
+
             {#each projects as project, index}
                 <div class="{index % 2 == 0 ? "row" : "row-reverse"} grid lg:grid-cols-5 grid-cols-1 lg:grid-flow-col rounded-2xl lg:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 project" use:reveal={{ transition: "fly", duration:200, y:60 }}>
                     <div class="rounded-2xl border border-gray-300 lg:col-span-3 h-fit my-auto {index % 2 == 0 ? "lg:-mt-0 -mt-9 lg:-ml-20 -ml-9 lg:-mr-0 -mr-9 lg:col-start-1" : "lg:-mt-0 -mt-9 lg:-ml-0 -ml-9 lg:-mr-20 -mr-9 lg:col-start-3"}">
                         <img src="/{project.imgSrc}" alt="{project.title}" class="rounded-2xl w-full">
                     </div>
-                    
+
                     <div class="flex flex-col w-full gap-4 justify-between lg:col-span-2 {index % 2 == 0 ? "lg:pl-4 lg:col-start-4" :"lg:pr-4 lg:col-start-1"}">
                         <div class="flex flex-col w-full gap-4">
-                            <a href="/project/{project.title}" class="w-fit link break-all">
+                            <a href="/project/{project.title.split(' ').join('-').toLowerCase()}" class="w-fit link break-all">
                                 <h4 class="font-bold">{project.title}</h4>
                             </a>
 
@@ -241,7 +241,7 @@
                                 More info
                                 <svg class="w-5 h-5 absolute right-0 flex items-center justify-start duration-300 transform translate-x-full group-hover:-translate-x-2 ease" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </a> -->
-                            <a href="/project/{project.title}" class="button-primary small group w-fit">
+                            <a href="/project/{project.title.split(' ').join('-').toLowerCase()}" class="button-primary small group w-fit">
                                 <span class="transition-all duration-200 group-hover:-translate-y-[110%]">
                                     More info
                                 </span>
@@ -260,9 +260,9 @@
             {/each}
         </div>
     </section>
-    
+
     <section id="Experience" class="p-4 lg:p-10 sm:p-6">
-    
+
         <div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10">
             <h4 class="text-primary-600 font-extrabold">MY EXPERIENCES</h4>
             <div class="rounded-lg md:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300" use:reveal={{ transition: "fly", y:60, duration:300 }}>
@@ -279,7 +279,7 @@
     </section>
 
     <section id="Contact" class="p-4 lg:p-10 sm:p-6">
-    
+
         <div class="w-full max-w-4xl mx-auto py-24 flex flex-col gap-10">
             <form method="POST" action="?/contact" class="rounded-lg md:p-10 p-6 items-start bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300 flex flex-col gap-5 w-full" use:reveal={{ transition: "fly", duration:200, y:60 }} use:enhance={() => {
 				isSendingContactForm = true;
@@ -320,7 +320,7 @@
                 </button>
             </form>
         </div>
-    
+
     </section>
 </div>
 

@@ -22,7 +22,12 @@
 	"type": "module",
 	"dependencies": {
 		"depcheck": "^1.4.7",
+		"node-html-parser": "^6.1.13",
 		"nodemailer": "^6.9.3",
+		"rehype-slug": "^6.0.0",
+		"remark-flexible-code-titles": "^1.2.0",
+		"remark-unwrap-images": "^4.0.0",
+		"shiki": "^1.5.2",
 		"svelte-preprocess": "^5.0.4",
 		"tailwind-merge": "^1.13.2"
 	}
