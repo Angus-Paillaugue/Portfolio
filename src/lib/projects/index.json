@@ -3,7 +3,7 @@
         "title":"Nothing Notes",
         "link":"https://notes.paillaugue.fr",
         "imgSrc":"Nothing-Notes.webp",
-        "description":"Note taking app based ont The Nothing&#8482; design",
+        "description":"Note taking app based ont the Nothing&#8482; design",
         "languages":[ "SvelteKit", "Javascript", "TailwindCSS", "MongoDB" ],
         "slug":"Nothing-Notes"
     },
