@@ -8,20 +8,20 @@
         "slug":"Nothing-Notes"
     },
     {
-        "title":"Pandabuy Currency Converter",
-        "link":"https://pcc.paillaugue.fr/",
-        "imgSrc":"PCC.webp",
-        "description":"Enhance your Pandabuy shopping experience with PCC! This versatile Chrome extension automates currency conversion, customizes Yuppo.com, and seamlessly connects you to Pandabuy. Say goodbye to manual conversions, enjoy clutter-free Yuppo.com, and effortlessly browse Chinese marketplaces. Shop smarter with PCC today!",
-        "languages":[ "Javascript", "CSS" ],
-        "slug":"Pandabuy Currency Converter"
-    },
-    {
         "title":"Code Chronicles",
         "link":"https://blog.paillaugue.fr",
         "imgSrc":"Code-Chronicles.webp",
         "description":"This app was my first contact with Sveltekit. It allowed me to learn the fundamentals principles of Sveltekit.",
         "languages":[ "SvelteKit", "TailwindCSS", "Markdown" ],
         "slug":"Code Chronicles"
+    },
+    {
+        "title":"Pandabuy Currency Converter",
+        "link":"https://pcc.paillaugue.fr/",
+        "imgSrc":"PCC.webp",
+        "description":"Enhance your Pandabuy shopping experience with PCC! This versatile Chrome extension automates currency conversion, customizes Yuppo.com, and seamlessly connects you to Pandabuy. Say goodbye to manual conversions, enjoy clutter-free Yuppo.com, and effortlessly browse Chinese marketplaces. Shop smarter with PCC today!",
+        "languages":[ "Javascript", "CSS" ],
+        "slug":"Pandabuy Currency Converter"
     },
     {
         "title":"Shop",
@@ -40,6 +40,14 @@
         "slug":"Portfolio"
     },
     {
+        "title":"Bionic reading",
+        "link":"https://github.com/Angus-Paillaugue/bionicReading",
+        "imgSrc":"bionicReading.webp",
+        "description":"This chrome extension is based on <Link href='https://bionic-reading.com/' target='_blank'>bionic reading</Link> (a method that helps reading faster). Downloading this extension will, on all webpages, highlight letters on the bionic reading principle.",
+        "languages":[ "JQuery" ],
+        "slug":"Bionic reading"
+    },
+    {
         "title":"LinkTrim",
         "link":"https://linktrim.paillaugue.fr",
         "imgSrc":"LinkTrim.webp",
@@ -54,13 +62,5 @@
         "description":"SignItNow is a website where you can create and sign petitions.",
         "languages":[ "SvelteKit", "Javascript", "TailwindCSS", "MongoDB" ],
         "slug":"SignItNow"
-    },
-    {
-        "title":"Bionic reading",
-        "link":"https://github.com/Angus-Paillaugue/bionicReading",
-        "imgSrc":"bionicReading.webp",
-        "description":"This chrome extension is based on <Link href='https://bionic-reading.com/' target='_blank'>bionic reading</Link> (a method that helps reading faster). Downloading this extension will, on all webpages, highlight letters on the bionic reading principle.",
-        "languages":[ "JQuery" ],
-        "slug":"Bionic reading"
     }
 ]

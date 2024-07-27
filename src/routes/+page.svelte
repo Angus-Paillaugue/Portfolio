@@ -267,10 +267,16 @@
             <h4 class="text-primary-600 font-extrabold">MY EXPERIENCES</h4>
             <div class="rounded-lg md:p-10 p-6 bg-white dark:bg-gray-700 text-start transition-all border dark:border-gray-600 border-gray-300" use:reveal={{ transition: "fly", y:60, duration:300 }}>
                 <ol class="relative border-l border-gray-300 dark:border-gray-700 ">
+                    <li class="ml-4 mb-4">
+                        <div class="absolute w-3 h-3 bg-gray-300 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
+                        <time class="mb-1 text-sm font-normal leading-none text-text-main dark:text-gray-500">August 2024 - Today</time>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Trainer at McDonald's</h3>
+                        <!-- <p class="text-base font-normal text-gray-500 dark:text-gray-400">Description</p> -->
+                    </li>
                     <li class="ml-4">
                         <div class="absolute w-3 h-3 bg-gray-300 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
-                        <time class="mb-1 text-sm font-normal leading-none text-text-main dark:text-gray-500">November 2021 - Today</time>
-                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">McDonald's crew member</h3>
+                        <time class="mb-1 text-sm font-normal leading-none text-text-main dark:text-gray-500">November 2021 - July 2024</time>
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Crew member McDonald's</h3>
                         <!-- <p class="text-base font-normal text-gray-500 dark:text-gray-400">Description</p> -->
                     </li>
                 </ol>
