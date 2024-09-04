@@ -1,1 +1,0 @@
-This project is simply the one you are looking at right now! This project (my second one using Svelte) is only a front-end composed of Svelte and TailwindCSS. There is no complicated part of the project just a big amount of code and components witch took me nearly two weeks to build because I was staring with Svelte. 

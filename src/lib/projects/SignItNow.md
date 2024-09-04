@@ -1,1 +1,0 @@
-SignItNow is a website where you can create and sign petitions.

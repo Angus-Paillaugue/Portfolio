@@ -1,34 +1,34 @@
 {
-	"name": "svelteportfolio",
+	"name": "portfolio-2",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"depcheck": "npx depcheck --detailed"
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-vercel": "^3.0.1",
-		"@sveltejs/kit": "^1.20.4",
-		"autoprefixer": "^10.4.14",
-		"mdsvex": "^0.11.0",
-		"postcss": "^8.4.24",
-		"svelte": "^4.0.0",
-		"svelte-reveal": "^0.7.0",
-		"tailwindcss": "^3.3.2",
-		"vite": "^4.3.6"
+		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^4.0.0-next.6",
+		"@types/eslint": "^9.6.0",
+		"autoprefixer": "^10.4.20",
+		"eslint": "^9.0.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-svelte": "^2.36.0",
+		"globals": "^15.0.0",
+		"postcss": "^8.4.45",
+		"prettier": "^3.1.1",
+		"prettier-plugin-svelte": "^3.1.2",
+		"svelte": "^5.0.0-next.1",
+		"tailwindcss": "^3.4.10",
+		"vite": "^5.0.3"
 	},
 	"type": "module",
 	"dependencies": {
-		"depcheck": "^1.4.7",
-		"node-html-parser": "^6.1.13",
-		"nodemailer": "^6.9.3",
-		"rehype-slug": "^6.0.0",
-		"remark-flexible-code-titles": "^1.2.0",
-		"remark-unwrap-images": "^4.0.0",
-		"shiki": "^1.5.2",
-		"svelte-preprocess": "^5.0.4",
-		"tailwind-merge": "^1.13.2"
+		"clsx": "^2.1.1",
+		"tailwind-merge": "^2.5.2"
 	}
 }

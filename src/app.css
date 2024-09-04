@@ -1,165 +1,115 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900;1000&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
-  @apply w-2;
-}
-::-webkit-scrollbar-track {
-  @apply bg-white;
-}
-::-webkit-scrollbar-thumb {
-  @apply rounded-full bg-neutral-400;
-}
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-neutral-500;
-}
-::selection {
-  @apply text-neutral-100 bg-primary-600;
+@layer utilities {
+	/* Hide scrollbar for Chrome, Safari and Opera */
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* Hide scrollbar for IE, Edge and Firefox */
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		/* IE and Edge */
+		scrollbar-width: none;
+		/* Firefox */
+	}
 }
 
 * {
-	scroll-behavior: smooth;
+	@apply scroll-smooth outline-offset-4 !outline-blue-600 focus:outline-1;
 }
-*:focus-visible {
-	@apply ring-1 ring-white ring-offset-2 ring-offset-neutral-900;
+
+html {
+	@apply scroll-pt-20 font-sans md:scroll-pt-28;
 }
 
 body {
-  @apply bg-white dark:bg-neutral-800 overflow-x-hidden text-text-main;
+	@apply font-['Poppins'];
 }
 
-.button-primary-animation {
-  @apply text-white bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 shadow-primary-700 dark:shadow-primary-500 hover:shadow-lg hover:dark:shadow-sm inline-flex flex-row items-center justify-center gap-2 px-5 py-2 sm:py-3 sm:px-8 text-sm sm:text-base font-semibold transition-all duration-200 border border-white hover:rounded-lg rounded-3xl focus:outline-none disabled:cursor-not-allowed sm:hover:pr-14 relative overflow-hidden;
-}
-.button-primary.small {
-  @apply px-3 py-1 sm:py-2 sm:px-5 hover:rounded-md;
-}
-.button-primary-animation.small {
-  @apply px-3 py-1 sm:py-2 sm:px-5 hover:pr-9 hover:rounded-md;
-}
-.button-primary {
-  @apply text-white overflow-hidden bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 shadow-primary-700 dark:shadow-primary-500 hover:shadow-lg hover:dark:shadow-sm inline-flex flex-row items-center justify-center gap-2 px-5 py-2 sm:py-3 sm:px-8 text-sm sm:text-base font-semibold transition-all duration-200 border border-white hover:rounded-lg rounded-3xl focus:outline-none disabled:cursor-not-allowed relative;
-}
-[class^='button-']:not(.no-scale), button:not(.no-scale) {
-	@apply active:scale-95 transition-all duration-200;
-}
-.languageIcon {
-  @apply transition-all duration-500 ease-in-out hover:-translate-y-3 cursor-pointer hover:drop-shadow-xl hover:scale-105;
-}
-.link {
-  @apply font-medium text-primary-600 dark:text-primary-700 hover:underline cursor-pointer transition-all;
+::-webkit-scrollbar {
+	@apply h-2 w-2;
 }
 
-hr {
-  @apply my-4 border-gray-300 dark:border-gray-700 w-full;
+::-webkit-scrollbar-track {
+	@apply bg-inherit;
 }
-label {
-  @apply font-semibold;
+
+::-webkit-scrollbar-thumb {
+	@apply rounded-full bg-neutral-300;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	@apply bg-neutral-400;
+}
+
+::selection,
+::-moz-selection {
+	@apply bg-blue-300 text-blue-950;
+}
+
+/* Text */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@apply text-white;
+}
+
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+	@apply text-neutral-800;
+}
+main p {
+	@apply text-neutral-700;
 }
 
 h1 {
-  @apply text-4xl font-sans font-semibold text-text-main;
+	@apply text-5xl font-medium leading-[3.5rem] md:font-semibold md:leading-[4rem];
 }
+
 h2 {
-  @apply text-3xl font-sans font-semibold text-text-main;
+	@apply text-2xl font-bold leading-6;
 }
+
 h3 {
-  @apply text-2xl font-sans font-semibold text-text-main;
+	@apply text-xl font-semibold leading-6;
 }
+
 h4 {
-  @apply text-xl font-sans font-semibold text-text-main;
+	@apply text-xl font-semibold;
 }
+
 h5 {
-  @apply text-lg font-sans font-semibold text-text-main;
+	@apply text-lg font-semibold;
 }
+
 h6 {
-  @apply text-base font-sans font-semibold text-text-main;
-}
-p {
-  @apply block text-base leading-8 font-light dark:text-gray-300 text-text-main font-['Mulish'];
+	@apply text-base font-semibold;
 }
 
-
-/* Posts CSS */
-
-h1.article-heading {
-  @apply text-4xl font-bold mb-4;
+p,
+li {
+	@apply font-['JetBrains_Mono'] text-base font-medium leading-6 text-neutral-600;
 }
 
-h2.article-heading {
-  @apply text-3xl font-bold mb-4;
+span,
+small {
+	@apply text-neutral-600;
 }
 
-h3.article-heading {
-  @apply text-2xl font-bold mb-4;
+small {
+	@apply text-xs;
 }
 
-h4.article-heading {
-  @apply text-xl font-bold mb-4;
-}
-
-h5.article-heading {
-  @apply text-lg font-bold mb-4;
-}
-
-h6.article-heading {
-  @apply text-base font-bold mb-4;
-}
-
-p.article-text {
-  text-wrap: none;
-  @apply mb-4 font-normal text-lg leading-8;
-}
-
-p.article-text:last-child {
-  @apply mb-0;
-}
-
-p.article-text+.article-heading {
-  @apply mt-10;
-}
-
-p.article-text:last-child {
-  @apply mb-0;
-}
-
-
-/* Code */
-
-code {
-  counter-reset: step;
-  counter-increment: step 0;
-  direction: ltr;
-  -moz-tab-size: 2;
-  -o-tab-size: 2;
-  tab-size: 2;
-  font-variant-ligatures: normal;
-  @apply hyphens-none;
-}
-
-.shiki {
-  @apply rounded-md relative mb-4 py-2 pr-14;
-}
-
-code .line::before {
-  content: counter(step);
-  counter-increment: step;
-  font-variant-numeric: tabular-nums;
-  @apply inline-block text-right mr-2 text-neutral-500 dark:text-neutral-400 w-6
-}
-
-/* ! Same bg color as the code blocks (set by the theme in `mdsvex.config.js`) */
-code:not(pre code) {
-  @apply rounded-md bg-[#282c34] text-gray-300 px-1 py-0.5 text-base;
-}
-
-
-/* Others */
-
-kbd {
-  @apply font-mono text-sm bg-neutral-300 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-200 rounded-md px-2 py-1;
+hr {
+	@apply mx-4 my-20 rounded-full border-dashed border-neutral-300;
 }
