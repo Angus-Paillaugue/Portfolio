@@ -28,7 +28,12 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@shikijs/transformers": "^1.16.2",
+		"@sveltejs/enhanced-img": "^0.3.4",
 		"clsx": "^2.1.1",
+		"lenis": "^1.1.13",
+		"mdsvex": "^0.12.3",
+		"shiki": "^1.16.2",
 		"tailwind-merge": "^2.5.2"
 	}
 }

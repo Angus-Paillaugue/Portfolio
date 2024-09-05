@@ -17,8 +17,12 @@
 	}
 }
 
+:root {
+	--color-primary: 37, 99, 235;
+}
+
 * {
-	@apply scroll-smooth outline-offset-4 !outline-blue-600 focus:outline-1;
+	@apply scroll-smooth outline-offset-4 !outline-primary focus:outline-1;
 }
 
 html {
@@ -47,7 +51,7 @@ body {
 
 ::selection,
 ::-moz-selection {
-	@apply bg-blue-300 text-blue-950;
+	@apply bg-primary/30 text-primary;
 }
 
 /* Text */
@@ -73,7 +77,7 @@ main p {
 }
 
 h1 {
-	@apply text-5xl font-medium leading-[3.5rem] md:font-semibold md:leading-[4rem];
+	@apply text-3xl lg:text-5xl font-medium leading-[3rem] md:font-semibold md:leading-[4rem];
 }
 
 h2 {
@@ -111,5 +115,57 @@ small {
 }
 
 hr {
-	@apply mx-4 my-20 rounded-full border-dashed border-neutral-300;
+	border: none;
+	border-bottom: 2px dashed theme('colors.neutral.300');
+	@apply mx-4 my-32 rounded-full;
+}
+
+/* Base styles for all code blocks thru out the app */
+code {
+	counter-reset: codeStep;
+	counter-increment: codeStep 0;
+	direction: ltr;
+	-moz-tab-size: 2;
+	-o-tab-size: 2;
+	tab-size: 2;
+	@apply hyphens-none whitespace-pre-wrap ligatures-normal;
+}
+
+/* Highlighted code blocks */
+.shiki {
+	@apply relative overflow-auto whitespace-pre rounded-xl border border-neutral-300/50 !bg-neutral-50 py-6 focus:-outline-offset-1;
+}
+
+.line-numbers .line::before {
+	content: counter(codeStep);
+	counter-increment: codeStep;
+	font-variant-numeric: tabular-nums;
+	@apply inline-block w-6 text-left text-neutral-800;
+}
+
+/* For regular code blocks */
+pre > code .line {
+	@apply relative inline-block w-full px-6;
+}
+
+pre > code {
+	@apply block w-full;
+}
+
+/* For highlighted lines */
+.diff.remove {
+	@apply bg-red-600/20 after:absolute after:left-2 after:top-1/2 after:-translate-y-1/2 after:text-red-600 after:content-['-'];
+}
+
+.diff.add {
+	@apply bg-green-600/20 after:absolute after:left-2 after:top-1/2 after:-translate-y-1/2 after:text-green-600 after:content-['+'];
+}
+
+.highlighted {
+	@apply bg-neutral-600/20 after:absolute after:left-0 after:h-full after:w-[2px] after:bg-neutral-600;
+}
+
+/* Inline code */
+code:not(pre code, .command) {
+	@apply rounded bg-neutral-300 px-0.5 text-neutral-900;
 }

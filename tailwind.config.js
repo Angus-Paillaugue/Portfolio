@@ -1,10 +1,22 @@
 import plugin from 'tailwindcss/plugin';
 
+const withOpacityValue = (variable) => {
+	return ({ opacityValue }) => {
+		if (opacityValue !== undefined) {
+			return `rgba(var(${variable}), ${opacityValue})`;
+		}
+		return `rgb(var(${variable}))`;
+	};
+};
+
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+	content: ['./src/**/*.{html,js,svelte,ts,md}'],
 	theme: {
 		extend: {
+			colors: {
+				primary: withOpacityValue('--color-primary')
+			},
 			fontFamily: {
 				sans: ['Poppins']
 			},
@@ -17,6 +29,16 @@ export default {
 		plugin(({ addVariant }) => {
 			// Add hocus utility variant
 			addVariant('hocus', ['&:hover', '&:focus']);
+		}),
+		plugin(({ addUtilities }) => {
+			addUtilities({
+				'.ligatures-normal': {
+					fontVariantLigatures: 'normal'
+				},
+				'.ligatures-none': {
+					fontVariantLigatures: 'none'
+				}
+			});
 		})
 	]
 };
