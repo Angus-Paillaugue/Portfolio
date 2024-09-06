@@ -6,7 +6,7 @@
 	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { scale } from 'svelte/transition';
-	import { onMount, tick } from 'svelte';
+	import { tick } from 'svelte';
 	import Lenis from 'lenis';
 	import { navigating } from '$app/stores';
 
@@ -23,18 +23,6 @@
 			damping: 0.2
 		}
 	);
-
-	const colors = [
-		'252, 186, 3',
-		'37, 99, 235',
-		'235, 64, 52',
-		'50, 168, 82',
-		'183, 52, 235'
-	]
-
-	onMount(() => {
-		document.documentElement.style.setProperty('--color-primary', colors[Math.floor(Math.random() * colors.length)]);
-	});
 
 	afterNavigate(() => {
 		if (window.lenis) window.lenis.destroy();
@@ -92,8 +80,8 @@
 					});
 					// Update sidebar indicator position
 					sidebarIndicator.set({
-						y: activeSectionLink.offsetTop - 4,
-						width: activeSectionLink.clientWidth + 32
+						y: activeSectionLink.offsetTop,
+						width: activeSectionLink.clientWidth
 					});
 				});
 			},
@@ -109,19 +97,19 @@
 			await tick();
 
 			sidebarIndicator.set({
-				y: goBackButton.offsetTop - 4,
-				width: goBackButton.getBoundingClientRect().width + 32
+				y: goBackButton.offsetTop,
+				width: goBackButton.getBoundingClientRect().width
 			});
 		}
 	}
 </script>
 
 <div class="w-screen h-screen bg-primary">
-	<div class="max-w-[2000px] h-full w-full mx-auto flex flex-row p-4 md:p-6 lg:p-8 gap-8">
+	<div class="max-w-[2000px] h-full w-full mx-auto flex flex-row p-2 md:p-6 lg:p-8 gap-8">
 		<!-- Sidebar -->
 		<aside
 			class={cn(
-				'shrink-0 flex flex-col justify-between max-lg:fixed max-lg:top-0 max-lg:bottom-0 bg-primary max-lg:p-6 max-lg:left-0 max-lg:w-4/5 transition-transform z-30 duration-500',
+				'shrink-0 flex flex-col justify-between max-lg:fixed max-lg:top-0 max-lg:bottom-0 bg-primary max-lg:p-6 max-lg:left-0 w-4/5 lg:w-[200px] transition-transform z-30 duration-500',
 				!isSidebarShown && 'max-lg:-translate-x-full'
 			)}
 		>
@@ -131,22 +119,22 @@
 			</a>
 
 			<!-- TOC -->
-			<nav class="flex flex-col gap-2 relative h-fit font-medium">
+			<nav class="flex flex-col relative h-fit font-medium">
 				{#each sections as section}
 					<a
 						href="#{section.id}"
-						class="text-white w-fit transition-colors cursor-pointer capitalize"
+						class="text-white w-fit transition-colors cursor-pointer capitalize px-4 py-1"
 						in:scale>{section.id}</a
 					>
 				{/each}
 				<!-- Scroll indicator -->
 				<span
-					class="absolute -left-4 bg-white h-8 rounded-full -z-10"
+					class="absolute bg-white h-8 rounded-full -z-10"
 					style="top: {$sidebarIndicator.y}px; width: {$sidebarIndicator.width}px;"
 				></span>
 				{#if sections.length === 0}
 					<button
-						class="text-black w-fit text-base font-medium flex flex-row gap-2"
+						class="text-black w-fit text-base font-medium flex flex-row gap-2 px-4 py-1"
 						onclick={() => window.history.back()}
 						aria-label="Go back"
 						in:scale
@@ -166,7 +154,8 @@
 					</button>
 				{/if}
 			</nav>
-			<div></div>
+			<div>
+			</div>
 		</aside>
 		<!-- Open sidebar button -->
 		{#if $page.route.id === '/'}
@@ -243,7 +232,18 @@
 			tabindex="-1"
 		>
 			{#if $navigating}
-				<p>loading</p>
+				<div class="w-full h-full flex flex-col items-center justify-center">
+					<svg xmlns="http://www.w3.org/2000/svg" class="size-12" viewBox="0 0 24 24">
+						<circle cx="12" cy="12" r="0" fill="currentColor">
+							<animate id="svgSpinnersPulse20" fill="freeze" attributeName="r" begin="0;svgSpinnersPulse21.begin+0.6s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="0;11" />
+							<animate fill="freeze" attributeName="opacity" begin="0;svgSpinnersPulse21.begin+0.6s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="1;0" />
+						</circle>
+						<circle cx="12" cy="12" r="0" fill="currentColor">
+							<animate id="svgSpinnersPulse21" fill="freeze" attributeName="r" begin="svgSpinnersPulse20.begin+0.6s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="0;11" />
+							<animate fill="freeze" attributeName="opacity" begin="svgSpinnersPulse20.begin+0.6s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="1;0" />
+						</circle>
+					</svg>
+				</div>
 			{:else}
 				{@render children()}
 			{/if}

@@ -1,7 +1,8 @@
 <script>
 	import { cn, reveal } from '$lib/utils';
+	import { A } from '$lib/components/';
 
-	const { jobs } = $props();
+	const { experience } = $props();
 
 	const iconPaths = [
 		'M7.5 0C7.75463 4.03197 10.968 7.24539 15 7.5C10.968 7.75463 7.75463 10.968 7.5 15C7.24539 10.968 4.03197 7.75463 0 7.5C4.03197 7.24539 7.24539 4.03197 7.5 0Z',
@@ -49,7 +50,7 @@
 	}
 </script>
 
-<section class="max-w-screen-xl mx-auto p-2 lg:p-4" id="about">
+<section class="max-w-screen-xl mx-auto p-4" id="about">
 	<div class="flex flex-col max-lg:items-center use:reveal">
 		<button class="relative group h-12 w-40">
 			{#each { length: 20 } as _, i}
@@ -91,39 +92,38 @@
 		</svg>
 	</h4>
 	<p class="mt-4" use:reveal>
-		As a Junior Full-Stack Developer, I possess an impressive arsenal of skills in SvelteKit,
-		Tailwind and SQL. I excel in designing and maintaining responsive websites that offer a smooth
-		user experience. My expertise lies in crafting dynamic, engaging interfaces through writing
-		clean and optimized code and utilizing cutting-edge development tools and techniques. I am also
-		a team player who thrives in collaborating with cross-functional teams to produce outstanding
-		web applications.
+		As a Junior Full-Stack Developer, I've got a strong foundation in modern web technologies, I specialize in building sleek, responsive, and performant web applications using SvelteKit and TailwindCSS.
+		<A
+			href="#projects"
+		>
+			My projects
+		</A>
 	</p>
 
-	<a
-		href="/my-cv.pdf"
-		target="_blank"
-		class="decoration-dotted decoration-2 decoration-primary underline underline-offset-2 hocus:text-primary flex flex-row gap-1 mr-1 hocus:gap-2 hocus:mr-0 transition-all items-center mt-2"
-		use:reveal
-	>
-		My CV
-		<svg xmlns="http://www.w3.org/2000/svg" class="size-4 text-black" viewBox="0 0 24 24">
-			<path
-				fill="none"
-				stroke="currentColor"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-				stroke-width="2"
-				d="M7 7h10v10M7 17L17 7"
-			/>
-		</svg>
-	</a>
+	<p class="mt-4" use:reveal>
+		I'm constantly exploring new ways to improve user experiences and push the boundaries of what's possible on the web. Whether it's creating dynamic single-page applications or crafting intuitive interfaces, I strive to write clean, efficient code that solves real-world problems.
+	</p>
 
+	<p class="mt-4" use:reveal>In addition to my technical skills, my time working as a trainer and crew member at McDonald's has honed my ability to work well in teams, communicate effectively, and manage my time in high-pressure environments. These experiences have made me a more adaptable and resilient developer.</p>
+
+	<p class="mt-4" use:reveal>
+		I'm always eager to learn, collaborate, and grow as a developer. Feel free to check out my projects, and let's create something amazing together!
+	</p>
+
+	<div class="mt-4" use:reveal>
+		<A
+			href="/my-cv.pdf"
+			target="_blank"
+		>
+			My CV
+		</A>
+	</div>
 	<h2 class="mt-10" use:reveal>Experience</h2>
 
 	<ol role="list" class='list-none mt-4'>
-		{#each jobs as job, index}
+		{#each experience as job, index}
 			<li
-				class={cn('relative m-0 pl-10 pt-1 before:absolute before:left-0 before:top-1.5 before:flex before:size-5 before:flex-col before:items-center before:justify-center before:rounded-full before:bg-primary', index < jobs.length - 1 &&'after:absolute after:bottom-0 after:left-[9px] after:top-8 after:w-0 after:border-l after:border-neutral-300 pb-8')}
+				class={cn('relative m-0 pl-10 pt-1 before:absolute before:left-0 before:top-1.5 before:flex before:size-5 before:flex-col before:items-center before:justify-center before:rounded-full before:bg-primary before:hover:scale-125 before:transition-transform w-fit', index < experience.length - 1 &&'after:absolute after:bottom-0 after:left-[9px] after:top-8 after:w-0 after:border-l after:border-neutral-300 pb-8')}
 				use:reveal
 			>
 				<h3>{job.name}</h3>

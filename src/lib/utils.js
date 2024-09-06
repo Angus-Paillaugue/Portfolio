@@ -83,69 +83,69 @@ export function slugify(path) {
  * @param {Object} options - The options for revealing the node.
  */
 export function reveal(node, options) {
-  // Set the default options
-  const baseOptions = {
-    y: 8, // The y translation value in pixels
-    duration: 300, // The duration of the transition in milliseconds
-    bottomMargin:200, // The bottom margin in pixels
-    once: true, // Whether to only reveal once
-    threshold: 0.5, // The threshold for the IntersectionObserver
+	// Set the default options
+	const baseOptions = {
+		y: 8, // The y translation value in pixels
+		duration: 300, // The duration of the transition in milliseconds
+		bottomMargin: 170, // The bottom margin in pixels
+		once: true, // Whether to only reveal once
+		threshold: 0.5, // The threshold for the IntersectionObserver
 		delay: 0 // The delay in milliseconds
-  };
+	};
 
-  // Merge the base options with the provided options
-  options = { ...baseOptions, ...options };
+	// Merge the base options with the provided options
+	options = { ...baseOptions, ...options };
 
-  // Create the observer options object
-  const observerOptions = {
-		rootMargin: `-${options.bottomMargin/2}px 0px -${options.bottomMargin}px 0px`,
+	// Create the observer options object
+	const observerOptions = {
+		rootMargin: `-${options.bottomMargin / 2}px 0px -${options.bottomMargin}px 0px`,
 		threshold: options.threshold
 	};
 
-  // Set the initial styles
-  node.style.willChange = 'transform, opacity';
+	// Set the initial styles
+	node.style.willChange = 'transform, opacity';
 
-  /**
-   * Toggles the appear/disappear styles of the node.
-   */
-  const toggleStyles = (visible) => {
-    node.style.transition = `transform ${options.duration}ms, opacity ${options.duration}ms`;
-    if (visible) {
-      node.style.opacity = 1;
-      node.style.transform = `translateY(0), rotate(${node.style.rotate})`;
-    } else {
-      node.style.opacity = 0;
-      node.style.transform = `translateY(${options.y}px),  rotate(${node.style.rotate})`;
-    }
-    setTimeout(() => {
-      node.style.transition = '';
-    }, options.duration);
-  };
+	/**
+	 * Toggles the appear/disappear styles of the node.
+	 */
+	const toggleStyles = (visible) => {
+		node.style.transition = `transform ${options.duration}ms, opacity ${options.duration}ms`;
+		if (visible) {
+			node.style.opacity = 1;
+			node.style.transform = `translateY(0), rotate(${node.style.rotate})`;
+		} else {
+			node.style.opacity = 0;
+			node.style.transform = `translateY(${options.y}px),  rotate(${node.style.rotate})`;
+		}
+		setTimeout(() => {
+			node.style.transition = '';
+		}, options.duration);
+	};
 
-  // Create the observer
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(intersect);
-  }, observerOptions);
+	// Create the observer
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(intersect);
+	}, observerOptions);
 
-  // Observe the node
-  observer.observe(node);
+	// Observe the node
+	observer.observe(node);
 
-  /**
-   * Function to handle the intersection of the node.
-   * @param {IntersectionObserverEntry} entry
-   */
-  function intersect(entry) {
+	/**
+	 * Function to handle the intersection of the node.
+	 * @param {IntersectionObserverEntry} entry
+	 */
+	function intersect(entry) {
 		setTimeout(() => {
 			toggleStyles(entry.isIntersecting);
 		}, options.delay);
-    // Unobserve the node if the once option is true
-    if (entry.isIntersecting && options.once) observer.unobserve(entry.target);
-  }
+		// Unobserve the node if the once option is true
+		if (entry.isIntersecting && options.once) observer.unobserve(entry.target);
+	}
 
-  // Return the destroy function
-  return {
-    destroy() {
-      observer.disconnect();
-    }
-  };
+	// Return the destroy function
+	return {
+		destroy() {
+			observer.disconnect();
+		}
+	};
 }

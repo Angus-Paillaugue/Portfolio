@@ -18,7 +18,8 @@ export default {
 				primary: withOpacityValue('--color-primary')
 			},
 			fontFamily: {
-				sans: ['Poppins']
+				sans: ['Poppins'],
+				mono: 'JetBrains Mono'
 			},
 			transitionTimingFunction: {
 				'back-out': 'cubic-bezier(0.34, 1.56, 0.64, 1)'

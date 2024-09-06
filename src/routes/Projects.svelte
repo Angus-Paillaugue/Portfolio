@@ -34,7 +34,7 @@
 	}
 </script>
 
-<section id="projects" class="max-w-screen-xl mx-auto p-2 lg:p-4">
+<section id="projects" class="max-w-screen-xl mx-auto p-4">
 	<div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
 		<h1 use:reveal>Projects</h1>
 		<p use:reveal={{ delay:200 }}>
@@ -44,16 +44,18 @@
 		</p>
 	</div>
 
+	<!-- Carousel -->
 	<div
 		class="flex flex-row col-[content] gap-8 relative transition-transform duration-300 ease-in-out mt-20"
 		bind:this={projectsCarousel}
 	>
 		{#each projects as project, index}
+		<!-- Projects card -->
 			<div
 				class="aspect-square group rounded-xl relative flex flex-col w-full md:w-[30%] shrink-0 group/card overflow-hidden {project.bgColor}"
 			>
 				<div
-					class="absolute pointer-events-none z-0 lg:bottom-4 bottom-[calc(25%+33.333333%+1rem)] top-4 left-4 right-4 bg-center bg-no-repeat bg-contain"
+					class="absolute pointer-events-none z-0 lg:bottom-[calc(25%+1rem)] bottom-[calc(25%+33.333333%+1rem)] top-4 left-4 right-4 bg-center bg-no-repeat bg-contain"
 					style="background-image: url({project.image});"
 				></div>
 				<p

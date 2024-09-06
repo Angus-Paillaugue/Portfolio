@@ -1,24 +1,6 @@
 <script>
 	import { cn, reveal } from '$lib/utils';
-
-
-	const contacts = [
-		{
-			label: 'Email',
-			value: 'angus@paillaugue.fr',
-			link: 'mailto:angus@paillaugue.fr'
-		},
-		{
-			label: 'LinkedIn',
-			value: '@angus-paillaugue',
-			link: 'https://www.linkedin.com/in/angus-paillaugue/'
-		},
-		{
-			label: 'Github',
-			value: '@Angus-Paillaugue',
-			link: 'https://github.com/Angus-Paillaugue/'
-		}
-	];
+	import { contacts } from '$conf';
 </script>
 
 <section class="bg-primary/10 pb-32 group/section" id="contact">

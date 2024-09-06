@@ -1,0 +1,46 @@
+/* Text */
+.markdown-contents h1,
+.markdown-contents h2,
+.markdown-contents h3,
+.markdown-contents h4,
+.markdown-contents h5,
+.markdown-contents h6 {
+  @apply text-black;
+}
+
+.markdown-contents h1 {
+  @apply mb-2 mt-4 text-3xl font-semibold leading-8 font-sans;
+}
+
+.markdown-contents h2 {
+  @apply mb-4 mt-12 text-2xl font-bold leading-6;
+}
+
+.markdown-contents h3 {
+  @apply mb-2 mt-9 text-xl font-semibold leading-6;
+}
+
+.markdown-contents h4 {
+  @apply mb-2 mt-4 text-xl font-semibold;
+}
+
+.markdown-contents h5 {
+  @apply mb-2 mt-4 text-lg font-semibold;
+}
+
+.markdown-contents h6 {
+  @apply mb-2 mt-4 text-base font-semibold;
+}
+
+.markdown-contents p,
+.markdown-contents li {
+  @apply mb-4 font-mono text-base font-medium leading-6 text-neutral-600;
+}
+
+.markdown-contents span,
+.markdown-contents small {
+  @apply text-neutral-600;
+}
+.markdown-contents small {
+  @apply text-xs;
+}

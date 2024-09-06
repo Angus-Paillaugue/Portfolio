@@ -18,7 +18,9 @@
 }
 
 :root {
-	--color-primary: 255, 255, 255;
+	--color-primary: 37,
+		99,
+		235;
 }
 
 * {
@@ -102,7 +104,7 @@ h6 {
 
 p,
 li {
-	@apply font-['JetBrains_Mono'] text-base font-medium leading-6 text-neutral-600;
+	@apply font-mono text-base font-medium leading-6 text-neutral-600;
 }
 
 span,
@@ -112,6 +114,14 @@ small {
 
 small {
 	@apply text-xs;
+}
+
+kbd {
+	@apply rounded bg-neutral-300 px-2 py-1 font-mono text-sm font-normal text-neutral-700;
+}
+
+mark {
+	@apply bg-primary/10 text-primary;
 }
 
 hr {
