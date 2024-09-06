@@ -1,4 +1,8 @@
 <script>
+	import { cn, reveal } from '$lib/utils';
+
+	const { jobs } = $props();
+
 	const iconPaths = [
 		'M7.5 0C7.75463 4.03197 10.968 7.24539 15 7.5C10.968 7.75463 7.75463 10.968 7.5 15C7.24539 10.968 4.03197 7.75463 0 7.5C4.03197 7.24539 7.24539 4.03197 7.5 0Z',
 		'M8.03573 0L6.96428 0V6.20667L2.57551 1.81789L1.8179 2.57551L6.20667 6.96428H0L0 8.03573H6.20666L1.8179 12.4245L2.57551 13.1821L6.96428 8.7933V15H8.03573V8.7933L12.4245 13.1821L13.1821 12.4245L8.7933 8.03573H15V6.96428H8.7933L13.1821 2.5755L12.4245 1.81789L8.03573 6.20666V0Z'
@@ -46,8 +50,8 @@
 </script>
 
 <section class="max-w-screen-xl mx-auto p-2 lg:p-4" id="about">
-	<div class="flex flex-col max-lg:items-center">
-		<button class="relative group h-12 flex flex-row items-center justify-start w-40">
+	<div class="flex flex-col max-lg:items-center use:reveal">
+		<button class="relative group h-12 w-40">
 			{#each { length: 20 } as _, i}
 				{@const { top, left } = getStarPos()}
 				<svg
@@ -60,11 +64,11 @@
 					<path d={iconPaths[i % iconPaths.length]} fill="currentColor"></path>
 				</svg>
 			{/each}
-			<h1>About</h1>
+			<h1 class="max-lg:text-center text-start">About</h1>
 		</button>
 	</div>
 
-	<h3 class="flex flex-row items-center gap-2 mt-10">
+	<h4 class="flex flex-row items-center gap-2 mt-10" use:reveal>
 		A dedicated Full-stack Developer based in Toulouse, France
 		<svg xmlns="http://www.w3.org/2000/svg" class="size-6 shrink-0 inline" viewBox="0 0 512 512">
 			<path
@@ -85,8 +89,8 @@
 				transform="rotate(33.488 194.39 60.752)"
 			/>
 		</svg>
-	</h3>
-	<p class="mt-4">
+	</h4>
+	<p class="mt-4" use:reveal>
 		As a Junior Full-Stack Developer, I possess an impressive arsenal of skills in SvelteKit,
 		Tailwind and SQL. I excel in designing and maintaining responsive websites that offer a smooth
 		user experience. My expertise lies in crafting dynamic, engaging interfaces through writing
@@ -99,6 +103,7 @@
 		href="/my-cv.pdf"
 		target="_blank"
 		class="decoration-dotted decoration-2 decoration-primary underline underline-offset-2 hocus:text-primary flex flex-row gap-1 mr-1 hocus:gap-2 hocus:mr-0 transition-all items-center mt-2"
+		use:reveal
 	>
 		My CV
 		<svg xmlns="http://www.w3.org/2000/svg" class="size-4 text-black" viewBox="0 0 24 24">
@@ -112,6 +117,20 @@
 			/>
 		</svg>
 	</a>
+
+	<h2 class="mt-10" use:reveal>Experience</h2>
+
+	<ol role="list" class='list-none mt-4'>
+		{#each jobs as job, index}
+			<li
+				class={cn('relative m-0 pl-10 pt-1 before:absolute before:left-0 before:top-1.5 before:flex before:size-5 before:flex-col before:items-center before:justify-center before:rounded-full before:bg-primary', index < jobs.length - 1 &&'after:absolute after:bottom-0 after:left-[9px] after:top-8 after:w-0 after:border-l after:border-neutral-300 pb-8')}
+				use:reveal
+			>
+				<h3>{job.name}</h3>
+				<p>{job.start} - {job.end}</p>
+			</li>
+		{/each}
+	</ol>
 </section>
 
 <style>

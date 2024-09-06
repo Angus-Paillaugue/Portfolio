@@ -6,7 +6,7 @@
 	import { afterNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { scale } from 'svelte/transition';
-	import { tick } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import Lenis from 'lenis';
 	import { navigating } from '$app/stores';
 
@@ -23,6 +23,18 @@
 			damping: 0.2
 		}
 	);
+
+	const colors = [
+		'252, 186, 3',
+		'37, 99, 235',
+		'235, 64, 52',
+		'50, 168, 82',
+		'183, 52, 235'
+	]
+
+	onMount(() => {
+		document.documentElement.style.setProperty('--color-primary', colors[Math.floor(Math.random() * colors.length)]);
+	});
 
 	afterNavigate(() => {
 		if (window.lenis) window.lenis.destroy();
@@ -227,7 +239,7 @@
 			</a>
 		{/if}
 		<main
-			class="grow rounded-2xl bg-white h-full w-full overflow-y-auto overflow-x-hidden text-black no-scrollbar"
+			class="grow rounded-2xl bg-white h-full w-full overflow-y-auto overflow-x-hidden text-black no-scrollbar scroll-pt-[100px]"
 			tabindex="-1"
 		>
 			{#if $navigating}

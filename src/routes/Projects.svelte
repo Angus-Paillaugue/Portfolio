@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import { reveal } from "$lib/utils";
 
 	const { projects } = $props();
 	let projectsCarousel = $state();
@@ -35,8 +36,8 @@
 
 <section id="projects" class="max-w-screen-xl mx-auto p-2 lg:p-4">
 	<div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
-		<h1>Projects</h1>
-		<p>
+		<h1 use:reveal>Projects</h1>
+		<p use:reveal={{ delay:200 }}>
 			Like most of us - I have lot of ideas and projects that I would like to implement. Many of
 			them get lost in my notes or as random thoughts on my computer. But can you believe it? Some
 			of them actually happen.

@@ -1,5 +1,7 @@
 <script>
-	import { cn } from '$lib/utils';
+	import { cn, reveal } from '$lib/utils';
+
+
 	const contacts = [
 		{
 			label: 'Email',
@@ -24,12 +26,13 @@
 		class="max-w-screen-xl mx-auto px-2 md:px-8 lg:px-12 pt-32 pb-20 sm:pb-30 sm:pt-[160px] md:pt-[200px] md:pb-[100px] flex flex-col lg:flex-row gap-20"
 	>
 		<div class="flex flex-col max-lg:items-center shrink-0">
-			<h1>Contact</h1>
+			<h1 use:reveal>Contact</h1>
 			<!-- Hand -->
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				class="size-20 transition-transform rotate-[-16deg] group-hover/section:rotate-[344deg] duration-500"
 				viewBox="0 0 128 128"
+				use:reveal
 			>
 				<g fill="#ffca28">
 					<path
@@ -60,6 +63,7 @@
 						'cursor-pointer p-4 grid grid-cols-3 group/link',
 						i !== contacts.length && 'border-b border-neutral-300'
 					)}
+					use:reveal
 				>
 					<p class="font-bold font-sans text-neutral-800 max-lg:col-span-2">{contact.label}</p>
 					<p class="max-lg:col-span-2 max-lg:row-start-2">{contact.value}</p>
