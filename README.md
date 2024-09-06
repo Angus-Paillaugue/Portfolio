@@ -8,6 +8,7 @@
   - [ ] Nothing Notes
   - [ ] Shop
 - [x] Add scroll reveal using the use:reveal directive from Svelte Shine utils
-- [ ] Make the error page
-- [ ] Take full size screenshots of each project
+- [x] Make the error page
+- [x] Take full size screenshots of each project
 - [ ] Optimize images
+- [x] Add internationalization

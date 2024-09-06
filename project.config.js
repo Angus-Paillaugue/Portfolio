@@ -1,25 +1,31 @@
-export const projects = [
-  "Svelte Shine",
-  "Portfolio",
-  "Code Chronicles",
-  "Nothing Notes",
-  "Shop"
-];
+export const projects = ['Svelte Shine', 'Portfolio', 'Code Chronicles', 'Nothing Notes', 'Shop'];
 
-
-export const experience = [
-	{
-		start: 'August 2024',
-		end: 'Today',
-		name: "Trainer at McDonald's"
-	},
-	{
-		start: 'November 2021',
-		end: 'August 2024',
-		name: "Crew member McDonald's"
-	}
-];
-
+export const experience = {
+	en: [
+		{
+			start: 'August 2024',
+			end: 'Today',
+			name: "Trainer at McDonald's"
+		},
+		{
+			start: 'November 2021',
+			end: 'August 2024',
+			name: "Crew member McDonald's"
+		}
+	],
+	fr: [
+		{
+			start: 'Août 2024',
+			end: "Aujourd'hui",
+			name: "Formateur chez McDonald's"
+		},
+		{
+			start: 'Novembre 2021',
+			end: 'Août 2024',
+			name: "Équipier McDonald's"
+		}
+	]
+};
 
 export const contacts = [
 	{

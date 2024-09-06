@@ -3,16 +3,17 @@
 	import 'lenis/dist/lenis.css';
 	import { spring } from 'svelte/motion';
 	import { cn } from '$lib/utils';
-	import { afterNavigate } from '$app/navigation';
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { scale } from 'svelte/transition';
 	import { tick } from 'svelte';
 	import Lenis from 'lenis';
 	import { navigating } from '$app/stores';
+	import { _, locale, locales } from 'svelte-i18n';
+	import { sections, locale as currentLocale } from '$lib/stores';
 
 	const { children } = $props();
 	let isSidebarShown = $state(false);
-	let sections = $state([]);
 	let activeSectionLink = $state();
 	let goBackButton = $state();
 	let observer = $state();
@@ -24,7 +25,11 @@
 		}
 	);
 
+	beforeNavigate(() => {
+		sections.set([]);
+	});
 	afterNavigate(() => {
+		currentLocale.set($locales.includes($locale) ? $locale : 'en');
 		if (window.lenis) window.lenis.destroy();
 		const lenis = new Lenis({
 			prevent: (node) => node.classList.contains('lenis-prevent'),
@@ -50,9 +55,6 @@
 		await tick();
 		// Retract sidebar on navigation
 		isSidebarShown = false;
-
-		// Get all sections
-		sections = document.querySelectorAll('section');
 
 		// Hide sidebar indicator
 		sidebarIndicator.set({
@@ -88,11 +90,11 @@
 			{ threshold: 0.5 }
 		);
 
-		sections.forEach((section) => {
-			observer.observe(section);
+		$sections.forEach((section) => {
+			observer.observe(document.getElementById(section.id));
 		});
 
-		if (sections.length === 0) {
+		if ($sections.length === 0) {
 			// By calling tick, we ensure that the DOM has been updated
 			await tick();
 
@@ -115,16 +117,16 @@
 		>
 			<a href="/" aria-label="Go home">
 				<h1 class="font-semibold text-xl">Angus Paillaugue</h1>
-				<h2 class="font-base text-lg">Web Developer</h2>
+				<h2 class="font-base text-lg">{$_('layout.occupation')}</h2>
 			</a>
 
 			<!-- TOC -->
 			<nav class="flex flex-col relative h-fit font-medium">
-				{#each sections as section}
+				{#each $sections as section}
 					<a
 						href="#{section.id}"
 						class="text-white w-fit transition-colors cursor-pointer capitalize px-4 py-1"
-						in:scale>{section.id}</a
+						in:scale>{section.label}</a
 					>
 				{/each}
 				<!-- Scroll indicator -->
@@ -132,11 +134,11 @@
 					class="absolute bg-white h-8 rounded-full -z-10"
 					style="top: {$sidebarIndicator.y}px; width: {$sidebarIndicator.width}px;"
 				></span>
-				{#if sections.length === 0}
+				{#if $sections.length === 0}
 					<button
 						class="text-black w-fit text-base font-medium flex flex-row gap-2 px-4 py-1"
 						onclick={() => window.history.back()}
-						aria-label="Go back"
+						aria-label={$_('layout.back')}
 						in:scale
 						bind:this={goBackButton}
 					>
@@ -150,12 +152,11 @@
 								d="m12 19l-7-7l7-7m7 7H5"
 							/>
 						</svg>
-						Go back
+						{$_('layout.back')}
 					</button>
 				{/if}
 			</nav>
-			<div>
-			</div>
+			<div></div>
 		</aside>
 		<!-- Open sidebar button -->
 		{#if $page.route.id === '/'}
@@ -204,13 +205,13 @@
 						</path>
 					</svg>
 				{/if}
-				Menu
+				{$_('layout.menu')}
 			</button>
 		{:else}
 			<!-- Go back button -->
 			<a
 				href="/"
-				aria-label="Go back"
+				aria-label={$_('layout.back')}
 				class="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 text-white bg-primary rounded-2xl text-lg px-4 py-2 lg:hidden transition-color duration-500 flex flex-row gap-4 items-center"
 				in:scale={{ duration: 300, start: 0.5 }}
 			>
@@ -224,7 +225,7 @@
 						d="m12 19l-7-7l7-7m7 7H5"
 					/>
 				</svg>
-				Go back
+				{$_('layout.back')}
 			</a>
 		{/if}
 		<main
@@ -235,12 +236,46 @@
 				<div class="w-full h-full flex flex-col items-center justify-center">
 					<svg xmlns="http://www.w3.org/2000/svg" class="size-12" viewBox="0 0 24 24">
 						<circle cx="12" cy="12" r="0" fill="currentColor">
-							<animate id="svgSpinnersPulse20" fill="freeze" attributeName="r" begin="0;svgSpinnersPulse21.begin+0.6s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="0;11" />
-							<animate fill="freeze" attributeName="opacity" begin="0;svgSpinnersPulse21.begin+0.6s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="1;0" />
+							<animate
+								id="svgSpinnersPulse20"
+								fill="freeze"
+								attributeName="r"
+								begin="0;svgSpinnersPulse21.begin+0.6s"
+								calcMode="spline"
+								dur="1.2s"
+								keySplines=".52,.6,.25,.99"
+								values="0;11"
+							/>
+							<animate
+								fill="freeze"
+								attributeName="opacity"
+								begin="0;svgSpinnersPulse21.begin+0.6s"
+								calcMode="spline"
+								dur="1.2s"
+								keySplines=".52,.6,.25,.99"
+								values="1;0"
+							/>
 						</circle>
 						<circle cx="12" cy="12" r="0" fill="currentColor">
-							<animate id="svgSpinnersPulse21" fill="freeze" attributeName="r" begin="svgSpinnersPulse20.begin+0.6s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="0;11" />
-							<animate fill="freeze" attributeName="opacity" begin="svgSpinnersPulse20.begin+0.6s" calcMode="spline" dur="1.2s" keySplines=".52,.6,.25,.99" values="1;0" />
+							<animate
+								id="svgSpinnersPulse21"
+								fill="freeze"
+								attributeName="r"
+								begin="svgSpinnersPulse20.begin+0.6s"
+								calcMode="spline"
+								dur="1.2s"
+								keySplines=".52,.6,.25,.99"
+								values="0;11"
+							/>
+							<animate
+								fill="freeze"
+								attributeName="opacity"
+								begin="svgSpinnersPulse20.begin+0.6s"
+								calcMode="spline"
+								dur="1.2s"
+								keySplines=".52,.6,.25,.99"
+								values="1;0"
+							/>
 						</circle>
 					</svg>
 				</div>

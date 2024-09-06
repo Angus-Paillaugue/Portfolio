@@ -5,14 +5,14 @@ import path from 'path';
 
 export default defineConfig({
 	plugins: [sveltekit(), viteCompression()],
-	  server: {
-    fs: {
-      allow: [
-        // search up for workspace root
-        searchForWorkspaceRoot(process.cwd()),
-      ]
-    }
-  },
+	server: {
+		fs: {
+			allow: [
+				// search up for workspace root
+				searchForWorkspaceRoot(process.cwd())
+			]
+		}
+	},
 	resolve: {
 		alias: {
 			$conf: path.resolve(__dirname, './project.config.js')

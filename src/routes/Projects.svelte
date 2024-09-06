@@ -1,6 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
-	import { reveal } from "$lib/utils";
+	import { reveal } from '$lib/utils';
+	import { _ } from 'svelte-i18n';
+	import { locale } from '$lib/stores';
 
 	const { projects } = $props();
 	let projectsCarousel = $state();
@@ -23,6 +25,7 @@
 	 */
 	function handleCarouselIndexChange() {
 		const leftCard = projectsCarousel.children[carouselIndex];
+		if (!leftCard) return;
 		projectsCarousel.style.transform = `translateX(-${leftCard.offsetLeft}px)`;
 	}
 
@@ -36,11 +39,9 @@
 
 <section id="projects" class="max-w-screen-xl mx-auto p-4">
 	<div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
-		<h1 use:reveal>Projects</h1>
-		<p use:reveal={{ delay:200 }}>
-			Like most of us - I have lot of ideas and projects that I would like to implement. Many of
-			them get lost in my notes or as random thoughts on my computer. But can you believe it? Some
-			of them actually happen.
+		<h1 use:reveal>{$_('projects.title')}</h1>
+		<p use:reveal={{ delay: 200 }}>
+			{$_('projects.subtitle')}
 		</p>
 	</div>
 
@@ -49,8 +50,8 @@
 		class="flex flex-row col-[content] gap-8 relative transition-transform duration-300 ease-in-out mt-20"
 		bind:this={projectsCarousel}
 	>
-		{#each projects as project, index}
-		<!-- Projects card -->
+		{#each projects[$locale] as project, index}
+			<!-- Projects card -->
 			<div
 				class="aspect-square group rounded-xl relative flex flex-col w-full md:w-[30%] shrink-0 group/card overflow-hidden {project.bgColor}"
 			>
@@ -86,7 +87,7 @@
 								? 0
 								: -1}
 						>
-							Learn more
+							{$_('projects.learnMore')}
 							<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24">
 								<path
 									fill="none"
@@ -133,9 +134,9 @@
 			class="rounded-full p-1 disabled:text-neutral-400 transition-colors hocus:bg-neutral-300/50 group/button"
 			aria-label="Carousel next"
 			onclick={() => {
-				carouselIndex = Math.min(carouselIndex + 1, projects.length);
+				carouselIndex = Math.min(carouselIndex + 1, projects[$locale].length);
 			}}
-			disabled={projects.length - displayedElements <= carouselIndex}
+			disabled={projects[$locale].length - displayedElements <= carouselIndex}
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"

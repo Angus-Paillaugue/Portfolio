@@ -1,8 +1,10 @@
 <script>
 	import { cn, reveal } from '$lib/utils';
-	import { A } from '$lib/components/';
+	import { A } from '$lib/components';
+	import { locale } from '$lib/stores';
+	import { _ } from 'svelte-i18n';
 
-	const { experience } = $props();
+	let { experience } = $props();
 
 	const iconPaths = [
 		'M7.5 0C7.75463 4.03197 10.968 7.24539 15 7.5C10.968 7.75463 7.75463 10.968 7.5 15C7.24539 10.968 4.03197 7.75463 0 7.5C4.03197 7.24539 7.24539 4.03197 7.5 0Z',
@@ -15,7 +17,7 @@
 	function getStarPos() {
 		const borderWidth = 50;
 		const borderHeight = 40;
-		const width = 160;
+		const width = 224;
 		const height = 48;
 
 		const side = Math.floor(Math.random() * 4); // 0: top, 1: right, 2: bottom, 3: left
@@ -51,8 +53,8 @@
 </script>
 
 <section class="max-w-screen-xl mx-auto p-4" id="about">
-	<div class="flex flex-col max-lg:items-center use:reveal">
-		<button class="relative group h-12 w-40">
+	<div class="flex flex-col max-lg:items-center">
+		<button class="relative group h-12 w-56">
 			{#each { length: 20 } as _, i}
 				{@const { top, left } = getStarPos()}
 				<svg
@@ -65,12 +67,12 @@
 					<path d={iconPaths[i % iconPaths.length]} fill="currentColor"></path>
 				</svg>
 			{/each}
-			<h1 class="max-lg:text-center text-start">About</h1>
+			<h1 class="max-lg:text-center text-start">{$_('about.title')}</h1>
 		</button>
 	</div>
 
-	<h4 class="flex flex-row items-center gap-2 mt-10" use:reveal>
-		A dedicated Full-stack Developer based in Toulouse, France
+	<h4 class="flex flex-row items-center gap-2 mt-10">
+		{$_('about.subtitle')}
 		<svg xmlns="http://www.w3.org/2000/svg" class="size-6 shrink-0 inline" viewBox="0 0 512 512">
 			<path
 				fill="#d5dee4"
@@ -92,38 +94,41 @@
 		</svg>
 	</h4>
 	<p class="mt-4" use:reveal>
-		As a Junior Full-Stack Developer, I've got a strong foundation in modern web technologies, I specialize in building sleek, responsive, and performant web applications using SvelteKit and TailwindCSS.
-		<A
-			href="#projects"
-		>
-			My projects
+		{$_('about.description')}
+		<A href="#projects">
+			{$_('about.myProjects')}
 		</A>
 	</p>
 
 	<p class="mt-4" use:reveal>
-		I'm constantly exploring new ways to improve user experiences and push the boundaries of what's possible on the web. Whether it's creating dynamic single-page applications or crafting intuitive interfaces, I strive to write clean, efficient code that solves real-world problems.
+		{$_('about.mySkills')}
 	</p>
 
-	<p class="mt-4" use:reveal>In addition to my technical skills, my time working as a trainer and crew member at McDonald's has honed my ability to work well in teams, communicate effectively, and manage my time in high-pressure environments. These experiences have made me a more adaptable and resilient developer.</p>
+	<p class="mt-4" use:reveal>
+		{$_('about.myExperience')}
+	</p>
 
 	<p class="mt-4" use:reveal>
-		I'm always eager to learn, collaborate, and grow as a developer. Feel free to check out my projects, and let's create something amazing together!
+		{$_('about.wantToLearn')}
 	</p>
 
 	<div class="mt-4" use:reveal>
-		<A
-			href="/my-cv.pdf"
-			target="_blank"
-		>
-			My CV
+		<A href="/cv/{$locale}.pdf" target="_blank">
+			{$_('about.downloadCV')}
 		</A>
 	</div>
-	<h2 class="mt-10" use:reveal>Experience</h2>
+	<h2 class="mt-10" use:reveal>
+		{$_('about.goToExperienceSection')}
+	</h2>
 
-	<ol role="list" class='list-none mt-4'>
-		{#each experience as job, index}
+	<ol role="list" class="list-none mt-4">
+		{#each experience[$locale] as job, index}
 			<li
-				class={cn('relative m-0 pl-10 pt-1 before:absolute before:left-0 before:top-1.5 before:flex before:size-5 before:flex-col before:items-center before:justify-center before:rounded-full before:bg-primary before:hover:scale-125 before:transition-transform w-fit', index < experience.length - 1 &&'after:absolute after:bottom-0 after:left-[9px] after:top-8 after:w-0 after:border-l after:border-neutral-300 pb-8')}
+				class={cn(
+					'relative m-0 pl-10 pt-1 before:absolute before:left-0 before:top-1.5 before:flex before:size-5 before:flex-col before:items-center before:justify-center before:rounded-full before:bg-primary before:hover:scale-125 before:transition-transform w-fit',
+					index < experience[$locale ?? 'en'].length - 1 &&
+						'after:absolute after:bottom-0 after:left-[9px] after:top-8 after:w-0 after:border-l after:border-neutral-300 pb-8'
+				)}
 				use:reveal
 			>
 				<h3>{job.name}</h3>

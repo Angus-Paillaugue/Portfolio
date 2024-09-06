@@ -1,18 +1,18 @@
 ---
 name: Svelte Shine
 date: 2024
-description: A documentation writing template for Svelte projects
+description: Un modèle de rédaction de documentation pour les projets Svelte.
 bgColor: bg-[#f38d1c]
-link: https://svelte-shine.paillaugue.fr
+preview: https://svelte-shine.paillaugue.fr
+github: https://github.com/Angus-Paillaugue/SvelteShine
 image: /projectsAssets/Svelte-Shine/Logo.svg
 fullImage: /projectsAssets/Svelte-Shine/FullPage.png
 index: 0
 tags:
-  - Docs
+  - Documentation
   - Markdown
   - Svelte
 ---
-
 
 # Description
 

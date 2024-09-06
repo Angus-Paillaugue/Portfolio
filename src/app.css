@@ -18,9 +18,7 @@
 }
 
 :root {
-	--color-primary: 37,
-		99,
-		235;
+	--color-primary: 37, 99, 235;
 }
 
 * {

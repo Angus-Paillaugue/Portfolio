@@ -1,6 +1,7 @@
 <script>
 	import { cn, reveal } from '$lib/utils';
 	import { contacts } from '$conf';
+	import { _ } from 'svelte-i18n';
 </script>
 
 <section class="bg-primary/10 pb-32 group/section" id="contact">
@@ -8,7 +9,7 @@
 		class="max-w-screen-xl mx-auto px-2 md:px-8 lg:px-12 pt-32 pb-20 sm:pb-30 sm:pt-[160px] md:pt-[200px] md:pb-[100px] flex flex-col lg:flex-row gap-20"
 	>
 		<div class="flex flex-col max-lg:items-center shrink-0">
-			<h1 use:reveal>Contact</h1>
+			<h1 use:reveal>{$_('contact.title')}</h1>
 			<!-- Hand -->
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -45,6 +46,7 @@
 						'cursor-pointer p-4 grid grid-cols-3 group/link',
 						i !== contacts.length && 'border-b border-neutral-300'
 					)}
+					aria-label={contact.label}
 					use:reveal
 				>
 					<p class="font-bold font-sans text-neutral-800 max-lg:col-span-2">{contact.label}</p>

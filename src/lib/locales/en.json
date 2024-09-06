@@ -1,0 +1,43 @@
+{
+	"layout": {
+		"occupation": "Web Developer",
+		"back": "Go back",
+		"menu": "Menu"
+	},
+	"homePage": {
+		"title": "Home",
+		"hero": "Home",
+		"about": "About",
+		"projects": "Projects",
+		"contact": "Contact"
+	},
+	"about": {
+		"title": "About",
+		"subtitle": "A Full-stack Developer based in Toulouse, France",
+		"description": "As a Junior Full-Stack Developer, I've got a strong foundation in modern web technologies, I specialize in building sleek, responsive, and performant web applications using SvelteKit and TailwindCSS.",
+		"myProjects": "My projects",
+		"mySkills": "I'm constantly exploring new ways to improve user experiences and push the boundaries of what's possible on the web. Whether it's creating dynamic single-page applications or crafting intuitive interfaces, I strive to write clean, efficient code that solves real-world problems.",
+		"myExperience": "In addition to my technical skills, my time working as a trainer and crew member at McDonald's has honed my ability to work well in teams, communicate effectively, and manage my time in high-pressure environments. These experiences have made me a more adaptable and resilient developer.",
+		"wantToLearn": "I'm always eager to learn, collaborate, and grow as a developer. Feel free to check out my projects, and let's create something amazing together!",
+		"downloadCV": "My CV",
+		"goToExperienceSection": "Experience"
+	},
+	"contact": {
+		"title": "Contact"
+	},
+	"home": {
+		"title1": "Hi, I'm Angus",
+		"title2": "A fullstack web developer",
+		"title3": "living in Toulouse, France.",
+		"subtitle": "This personal website is my own little space on the internet where I want to share my work, interests and passions with others, without having to please the algorithms of social media platforms or follow any other rules. I hope you enjoy exploring my digital living room as much as I enjoyed creating it."
+	},
+	"projects": {
+		"title": "Projects",
+		"subtitle": "Like most of us - I have lot of ideas and projects that I would like to implement. Many of them get lost in my notes or as random thoughts on my computer. But can you believe it? Some of them actually happen.",
+		"learnMore": "Learn more"
+	},
+	"project": {
+		"demo": "Demo",
+		"github": "GitHub"
+	}
+}
