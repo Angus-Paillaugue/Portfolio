@@ -1,0 +1,12 @@
+{
+	"occupation": "Web Developer",
+	"back": "Go back",
+	"menu": "Menu",
+	"elements": {
+		"title": "Home",
+		"hero": "Home",
+		"about": "About",
+		"projects": "Projects",
+		"contact": "Contact"
+	}
+}

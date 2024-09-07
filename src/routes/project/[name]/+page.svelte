@@ -2,7 +2,7 @@
 	import './markdownStyles.css';
 	import { cn } from '$lib/utils';
 	import { A } from '$lib/components';
-	import { _ } from 'svelte-i18n';
+	import { t } from '$lib/i18n';
 	import { locale } from '$lib/stores';
 
 	const { data } = $props();
@@ -35,7 +35,7 @@
 			<div class="flex flex-row max-lg:justify-between lg:gap-10">
 				{#if meta.preview}
 					<A href={meta.preview} target="_blank" label="Open demo in new tab"
-						>{$_('project.demo')}</A
+						>{$t('project.demo')}</A
 					>
 				{/if}
 				{#if meta.github}
@@ -103,7 +103,7 @@
 									/></rect
 								></svg
 							>
-							{$_('project.github')}
+							{$t('project.github')}
 						</div>
 					</A>
 				{/if}

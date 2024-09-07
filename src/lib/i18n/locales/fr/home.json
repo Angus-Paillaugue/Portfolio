@@ -1,31 +1,20 @@
 {
-	"layout": {
-		"occupation": "Développeur Web",
-		"back": "Retour",
-		"menu": "Menu"
-	},
-	"homePage": {
-		"title": "Accueil",
-		"hero": "Accueil",
-		"about": "À propos",
-		"projects": "Projets",
-		"contact": "Contact"
-	},
+	"title": "Accueil",
 	"about": {
 		"title": "À propos",
 		"subtitle": "Un développeur Full-stack basé à Toulouse, France",
 		"description": "En tant que développeur Full-Stack junior, j'ai une base solide dans les technologies Web modernes, je me spécialise dans la création d'applications Web élégantes, réactives et performantes à l'aide de SvelteKit et TailwindCSS.",
 		"myProjects": "Mes projets",
-		"mySkills": "J'explore constamment de nouvelles façons d'améliorer l'expérience utilisateur et de repousser les limites de ce qui est possible sur le Web. \nQu'il s'agisse de créer des applications dynamiques d'une seule page ou de créer des interfaces intuitives, je m'efforce d'écrire du code propre et efficace qui résout des problèmes du monde réel.",
-		"myExperience": "En plus de mes compétences techniques, mon travail en tant que formateur et membre d'équipe chez McDonald's a perfectionné ma capacité à bien travailler en équipe, à communiquer efficacement et à gérer mon temps dans des environnements à haute pression. \nCes expériences ont fait de moi un développeur plus adaptable et résilient.",
-		"wantToLearn": "Je suis toujours désireux d'apprendre, de collaborer et de grandir en tant que développeur. \nN'hésitez pas à consulter mes projets et créons ensemble quelque chose d'incroyable !",
+		"mySkills": "J'explore constamment de nouvelles façons d'améliorer l'expérience utilisateur et de repousser les limites de ce qui est possible sur le Web. Qu'il s'agisse de créer des applications dynamiques d'une seule page ou de créer des interfaces intuitives, je m'efforce d'écrire du code propre et efficace qui résout des problèmes du monde réel.",
+		"myExperience": "En plus de mes compétences techniques, mon travail en tant que formateur et membre d'équipe chez McDonald's a perfectionné ma capacité à bien travailler en équipe, à communiquer efficacement et à gérer mon temps dans des environnements à haute pression. Ces expériences ont fait de moi un développeur plus adaptable et résilient.",
+		"wantToLearn": "Je suis toujours désireux d'apprendre, de collaborer et de grandir en tant que développeur. N'hésitez pas à consulter mes projets et créons ensemble quelque chose d'incroyable !",
 		"downloadCV": "Mon CV",
 		"goToExperienceSection": "Expérience"
 	},
 	"contact": {
 		"title": "Contact"
 	},
-	"home": {
+	"hero": {
 		"title1": "Salut, je m'appelle Angus",
 		"title2": "Un développeur web fullstack",
 		"title3": "vivant à Toulouse.",
@@ -35,9 +24,5 @@
 		"title": "Projets",
 		"subtitle": "Comme la plupart d’entre nous, j’ai beaucoup d’idées et de projets que j’aimerais mettre en œuvre. Beaucoup d’entre eux se perdent dans mes notes ou sous forme de pensées aléatoires sur mon ordinateur. Mais pouvez-vous le croire ? Certains d’entre eux se produisent réellement.",
 		"learnMore": "En savoir plus"
-	},
-	"project": {
-		"demo": "Démo",
-		"github": "GitHub"
 	}
 }

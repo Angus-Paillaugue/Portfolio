@@ -9,7 +9,7 @@
 	import { tick } from 'svelte';
 	import Lenis from 'lenis';
 	import { navigating } from '$app/stores';
-	import { _, locale, locales } from 'svelte-i18n';
+	import { t, locale, locales } from '$lib/i18n';
 	import { sections, locale as currentLocale } from '$lib/stores';
 
 	const { children } = $props();
@@ -117,7 +117,7 @@
 		>
 			<a href="/" aria-label="Go home">
 				<h1 class="font-semibold text-xl">Angus Paillaugue</h1>
-				<h2 class="font-base text-lg">{$_('layout.occupation')}</h2>
+				<h2 class="font-base text-lg">{$t('sidebar.occupation')}</h2>
 			</a>
 
 			<!-- TOC -->
@@ -138,7 +138,7 @@
 					<button
 						class="text-black w-fit text-base font-medium flex flex-row gap-2 px-4 py-1"
 						onclick={() => window.history.back()}
-						aria-label={$_('layout.back')}
+						aria-label={$t('sidebar.back')}
 						in:scale
 						bind:this={goBackButton}
 					>
@@ -152,7 +152,7 @@
 								d="m12 19l-7-7l7-7m7 7H5"
 							/>
 						</svg>
-						{$_('layout.back')}
+						{$t('sidebar.back')}
 					</button>
 				{/if}
 			</nav>
@@ -205,13 +205,13 @@
 						</path>
 					</svg>
 				{/if}
-				{$_('layout.menu')}
+				{$t('sidebar.menu')}
 			</button>
 		{:else}
 			<!-- Go back button -->
 			<a
 				href="/"
-				aria-label={$_('layout.back')}
+				aria-label={$t('sidebar.back')}
 				class="fixed bottom-8 left-1/2 -translate-x-1/2 z-40 text-white bg-primary rounded-2xl text-lg px-4 py-2 lg:hidden transition-color duration-500 flex flex-row gap-4 items-center"
 				in:scale={{ duration: 300, start: 0.5 }}
 			>
@@ -225,7 +225,7 @@
 						d="m12 19l-7-7l7-7m7 7H5"
 					/>
 				</svg>
-				{$_('layout.back')}
+				{$t('sidebar.back')}
 			</a>
 		{/if}
 		<main

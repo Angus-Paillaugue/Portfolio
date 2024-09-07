@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { reveal } from '$lib/utils';
-	import { _ } from 'svelte-i18n';
+	import { t } from '$lib/i18n';
 	import { locale } from '$lib/stores';
 
 	const { projects } = $props();
@@ -39,9 +39,9 @@
 
 <section id="projects" class="max-w-screen-xl mx-auto p-4">
 	<div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
-		<h1 use:reveal>{$_('projects.title')}</h1>
+		<h1 use:reveal>{$t('home.projects.title')}</h1>
 		<p use:reveal={{ delay: 200 }}>
-			{$_('projects.subtitle')}
+			{$t('home.projects.subtitle')}
 		</p>
 	</div>
 
@@ -87,7 +87,7 @@
 								? 0
 								: -1}
 						>
-							{$_('projects.learnMore')}
+							{$t('home.projects.learnMore')}
 							<svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24">
 								<path
 									fill="none"

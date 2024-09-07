@@ -1,7 +1,7 @@
 <script>
 	import { cn, reveal } from '$lib/utils';
 	import { contacts } from '$conf';
-	import { _ } from 'svelte-i18n';
+	import { t } from '$lib/i18n';
 </script>
 
 <section class="bg-primary/10 pb-32 group/section" id="contact">
@@ -9,7 +9,7 @@
 		class="max-w-screen-xl mx-auto px-2 md:px-8 lg:px-12 pt-32 pb-20 sm:pb-30 sm:pt-[160px] md:pt-[200px] md:pb-[100px] flex flex-col lg:flex-row gap-20"
 	>
 		<div class="flex flex-col max-lg:items-center shrink-0">
-			<h1 use:reveal>{$_('contact.title')}</h1>
+			<h1 use:reveal>{$t('home.contact.title')}</h1>
 			<!-- Hand -->
 			<svg
 				xmlns="http://www.w3.org/2000/svg"

@@ -1,8 +1,26 @@
+import { addTranslations, setLocale, setRoute, locales, defaultLocale } from '$lib/i18n';
 import { browser } from '$app/environment';
-import '$lib/i18n'; // Import to initialize. Important :)
-import { locale, waitLocale } from 'svelte-i18n';
 
-export const load = async () => {
-	if (browser) locale.set(window.navigator.language);
-	await waitLocale();
+/** @type {import('@sveltejs/kit').Load} */
+export const load = async ({ data }) => {
+	const { i18n, translations } = data;
+	let { locale, route } = i18n;
+
+	let navigatorLocale = browser ? window.navigator.language.split(',')[0].toLowerCase() : locale;
+
+	if (navigatorLocale !== locale) {
+		const supportedLocales = locales.get().map((l) => l.toLowerCase());
+		if (!supportedLocales.includes(navigatorLocale)) {
+			locale = defaultLocale;
+		} else {
+			locale = navigatorLocale;
+		}
+	}
+
+	addTranslations(translations);
+
+	await setRoute(route);
+	await setLocale(locale);
+
+	return i18n;
 };

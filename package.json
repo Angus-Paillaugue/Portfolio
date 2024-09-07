@@ -33,8 +33,7 @@
 		"lenis": "^1.1.13",
 		"mdsvex": "^0.12.3",
 		"shiki": "^1.16.2",
-		"svelte-i18n": "^4.0.0",
-		"svelte-rough-notation": "^0.1.5",
+		"sveltekit-i18n": "^2.4.2",
 		"tailwind-merge": "^2.5.2",
 		"vite-plugin-compression": "^0.5.1"
 	}

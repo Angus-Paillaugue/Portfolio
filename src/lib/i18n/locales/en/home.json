@@ -1,16 +1,5 @@
 {
-	"layout": {
-		"occupation": "Web Developer",
-		"back": "Go back",
-		"menu": "Menu"
-	},
-	"homePage": {
-		"title": "Home",
-		"hero": "Home",
-		"about": "About",
-		"projects": "Projects",
-		"contact": "Contact"
-	},
+	"title": "Home",
 	"about": {
 		"title": "About",
 		"subtitle": "A Full-stack Developer based in Toulouse, France",
@@ -25,7 +14,7 @@
 	"contact": {
 		"title": "Contact"
 	},
-	"home": {
+	"hero": {
 		"title1": "Hi, I'm Angus",
 		"title2": "A fullstack web developer",
 		"title3": "living in Toulouse, France.",
@@ -35,9 +24,5 @@
 		"title": "Projects",
 		"subtitle": "Like most of us - I have lot of ideas and projects that I would like to implement. Many of them get lost in my notes or as random thoughts on my computer. But can you believe it? Some of them actually happen.",
 		"learnMore": "Learn more"
-	},
-	"project": {
-		"demo": "Demo",
-		"github": "GitHub"
 	}
 }

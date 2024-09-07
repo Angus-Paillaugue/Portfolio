@@ -1,0 +1,12 @@
+{
+	"occupation": "Développeur Web",
+	"back": "Retour",
+	"menu": "Menu",
+	"elements": {
+		"title": "Accueil",
+		"hero": "Accueil",
+		"about": "À propos",
+		"projects": "Projets",
+		"contact": "Contact"
+	}
+}

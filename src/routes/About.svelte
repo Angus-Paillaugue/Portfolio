@@ -2,7 +2,7 @@
 	import { cn, reveal } from '$lib/utils';
 	import { A } from '$lib/components';
 	import { locale } from '$lib/stores';
-	import { _ } from 'svelte-i18n';
+	import { t } from '$lib/i18n';
 
 	let { experience } = $props();
 
@@ -67,12 +67,12 @@
 					<path d={iconPaths[i % iconPaths.length]} fill="currentColor"></path>
 				</svg>
 			{/each}
-			<h1 class="max-lg:text-center text-start">{$_('about.title')}</h1>
+			<h1 class="max-lg:text-center text-start">{$t('home.about.title')}</h1>
 		</button>
 	</div>
 
 	<h4 class="flex flex-row items-center gap-2 mt-10">
-		{$_('about.subtitle')}
+		{$t('home.about.subtitle')}
 		<svg xmlns="http://www.w3.org/2000/svg" class="size-6 shrink-0 inline" viewBox="0 0 512 512">
 			<path
 				fill="#d5dee4"
@@ -94,31 +94,31 @@
 		</svg>
 	</h4>
 	<p class="mt-4" use:reveal>
-		{$_('about.description')}
+		{$t('home.about.description')}
 		<A href="#projects">
-			{$_('about.myProjects')}
+			{$t('home.about.myProjects')}
 		</A>
 	</p>
 
 	<p class="mt-4" use:reveal>
-		{$_('about.mySkills')}
+		{$t('home.about.mySkills')}
 	</p>
 
 	<p class="mt-4" use:reveal>
-		{$_('about.myExperience')}
+		{$t('home.about.myExperience')}
 	</p>
 
 	<p class="mt-4" use:reveal>
-		{$_('about.wantToLearn')}
+		{$t('home.about.wantToLearn')}
 	</p>
 
 	<div class="mt-4" use:reveal>
 		<A href="/cv/{$locale}.pdf" target="_blank">
-			{$_('about.downloadCV')}
+			{$t('home.about.downloadCV')}
 		</A>
 	</div>
 	<h2 class="mt-10" use:reveal>
-		{$_('about.goToExperienceSection')}
+		{$t('home.about.goToExperienceSection')}
 	</h2>
 
 	<ol role="list" class="list-none mt-4">
