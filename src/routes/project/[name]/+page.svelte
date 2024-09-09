@@ -2,8 +2,7 @@
 	import './markdownStyles.css';
 	import { cn } from '$lib/utils';
 	import { A } from '$lib/components';
-	import { t } from '$lib/i18n';
-	import { locale } from '$lib/stores';
+	import { t, locale } from '$lib/i18n';
 
 	const { data } = $props();
 	const { component } = data;
@@ -16,7 +15,7 @@
 	<title>{meta.name} | Angus Paillaugue</title>
 </svelte:head>
 
-<div class="p-4">
+<div class="p-4 ">
 	<div
 		class={cn(
 			'grid lg:gap-10 items-center',

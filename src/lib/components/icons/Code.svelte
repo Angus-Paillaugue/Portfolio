@@ -2,7 +2,7 @@
 	const { class: className } = $props();
 </script>
 
-<svg viewBox="0 0 80 69" class={className}>
+<svg viewBox="0 0 80 69" class={className} aria-label="HTML code icon">
 	<symbol id="ai:local:sticker-code-50"
 		><mask id="a" width="80" height="69" x="0" y="0" fill="#000" maskUnits="userSpaceOnUse"
 			><path fill="#fff" d="M0 0h80v69H0z"></path><path

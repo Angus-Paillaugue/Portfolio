@@ -16,7 +16,7 @@
 >
 	{@render children()}
 	{#if icon}
-		<svg xmlns="http://www.w3.org/2000/svg" class="size-4 text-black" viewBox="0 0 24 24">
+		<svg xmlns="http://www.w3.org/2000/svg" class="size-4 text-inherit" viewBox="0 0 24 24" aria-hidden="true">
 			<path
 				fill="none"
 				stroke="currentColor"

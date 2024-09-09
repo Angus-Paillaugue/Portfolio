@@ -1,8 +1,7 @@
 <script>
 	import { cn, reveal } from '$lib/utils';
 	import { A } from '$lib/components';
-	import { locale } from '$lib/stores';
-	import { t } from '$lib/i18n';
+	import { t, locale } from '$lib/i18n';
 
 	let { experience } = $props();
 
@@ -53,27 +52,26 @@
 </script>
 
 <section class="max-w-screen-xl mx-auto p-4" id="about">
-	<div class="flex flex-col max-lg:items-center">
-		<button class="relative group h-12 w-56">
-			{#each { length: 20 } as _, i}
-				{@const { top, left } = getStarPos()}
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 15 15"
-					fill="none"
-					class="size-6 text-primary absolute opacity-0 transition-all group-hover:opacity-70 group-focus:opacity-70 star-icon"
-					style="--top:{top}px; --left:{left}px;"
-				>
-					<path d={iconPaths[i % iconPaths.length]} fill="currentColor"></path>
-				</svg>
-			{/each}
-			<h1 class="max-lg:text-center text-start">{$t('home.about.title')}</h1>
-		</button>
+	<div class="flex flex-col max-lg:mx-auto max-lg:items-center relative group h-12 w-56">
+		{#each { length: 20 } as _, i}
+			{@const { top, left } = getStarPos()}
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 15 15"
+				fill="none"
+				class="size-6 text-primary absolute opacity-0 transition-all group-hover:opacity-70 group-focus:opacity-70 star-icon"
+				style="--top:{top}px; --left:{left}px;"
+				aria-hidden="true"
+			>
+				<path d={iconPaths[i % iconPaths.length]} fill="currentColor"></path>
+			</svg>
+		{/each}
+		<h1 class="max-lg:text-center text-start">{$t('home.about.title')}</h1>
 	</div>
 
 	<h4 class="flex flex-row items-center gap-2 mt-10">
 		{$t('home.about.subtitle')}
-		<svg xmlns="http://www.w3.org/2000/svg" class="size-6 shrink-0 inline" viewBox="0 0 512 512">
+		<svg xmlns="http://www.w3.org/2000/svg" class="size-6 shrink-0 inline" viewBox="0 0 512 512" aria-label="Pin icon">
 			<path
 				fill="#d5dee4"
 				d="M256 504.575c-13.382 0-18.231-10.848-18.231-24.23l-6-323.28c0-13.382 10.848-24.23 24.23-24.23s24.23 10.848 24.23 24.23l-6 323.28c.001 13.382-4.847 24.23-18.229 24.23"

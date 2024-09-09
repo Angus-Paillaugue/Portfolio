@@ -9,8 +9,9 @@
 	import { tick } from 'svelte';
 	import Lenis from 'lenis';
 	import { navigating } from '$app/stores';
-	import { t, locale, locales } from '$lib/i18n';
-	import { sections, locale as currentLocale } from '$lib/stores';
+	import { t } from '$lib/i18n';
+	import { sections } from '$lib/stores';
+	import { Cursor, InitialPageLoader } from '$lib/components/';
 
 	const { children } = $props();
 	let isSidebarShown = $state(false);
@@ -25,11 +26,13 @@
 		}
 	);
 
+	// Reset sections list on navigation
 	beforeNavigate(() => {
 		sections.set([]);
 	});
-	afterNavigate(() => {
-		currentLocale.set($locales.includes($locale) ? $locale : 'en');
+
+	// Handle Lenis and run onMountHandle
+	afterNavigate(async() => {
 		if (window.lenis) window.lenis.destroy();
 		const lenis = new Lenis({
 			prevent: (node) => node.classList.contains('lenis-prevent'),
@@ -82,8 +85,8 @@
 					});
 					// Update sidebar indicator position
 					sidebarIndicator.set({
-						y: activeSectionLink.offsetTop,
-						width: activeSectionLink.clientWidth
+						y: activeSectionLink.offsetTop - 4,
+						width: activeSectionLink.clientWidth + 16
 					});
 				});
 			},
@@ -99,12 +102,32 @@
 			await tick();
 
 			sidebarIndicator.set({
-				y: goBackButton.offsetTop,
-				width: goBackButton.getBoundingClientRect().width
+				y: goBackButton.offsetTop -4,
+				width: goBackButton.getBoundingClientRect().width + 16
 			});
 		}
+
+		// Hide/Show sidebar occupation
+		const logo = document.getElementById('logo');
+		const occupation = logo.querySelector('h2');
+		document.querySelector('main').addEventListener('scroll', (e) => {
+			const scroll = e.target.scrollTop;
+			if(scroll > 200) {
+				occupation.classList.remove('top-full');
+				occupation.classList.add('top-0');
+			} else {
+				occupation.classList.add('top-full');
+				occupation.classList.remove('top-0');
+			}
+		})
 	}
 </script>
+
+<!-- Custom cursor -->
+<Cursor />
+
+<!-- Initial page loader -->
+<InitialPageLoader />
 
 <div class="w-screen h-screen bg-primary">
 	<div class="max-w-[2000px] h-full w-full mx-auto flex flex-row p-2 md:p-6 lg:p-8 gap-8">
@@ -115,28 +138,30 @@
 				!isSidebarShown && 'max-lg:-translate-x-full'
 			)}
 		>
-			<a href="/" aria-label="Go home">
-				<h1 class="font-semibold text-xl">Angus Paillaugue</h1>
-				<h2 class="font-base text-lg">{$t('sidebar.occupation')}</h2>
-			</a>
+			<div class="relative" id='logo'>
+				<h2 class="font-base text-lg transition-all left-0 right-0 -z-10 absolute top-full ease-back-out duration-300">{$t('sidebar.occupation')}</h2>
+				<a href="/" aria-label="Go home" class="w-fit flex flex-col bg-primary">
+					<h1 class="font-semibold text-xl">Angus Paillaugue</h1>
+				</a>
+			</div>
 
 			<!-- TOC -->
-			<nav class="flex flex-col relative h-fit font-medium">
+			<nav class="flex flex-col relative h-fit font-medium gap-2 px-2">
 				{#each $sections as section}
 					<a
 						href="#{section.id}"
-						class="text-white w-fit transition-colors cursor-pointer capitalize px-4 py-1"
+						class="text-white w-fit transition-colors cursor-pointer capitalize"
 						in:scale>{section.label}</a
 					>
 				{/each}
 				<!-- Scroll indicator -->
 				<span
-					class="absolute bg-white h-8 rounded-full -z-10"
+					class="absolute bg-white h-8 rounded-full -z-10 -ml-2"
 					style="top: {$sidebarIndicator.y}px; width: {$sidebarIndicator.width}px;"
 				></span>
 				{#if $sections.length === 0}
 					<button
-						class="text-black w-fit text-base font-medium flex flex-row gap-2 px-4 py-1"
+						class="text-black w-fit text-base font-medium flex flex-row gap-2"
 						onclick={() => window.history.back()}
 						aria-label={$t('sidebar.back')}
 						in:scale
