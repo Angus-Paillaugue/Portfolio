@@ -7,7 +7,6 @@
 	const { data } = $props();
 	const { component } = data;
 
-	let mdComponent = $state(component[$locale].default);
 	let meta = $state(component[$locale].metadata);
 </script>
 
@@ -15,10 +14,10 @@
 	<title>{meta.name} | Angus Paillaugue</title>
 </svelte:head>
 
-<div class="p-4 ">
+<div class="p-4">
 	<div
 		class={cn(
-			'grid lg:gap-10 items-center',
+			'grid items-center lg:gap-10',
 			meta.fullImage && 'max-lg:grid-rows-2 lg:grid-cols-2 '
 		)}
 	>
@@ -27,7 +26,7 @@
 			<p>{meta.description}</p>
 			<div class="flex flex-row flex-wrap gap-2">
 				{#each meta.tags as tag}
-					<span class={cn('text-xs text-white rounded-full px-2 py-1', meta.bgColor)}>{tag}</span>
+					<span class={cn('rounded-full px-2 py-1 text-xs text-white', meta.bgColor)}>{tag}</span>
 				{/each}
 			</div>
 
@@ -111,12 +110,12 @@
 
 		{#if meta.fullImage}
 			<div
-				class="w-full rounded-xl overflow-hidden h-[220px] md:h-[400px] border border-neutral-300 group/image relative"
+				class="group/image relative h-[220px] w-full overflow-hidden rounded-xl border border-neutral-300 md:h-[400px]"
 			>
 				<img
 					src={meta.fullImage}
 					alt="{meta.name}'s full page preview"
-					class="transition-all duration-[5s] w-full lg:group-hover/image:-translate-y-[calc(100%-400px)] group-hover/image:-translate-y-[calc(100%-220px)]"
+					class="w-full transition-all duration-[5s] group-hover/image:-translate-y-[calc(100%-220px)] lg:group-hover/image:-translate-y-[calc(100%-400px)]"
 				/>
 			</div>
 		{/if}
@@ -124,7 +123,12 @@
 
 	<hr class="my-10" />
 
-	<div class="mt-10 markdown-contents">
-		{@render mdComponent()}
+	<div class="mt-10" id="markdown-contents">
+		<!-- Cheezy way to render the correct language because for some reason, svelte:component does not re-render after a store update (in this case $locale). -->
+		{#each Object.entries(component) as [l, data]}
+			{#if $locale === l}
+				<svelte:component this={data.default} />
+			{/if}
+		{/each}
 	</div>
 </div>

@@ -20,17 +20,17 @@
 	});
 </script>
 
-<main class="w-full h-full flex flex-col items-center justify-center">
-	<div class="relative overflow-hidden text-center w-32 h-[5.2rem]">
+<main class="flex h-full w-full flex-col items-center justify-center">
+	<div class="relative h-[5.2rem] w-32 overflow-hidden text-center">
 		<div
-			class="absolute w-full h-full text-6xl font-black"
+			class="absolute h-full w-full text-6xl font-black"
 			style="transform: translate(0, {100 * offset}%)"
 		>
 			<span
-				class="-top-full select-none absolute flex w-full h-full items-center justify-center text-primary"
+				class="absolute -top-full flex h-full w-full select-none items-center justify-center text-primary"
 				aria-hidden="true">{Math.floor($statusCount + 1)}</span
 			>
-			<span class="absolute flex w-full h-full items-center justify-center text-primary"
+			<span class="absolute flex h-full w-full items-center justify-center text-primary"
 				>{Math.floor($statusCount)}</span
 			>
 		</div>

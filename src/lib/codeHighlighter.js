@@ -12,6 +12,30 @@ const transformers = [
 	transformerNotationHighlight()
 ];
 
+function parseMeta(meta) {
+	const metaArray = meta?.split(' ');
+	let name = '';
+	let lineNumbers = false;
+	if (metaArray && metaArray.some((item) => item.startsWith('lineNumbers'))) {
+		const match = metaArray.find((item) => item.startsWith('lineNumbers'));
+		if (match.includes('=')) {
+			lineNumbers = match.slice(11).replace(/=/g, '').replace(/"/g, '').replace(/'/g, '') == 'true';
+		} else {
+			lineNumbers = true;
+		}
+	}
+	let copyCode = metaArray && !metaArray.some((item) => item.startsWith('noCopy'));
+	const snippet = metaArray && metaArray.some((item) => item.startsWith('snippet'));
+	if (metaArray && metaArray.some((item) => item.startsWith('name='))) {
+		name = metaArray
+			.find((item) => item.startsWith('name='))
+			.slice(5)
+			.replace(/"/g, '')
+			.replace(/'/g, '');
+	}
+	return { name, lineNumbers, copyCode, snippet };
+}
+
 /**
  * @param code {string} - code to highlight
  * @param lang {string} - code language
@@ -24,6 +48,8 @@ async function highlighter(code, lang, meta) {
 		langs: [lang],
 		themes: [codeBlockTheme]
 	});
+
+	const { name, lineNumbers, copyCode, snippet } = parseMeta(meta);
 
 	let html;
 	if (!meta) {
@@ -42,7 +68,11 @@ async function highlighter(code, lang, meta) {
 	}
 	html = makeUnFocusable(html);
 	highlighter.dispose();
-	return escapeHtml(html);
+	return escapeHtml(
+		`<Components.pre name="${name}" lineNumbers=${lineNumbers} copyCode=${copyCode} snippet=${snippet}>` +
+			html +
+			`</Components.pre>`
+	);
 }
 
 /**

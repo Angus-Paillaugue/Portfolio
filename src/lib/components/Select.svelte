@@ -6,7 +6,7 @@
 
 <select
 	class={cn(
-		'appearance-none h-8 pl-4 pr-8 capitalize text-black font-mono rounded-full relative bg-white bg-no-repeat',
+		'relative h-8 appearance-none rounded-full bg-white bg-no-repeat pl-4 pr-8 font-mono capitalize text-black',
 		className
 	)}
 	{...restProps}

@@ -51,27 +51,32 @@
 	}
 </script>
 
-<section class="max-w-screen-xl mx-auto p-4" id="about">
-	<div class="flex flex-col max-lg:mx-auto max-lg:items-center relative group h-12 w-56">
+<section class="mx-auto max-w-screen-xl p-4" id="about">
+	<div class="group relative flex h-12 w-56 flex-col max-lg:mx-auto max-lg:items-center">
 		{#each { length: 20 } as _, i}
 			{@const { top, left } = getStarPos()}
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 15 15"
 				fill="none"
-				class="size-6 text-primary absolute opacity-0 transition-all group-hover:opacity-70 group-focus:opacity-70 star-icon"
+				class="star-icon absolute size-6 text-primary opacity-0 transition-all group-hover:opacity-70 group-focus:opacity-70"
 				style="--top:{top}px; --left:{left}px;"
 				aria-hidden="true"
 			>
 				<path d={iconPaths[i % iconPaths.length]} fill="currentColor"></path>
 			</svg>
 		{/each}
-		<h1 class="max-lg:text-center text-start">{$t('home.about.title')}</h1>
+		<h1 class="text-start max-lg:text-center">{$t('home.about.title')}</h1>
 	</div>
 
-	<h4 class="flex flex-row items-center gap-2 mt-10">
+	<h4 class="mt-10 flex flex-row items-center gap-2">
 		{$t('home.about.subtitle')}
-		<svg xmlns="http://www.w3.org/2000/svg" class="size-6 shrink-0 inline" viewBox="0 0 512 512" aria-label="Pin icon">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			class="inline size-6 shrink-0"
+			viewBox="0 0 512 512"
+			aria-label="Pin icon"
+		>
 			<path
 				fill="#d5dee4"
 				d="M256 504.575c-13.382 0-18.231-10.848-18.231-24.23l-6-323.28c0-13.382 10.848-24.23 24.23-24.23s24.23 10.848 24.23 24.23l-6 323.28c.001 13.382-4.847 24.23-18.229 24.23"
@@ -119,13 +124,13 @@
 		{$t('home.about.goToExperienceSection')}
 	</h2>
 
-	<ol role="list" class="list-none mt-4">
+	<ol role="list" class="mt-4 list-none">
 		{#each experience[$locale] as job, index}
 			<li
 				class={cn(
-					'relative m-0 pl-10 pt-1 before:absolute before:left-0 before:top-1.5 before:flex before:size-5 before:flex-col before:items-center before:justify-center before:rounded-full before:bg-primary before:hover:scale-125 before:transition-transform w-fit',
+					'relative m-0 w-fit pl-10 pt-1 before:absolute before:left-0 before:top-1.5 before:flex before:size-5 before:flex-col before:items-center before:justify-center before:rounded-full before:bg-primary before:transition-transform before:hover:scale-125',
 					index < experience[$locale ?? 'en'].length - 1 &&
-						'after:absolute after:bottom-0 after:left-[9px] after:top-8 after:w-0 after:border-l after:border-neutral-300 pb-8'
+						'pb-8 after:absolute after:bottom-0 after:left-[9px] after:top-8 after:w-0 after:border-l after:border-neutral-300'
 				)}
 				use:reveal
 			>

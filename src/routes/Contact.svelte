@@ -5,16 +5,16 @@
 </script>
 
 <section class="md:p-8 lg:p-12" id="contact">
-	<div class="w-full bg-primary/10 group/section md:rounded-xl">
+	<div class="group/section w-full bg-primary/10 md:rounded-xl">
 		<div
-			class="max-w-screen-xl mx-auto px-2 md:px-8 lg:px-12 py-32 sm:py-[160px] md:py-[200px] flex flex-col xl:flex-row gap-20"
+			class="mx-auto flex max-w-screen-xl flex-col gap-20 px-2 py-32 sm:py-[160px] md:px-8 md:py-[200px] lg:px-12 xl:flex-row"
 		>
-			<div class="flex flex-col max-xl:items-center shrink-0">
+			<div class="flex shrink-0 flex-col max-xl:items-center">
 				<h1 use:reveal>{$t('home.contact.title')}</h1>
 				<!-- Hand -->
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					class="size-20 transition-transform rotate-[-16deg] group-hover/section:rotate-[344deg] duration-500"
+					class="size-20 rotate-[-16deg] transition-transform duration-500 group-hover/section:rotate-[344deg]"
 					viewBox="0 0 128 128"
 					aria-label="Emoji hand image"
 					use:reveal
@@ -39,24 +39,24 @@
 			</div>
 
 			<!-- Links -->
-			<div class="flex flex-col grow">
+			<div class="flex grow flex-col">
 				{#each contacts as contact, i}
 					<a
 						href={contact.link}
 						target="_blank"
 						class={cn(
-							'p-4 grid grid-cols-3 group/link',
+							'group/link grid grid-cols-3 p-4',
 							i !== contacts.length && 'border-b border-neutral-300'
 						)}
 						aria-label={contact.label}
 						use:reveal
 					>
-						<p class="font-bold font-sans text-neutral-800 max-lg:col-span-2">{contact.label}</p>
+						<p class="font-sans font-bold text-neutral-800 max-lg:col-span-2">{contact.label}</p>
 						<p class="max-lg:col-span-2 max-lg:row-start-2">{contact.value}</p>
-						<div class="ml-auto max-lg:row-span-2 flex flex-row items-center justify-end">
+						<div class="ml-auto flex flex-row items-center justify-end max-lg:row-span-2">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
-								class="size-6 transition-transform group-hover/link:rotate-45 group-hofocusver/link:rotate-45"
+								class="group-hofocusver/link:rotate-45 size-6 transition-transform group-hover/link:rotate-45"
 								viewBox="0 0 24 24"
 								aria-hidden="true"
 							>

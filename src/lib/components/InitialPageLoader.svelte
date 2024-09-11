@@ -21,17 +21,17 @@
 	</style>
 </svelte:head>
 
-<div class="z-50 fixed inset-0 grid grid-cols-11 grid-rows-11 pointer-events-none">
+<div class="pointer-events-none fixed inset-0 z-50 grid grid-cols-11 grid-rows-11">
 	{#each { length: 11 * 11 } as _, i}
 		<div
-			class="w-full h-full bg-white felx flex-col items-center justify-center"
+			class="felx h-full w-full flex-col items-center justify-center bg-white"
 			style="opacity: 1;"
 			style:animation={isLoaded && `2s ease ${i * 10}ms forwards fade`}
 		>
 			{#if i === Math.floor((11 * 11) / 2)}
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					class="size-full aspect-square text-primary"
+					class="aspect-square size-full text-primary"
 					viewBox="0 0 24 24"
 					aria-label="Loading spinner"
 				>

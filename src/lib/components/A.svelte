@@ -7,8 +7,8 @@
 <a
 	{href}
 	class={cn(
-		'decoration-dotted decoration-2 decoration-primary font-medium underline underline-offset-2 text-neutral-600 hocus:text-primary inline-flex flex-row gap-1 transition-all items-center',
-		icon && 'mr-1 hocus:gap-2 hocus:mr-0',
+		'inline-flex flex-row items-center gap-1 font-medium text-neutral-600 underline decoration-primary decoration-dotted decoration-2 underline-offset-2 transition-all hocus:text-primary',
+		icon && 'mr-1 hocus:mr-0 hocus:gap-2',
 		className
 	)}
 	aria-label={label}
@@ -16,7 +16,12 @@
 >
 	{@render children()}
 	{#if icon}
-		<svg xmlns="http://www.w3.org/2000/svg" class="size-4 text-inherit" viewBox="0 0 24 24" aria-hidden="true">
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			class="size-4 text-inherit"
+			viewBox="0 0 24 24"
+			aria-hidden="true"
+		>
 			<path
 				fill="none"
 				stroke="currentColor"
