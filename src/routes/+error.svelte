@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import { spring } from 'svelte/motion';
 	import { A } from '$lib/components';
+	import { t } from '$lib/i18n';
 
 	const statusCount = spring(0, {
 		stiffness: 0.1,
@@ -20,6 +21,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>{$page.status} Error</title>
+</svelte:head>
+
 <main class="flex h-full w-full flex-col items-center justify-center">
 	<div class="relative h-[5.2rem] w-32 overflow-hidden text-center">
 		<div
@@ -36,7 +41,7 @@
 		</div>
 	</div>
 
-	<h2>{$page.error.message}</h2>
+	<h2>{$t($page.error.message)}</h2>
 
-	<A href="/" class="mt-4" icon={false}>Go Home</A>
+	<A href="/" class="mt-4" icon={false}>{$t('errors.goHome')}</A>
 </main>

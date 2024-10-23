@@ -1,11 +1,15 @@
 import i18n from 'sveltekit-i18n';
 import { dev } from '$app/environment';
 import lang from './lang.json';
+import { get } from 'svelte/store';
 
 export const defaultLocale = 'en';
 const translationFiles = [
 	{
 		filename: 'sidebar'
+	},
+	{
+		filename: 'errors'
 	},
 	{
 		filename: 'home',

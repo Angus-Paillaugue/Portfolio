@@ -7,7 +7,6 @@ preview: https://angus.paillaugue.fr
 github: https://github.com/Angus-Paillaugue/Portfolio
 image: /projectsAssets/Portfolio/Logo.webp
 fullImage: /projectsAssets/Portfolio/FullPage.png
-index: 1
 tags:
   - SvelteKit
   - TailwindCSS

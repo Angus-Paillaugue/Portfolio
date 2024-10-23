@@ -134,6 +134,9 @@ hr {
 #markdown-contents ul {
 	@apply list-inside list-disc pl-8;
 }
+#markdown-contents ul > li > p {
+	@apply inline;
+}
 #markdown-contents ol {
 	@apply list-inside list-decimal pl-8;
 }

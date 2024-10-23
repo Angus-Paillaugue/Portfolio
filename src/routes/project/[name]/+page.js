@@ -14,6 +14,7 @@ export async function load({ params }) {
 		}
 	}
 
-	if (!component) throw new error(404, "Oh no, that project doesn't exist!");
+	if (Object.keys(component).length === 0)
+		throw new error(404, 'errors.projectDoesNotExists');
 	return { component };
 }

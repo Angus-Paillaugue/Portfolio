@@ -7,7 +7,6 @@ preview: https://svelte-shine.paillaugue.fr
 github: https://github.com/Angus-Paillaugue/SvelteShine
 image: /projectsAssets/Svelte-Shine/Logo.svg
 fullImage: /projectsAssets/Svelte-Shine/FullPage.png
-index: 0
 tags:
   - Docs
   - Markdown
