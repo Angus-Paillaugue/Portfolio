@@ -1,7 +1,7 @@
 <script>
   import { page } from '$app/stores';
 
-  const tag = 'arguments'
+  const tag = 'G-T455F067MW'
 
   $: {
     if (typeof gtag !== 'undefined') {
