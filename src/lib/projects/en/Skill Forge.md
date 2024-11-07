@@ -21,9 +21,9 @@ tags:
 
 ## Key Features
 
- - **Learning Paths**: Skill Forge organizes exercises into structured learning paths. Each path represents a key area of programming, such as algorithms, data structures, or web development, and offers an incremental learning curve. Users can dive into topics of their choice while progressing from beginner-friendly tasks to more advanced challenges.
+ - **Learning Paths**: Skill Forge organizes exercises into structured learning paths. Each path represents a key area of programming, such as algorithms or data structures, and offers an incremental learning curve. Users can dive into topics of their choice while progressing from beginner-friendly tasks to more advanced challenges.
 
- -  **Wide Range of Exercises**: The platform features over 10+ coding exercises, spanning various programming paradigms, difficulty levels, and topics. Exercises are stored in a MySQL database, and each problem is associated with specific test cases that are executed to validate user-submitted solutions.
+ -  **Wide Range of Exercises**: The platform features over 20+ coding exercises, spanning various programming paradigms, difficulty levels, and topics. Including 3 languages.
 
 
 ## Technical Stack
@@ -45,7 +45,7 @@ tags:
 
 ## Isolated Code Execution:
 
-One of the more advanced aspects of Skill Forge is the **isolated code execution environment**. For security and scalability, Skill Forge utilizes the `isolated-vm` library to execute user-submitted code in a sandboxed environment. This ensures that user code cannot access or interfere with server resources. Test cases associated with each exercise are executed inside this virtual machine, and results (whether the tests passed or failed) are returned to the user.
+One of the more advanced aspects of Skill Forge is the **isolated code execution environment**. For security and scalability, Skill Forge utilizes **Docker** containers to execute the code in an isolated and independant environments. This ensures that user code cannot access or interfere with server resources. Test cases associated with each exercise are executed inside this virtual machine, and results (whether the tests passed or failed) are returned to the user.
 
 
 ## User Progress and Ranking
@@ -53,7 +53,7 @@ One of the more advanced aspects of Skill Forge is the **isolated code execution
 Skill Forge also provides comprehensive tools for users to track their coding journey. Users can view their submission history, monitor which exercises they have completed, and track how they stack up against others via the ranking system. A key feature of the platform is the ability to fetch a user’s rank based on the number of distinct exercises they’ve successfully completed.
 Real-Time Feedback and Detailed Analytics
 
-Users receive instant feedback after submitting solutions. This feedback includes a breakdown of each test case (whether it passed or failed) and detailed performance analytics. In the future, we plan to integrate code profiling tools, allowing users to get even more insights into their submission's performance.
+Users receive instant feedback after submitting solutions. This feedback includes a breakdown of each test case (whether it passed or failed) and detailed performance analytics. In the future, I plan to integrate code profiling tools, allowing users to get even more insights into their submission's performance.
 
 
 ## Conclusion
