@@ -14,55 +14,53 @@ tags:
   - Markdown
 ---
 
-# Environment Variable Manager : Gestion sécurisée et simplifiée des variables d'environnement
+# Environment Variable Manager: Secure & Streamlined Configuration for Teams
 
-**Environment Variable Manager** est une plateforme full-stack conçue pour simplifier et sécuriser la gestion des variables d'environnement dans différents projets et équipes. Le projet propose une interface web intuitive couplée à une CLI puissante, permettant aux développeurs de stocker, organiser et partager leurs configurations sensibles en toute simplicité.
+**Environment Variable Manager** is a full-stack platform designed to simplify and secure the process of managing environment variables across different projects and team members. The project provides an intuitive web interface and a powerful CLI that work together to help developers store, organize, and share sensitive configuration variables with ease.
 
-Construit avec des technologies web modernes, il offre des fonctionnalités d’auto-hébergement, un contrôle d’accès granulaire et une synchronisation en temps réel entre l’interface et le terminal, ce qui en fait une solution idéale pour les équipes travaillant sur plusieurs environnements ou microservices.
-
-
-## Fonctionnalités Clés
-
- - **Gestion d’équipe** : Collaborez en toute sécurité grâce à un système de rôles. Invitez des membres, assignez-leur des rôles (Owner, Contributor, Guest) et définissez les accès par projet ou environnement.
-
- - **Intégration CLI** : La CLI officielle `env-manager` permet de pousser et de récupérer des variables directement depuis le terminal. Elle supporte l’authentification JWT ainsi que la double authentification (2FA) via TOTP.
-
- - **Auto-hébergement prêt à l’emploi** : Le projet est entièrement dockerisé et peut être déployé facilement sur votre propre serveur, vous offrant un contrôle total sur vos données et votre infrastructure.
+Built with modern web technologies, it offers self-hosting capabilities, fine-grained access control, and real-time syncing between the UI and CLI, making it an ideal solution for teams handling multiple environments or microservices.
 
 
-## Stack Technique
+## Key Features
+
+ - **Team Management**: Collaborate securely with teammates using role-based access control. Invite members, assign roles (Owner, Contributor, Guest), and restrict access per project or environment.
+
+ - **CLI Integration**: The official `env-manager` CLI provides seamless push and pull operations. Developers can sync variables directly to their `.env` files in seconds, with built-in JWT authentication and TOTP 2FA support.
+
+ - **Self-Hosting Ready**: Built with Docker in mind, the entire platform can be self-hosted on your own infrastructure, ensuring full control over your data and deployment environment.
 
 
-### Front-End :
-
- - **SvelteKit** : Le tableau de bord web est développé avec SvelteKit, ce qui permet une expérience utilisateur fluide et très réactive. Le système réactif de Svelte facilite la gestion des états et des données en temps réel.
-
- - **TailwindCSS** : Le style est géré via TailwindCSS, permettant une interface moderne, minimaliste et responsive. L’interface adopte un style "terminal" pensé pour les développeurs.
+## Technical Stack
 
 
-### Back-End :
+### Front-End:
 
- - **API SvelteKit** : Toutes les opérations serveur (création de projets, gestion des utilisateurs, stockage des variables…) sont traitées via les routes API de SvelteKit, avec validation forte et typage complet.
+ - **SvelteKit**: The web dashboard is built with SvelteKit, offering blazing-fast interactivity and a smooth user experience. Svelte’s reactive design allows real-time updates and clean state handling across the app.
 
- - **PostgreSQL** : L’ensemble des données — projets, variables, historiques — est stocké dans une base PostgreSQL sécurisée. Les valeurs sensibles sont chiffrées avant d’être enregistrées.
-
- - **JWT & Authentification TOTP** : Le système utilise des tokens JWT pour la gestion des sessions et intègre une authentification à double facteur (2FA) via TOTP (compatible Google Authenticator).
+ - **TailwindCSS**: TailwindCSS powers the styling, enabling a minimal, modern, and responsive UI with utility-first classes. Components are styled to match a developer-centric aesthetic with terminal-like themes and animations.
 
 
-## CLI & Journalisation en Temps Réel
+### Back-End:
 
-La CLI, développée avec **Bun**, permet une exécution rapide en TypeScript natif. Elle interagit avec le backend via des appels sécurisés (HTTP + WebSocket) pour offrir un retour immédiat lors des opérations de synchronisation.
+ - **SvelteKit API Routes**: Server-side routes handle project, variable, and user management logic, with strong typing and validation. The backend also serves real-time WebSocket connections to sync log messages and status updates.
 
-Une interface dédiée permet de consulter les logs CLI en temps réel : variables poussées, utilisateur, horodatage… Un outil précieux pour le débogage ou les audits de configuration.
+ - **PostgreSQL**: All data — from project definitions and environment variables to audit logs — is stored securely in a PostgreSQL database. Sensitive values are encrypted before storage.
+
+ - **JWT & TOTP Authentication**: The platform uses JSON Web Tokens (JWT) for secure sessions and supports Two-Factor Authentication (2FA) via TOTP (like Google Authenticator) to enhance security.
 
 
-## Structure du Projet & Auto-Hébergement
+## CLI & Real-Time Logging
 
-L’application est entièrement containerisée avec Docker et peut être déployée via un simple `docker-compose`. Elle est compatible avec les tunnels Cloudflare pour une exposition sécurisée de l’interface sur Internet.
+The CLI is written with **Bun**, allowing fast, native TypeScript execution. It interacts with the backend over secure HTTP and WebSocket connections to provide real-time feedback when variables are pushed or pulled.
 
-La configuration reste simple, modulaire, et pensée pour s’intégrer à tout type d’infrastructure personnelle ou professionnelle.
+A dedicated dashboard logs all CLI operations, showing variable syncs, timestamps, and actor metadata. This is especially useful for audits or debugging configuration issues across environments.
+
+
+## Project Structure & Self-Hosting
+
+The system is entirely containerized using Docker and easily deployable on any Linux server. With a single Docker Compose file, users can bring up the platform with all its dependencies. It also supports reverse proxy setups with Cloudflare Tunnel for secure public access.
 
 
 ## Conclusion
 
-Environment Variable Manager répond à un besoin fondamental des développeurs : partager et sécuriser les variables d’environnement dans un contexte d’équipe. En combinant une interface ergonomique et une CLI robuste, il s’intègre naturellement dans les workflows de développement modernes. Que vous soyez seul ou en équipe, sur un monolithe ou une architecture distribuée, cette solution évolue avec vos besoins.
+Environment Variable Manager solves a common pain point in modern development teams: securely managing and sharing sensitive configuration data. By combining a user-friendly interface with a powerful CLI, it bridges the gap between development workflows and infrastructure security. Whether you’re managing a small project or coordinating multiple environments in a large organization, this tool is designed to scale with you.
