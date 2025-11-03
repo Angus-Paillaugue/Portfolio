@@ -1,4 +1,4 @@
-<script context="module">
+<script module>
 	import { a, blockquote, pre } from './index.js';
 	export { a, blockquote, pre };
 </script>
