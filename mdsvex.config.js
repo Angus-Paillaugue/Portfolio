@@ -7,7 +7,7 @@ const config = {
 	highlight: {
 		highlighter
 	},
-	layout: './src/lib/components/markdown/layout.svelte',
+	layout: 'src/lib/components/markdown/layout.svelte',
 	smartypants: false
 };
 
