@@ -11,7 +11,7 @@
 	import { navigating } from '$app/stores';
 	import { t } from '$lib/i18n';
 	import { sections } from '$lib/stores';
-	import { Cursor, InitialPageLoader, Analytics } from '$lib/components/';
+	import { Cursor, InitialPageLoader } from '$lib/components/';
 
 	const { children } = $props();
 	let isSidebarShown = $state(false);
@@ -128,8 +128,6 @@
 
 <!-- Initial page loader -->
 <InitialPageLoader />
-
-<Analytics />
 
 <div class="h-screen w-screen bg-primary">
 	<div class="mx-auto flex h-full w-full max-w-[2000px] flex-row gap-8 p-2 md:p-6 lg:p-8">
