@@ -4,7 +4,7 @@ export const experience = {
 	en: [
 		{
 			start: 'August 2024',
-			end: 'Today',
+			end: 'November 2025',
 			name: "Trainer at McDonald's"
 		},
 		{
@@ -16,7 +16,7 @@ export const experience = {
 	fr: [
 		{
 			start: 'Août 2024',
-			end: "Aujourd'hui",
+			end: 'Novembre 2025',
 			name: "Formateur chez McDonald's"
 		},
 		{
